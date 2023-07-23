@@ -1,0 +1,6 @@
+papersize = "a4"
+folios = false
+landscape = true  
+
+[test]
+show = true

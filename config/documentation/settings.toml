@@ -1,0 +1,6 @@
+papersize = "letter"
+
+[book]
+title = "Extending SILE"
+author = "João A. Quinaglia"
+language = "en"

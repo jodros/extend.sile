@@ -1,0 +1,90 @@
+# Settings specifications for SILE's classes 
+# firstContentFrame must always be named as "content", "first", "head" or "" for the sake of convenience
+# It's not allowed to use the minus sign '-' for table title here, since they going to be reused in the lua code, so please use the lua naming convention here as well...   
+
+# papersize = "a5"
+folios      = true   
+forprint    = false
+landscape   = false
+neverindent = false
+
+[options]
+latin2cyrillic = false       
+
+[book]
+
+########################	
+
+
+
+[garnish]
+black        = "■"
+white        = "□"
+double       = "▣"
+gridV        = "▥"
+gridH        = "▤"
+chess        = "▦"
+gridTrans    = "▨ ▧"
+crossed      = "▩"
+loopedSquare = "⌘"
+triangular   = "⁂"
+
+
+
+[alingments]
+toc             = "right"
+folio           = "center"
+chapter         = "left"
+epigraph        = "right"
+title           = "center"
+author          = "center"
+imprint         = "center"
+editionNotice   = "center"
+acknowledgement = "center"
+
+
+[fonts] # [family, size, weight, color]
+toc       = ["Cormorant Upright",  "10pt", 400, false]
+isbn      = ["Cormorant",          "11pt", 300, false]
+main      = ["Cormorant Garamond", "13pt", 400, false]
+title     = ["Cormorant",          "20pt", 600, false]
+folio     = ["Cormorant Infant",   "11pt", 500, false]
+author    = ["Cormorant",          "15pt", 700, false]
+special   = ["Noto Sans JP",       "16pt", 100, false]      # for characters like ▩▤▧⌘
+headers   = ["Cormorant",          "10pt", 500, false]
+imprint   = ["Cormorant Infant",   "16pt", 800, false]
+chapters  = ["Cormorant Infant",   "18pt", 700, false]
+epigraph  = ["Cormorant",          "0.9em", 500, false]
+footnotes = ["Baskervville",       "0.9em", 400, false]
+serial    = [false,                "3.5",  false, false]
+
+[spacing]
+words      = false
+lines      = false
+letters    = false
+paragraphs = false
+
+[headings]
+topMargin = false
+running   = false
+
+[toc] # this is likely going to be used for list of illustrations and abbreviations as well...
+double = false
+
+[test]
+show = false
+
+[ellipsis]
+symbol = "triangular"
+rotate = false
+
+[dingbats]
+amount = 500
+
+[dingbats.ratio]
+width  = "10"
+height = "20"
+
+[colors]
+main      = "#055bf0"
+secondary = "#ffd900"

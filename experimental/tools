@@ -1,0 +1,9 @@
+pandoc --pdf-engine=xelatex -V mainfont="*some Cyrillic font*" a.md -o b.pdf
+
+
+PDFTOTEXT -- Poppler tools!!!!
+
+pdftotext -f 8 -l 103 -nopgbrk -raw -x 75 -y 126 -W 660 -H 860 taras.pdf taras.txt 
+
+it extracts only the text from the page range and crop area declared!
+

@@ -1,0 +1,229 @@
+# Settings specifications for SILE's classes 
+# firstContentFrame must always be named as "content", "first", "head" or "" for the sake of convenience
+# It's not allowed to use the minus sign '-' for table title here, since they going to be reused in the lua code, so please use the lua naming convention here as well...   
+
+papersize = "a5"
+folios = false
+forprint = true
+
+[book]
+# title = ""
+# subtitle = ""
+# author = "" 
+imprint = ""
+language = "pt"
+# isbn = ""
+
+[frames.right.content]
+left = "(100%pw-50%ph)/2"
+right = "100%pw-((100%pw-50%ph)/2)"
+top = "(100%ph-100%pw)/2"
+bottom = "top(footnotes)"
+# bottom = "100%ph-((100%ph-100%pw)/2)"
+
+[frames.right.runningHead]
+left = "3.4cm"
+right = "100%pw-2cm"
+top = "1.5cm"
+bottom = "top(content)-3%ph"
+
+[frames.right.footnotes]
+left = "left(content)"
+right = "right(content)"
+height = "0"
+bottom = "90%ph"
+
+[frames.right.folio]
+left = "left(content)"
+right = "right(content)"
+top = "bottom(footnotes)+3%ph"
+bottom = "bottom(footnotes)+5%ph"
+
+
+##########################################################################################
+
+
+[frames.toc.content]
+left = "((100%pw-50%ph)/2)*4"
+# right = "100%pw-((100%pw-50%ph)/2)"
+width = "0"
+top = "(100%ph-100%pw)/2"
+bottom = "100%ph-((100%ph-100%pw)/2)"
+
+
+##########################################################################################
+
+
+[frames.full.content]
+left = "0"
+right = "100%pw"
+top = "0"
+bottom = "100%ph"
+
+[frames.fullrotated.content]
+rotate = "45"
+left = "0"
+right = "300%pw"
+top = "-300%ph"
+bottom = "300%ph"
+
+
+##########################################################################################	 
+
+
+# [frames.cover.author]
+# left = "25%pw"
+# right = "75%pw"
+# top = "20%ph"
+# bottom = "30%ph"
+
+# [frames.cover.title]
+# left = "30%pw"
+# right = "70%pw" 
+# top = "45%ph"
+# bottom = "55%ph"
+
+# [frames.cover.imprint]
+# left = "25%pw"
+# right = "75%pw"
+# top = "80%ph"
+# bottom = "85%ph"
+
+
+##########################################################################################	
+
+
+[frames.cover.author]
+left = "0%pw"
+right = "100%pw"
+top = "20%ph"
+bottom = "30%ph"
+
+[frames.cover.title]
+left = "0"
+right = "100%pw"
+height = "0"
+bottom = "45%ph"
+
+[frames.cover.imprint]
+left = "0%pw"
+right = "100%pw"
+top = "80%ph"
+bottom = "85%ph"
+
+
+##########################################################################################	
+
+# SUPPORTED SYMBOLS:
+# black        = "■",
+# white        = "□",
+# double       = "▣",
+# gridV        = "▥",
+# gridH        = "▤",
+# chess        = "▦",
+# gridTransLR  = "▨",
+# gridTransRL  = "▧",
+# crossed      = "▩",
+# loopedSquare = "⌘",
+# triangular   = "⁂"
+
+[symbols]
+ellipsis = "triangular"
+
+
+[dingbats]
+amount = 500
+
+[dingbats.ratio]
+width = "10"
+height = "20"
+
+
+[alingments]
+toc = "right"
+folio = "center"
+chapter = "left"
+epigraph = "right"
+title = "center"
+author = "center"
+imprint = "center"
+editionNotice = "center"
+printingNotice = "center"  # Este livro foi composto com ... em papel ... editado inteiramente com software livre  git  SILE  Lua  Linux...
+acknowledgement = "center"
+
+
+[fonts]
+isbn = "Cormorant"
+main = "Cormorant Garamond"
+title = "Prata"
+folio = "Cormorant Infant"
+author = "Neucha"
+special = "Noto Sans JP"      # for characters like ▩▤▧⌘
+headers = "Crimson"
+imprint = "Crimson"
+chapters = "Cormorant Infant"
+epigraph = "Cormorant"
+footnotes = "Cormorant"
+
+
+[fonts.size] # %pw, %ph, %fw, %fh, and %lw, %pmax, %pmin, %fmax, %fmin) : alternative units
+isbn = "11pt"
+main = "13pt"
+title = "20pt"
+folio = "11pt"
+author = "15pt"
+serial = "3.5"     #%ph
+special = "15pt"
+imprint = "16pt"
+headers = "10pt"
+chapters = "20pt"
+epigraph = "13pt"
+footnotes = "10pt"
+
+[fonts.color]
+isbn = "#055bf0"
+main = "#000000"      # black
+folio = "#000000"     #
+title = "#fc0303"     # red
+author = "#000000"    #
+special = "#000000"   #
+headers = "#000000"   #
+imprint = "#000000"   #
+chapters = "#000000"  #
+epigraph = "#000000" 
+footnotes = "#000000" #
+
+
+[fonts.weight]
+isbn = "300"
+main = "400"      # likely the most neutral? 
+title = "800"
+folio = "900"
+author = "600"
+special = "400"
+headers = "500"
+imprint = "500"
+chapters = "700"
+epigraph = "500"
+footnotes = "300"
+
+[colors]
+main = "#055bf0"
+secondary = "#ffd900" 
+
+# [spacing]
+# words = "-1%pw"
+# lines = "2.7%ph"
+# letters = ""
+# paragraphs = "5pt"
+
+[headings]
+topMargin = false
+running = false
+
+[toc] # this is likely going to be used for list of illustrations and abbreviations as well...
+double = false
+
+
+[test]
+show = true
