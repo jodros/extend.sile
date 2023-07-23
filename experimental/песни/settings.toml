@@ -1,0 +1,41 @@
+# Settings specifications for SILE's classes 
+
+forprint = true
+papersize = "a6"
+
+[book]
+#title = ""
+author = "" 
+imprint = "студенческое издательство"
+language = "ru"
+
+[alingments]
+toc = "left"
+imprint = "left"
+folio = "mirror"
+
+[fonts]
+toc = ["Cormorant Unicase"]
+main = ["", "10.5pt"]
+imprint = ["", "10pt", 100]
+
+##########################################################################################	
+
+# SUPPORTED SYMBOLS:
+# black        = "■",
+# white        = "□",
+# double       = "▣",
+# gridV        = "▥",
+# gridH        = "▤",
+# chess        = "▦",
+# gridTransLR  = "▨",
+# gridTransRL  = "▧",
+# crossed      = "▩",
+# loopedSquare = "⌘",
+# triangular   = "⁂"
+
+[symbols]
+ellipsis = "triangular"
+
+[test]
+#show = true

@@ -1,0 +1,75 @@
+# Settings specifications for SILE's classes 
+# firstContentFrame must always be named as "content", "first", "head" or "" for the sake of convenience
+# It's not allowed to use the minus sign '-' for table title here, since they going to be reused in the lua code, so please use the lua naming convention here as well...   
+
+papersize = ""
+folios = false
+forprint = false
+landscape = false
+neverindent = false
+
+
+########################	
+
+
+[alingments]
+toc             = ""
+title           = ""
+folio           = ""
+author          = ""
+chapter         = ""
+imprint         = ""
+epigraph        = ""
+editionNotice   = ""
+printingNotice  = ""  # Este livro foi composto com ... em papel ... editado inteiramente com software livre  git  SILE  Lua  Linux...
+acknowledgement = ""
+
+
+[fonts]   # [family, size, weight, color]
+toc       = []
+isbn      = []
+main      = []
+title     = []
+folio     = []
+author    = []
+special   = [] # for characters like ▩▤▧⌘
+headers   = []
+imprint   = []
+chapters  = []
+epigraph  = []
+footnotes = []
+serial    = []
+
+[spacing]
+words      = false
+lines      = false
+letters    = false
+paragraphs = false
+
+[headings]
+topMargin = false
+running   = false
+
+[toc] # this is likely going to be used for list of illustrations and abbreviations as well...
+double = false
+
+[test]
+show = false
+
+[ellipsis]
+symbol = "" #■□▣▥▤▦▨▧▩⌘⁂
+rotate = false
+size = ""
+font = ""
+weight = 0
+
+[dingbats]
+amount = 0
+
+[dingbats.ratio]
+width = ""
+height = ""
+
+[colors] # only in hexadecimal
+main = "#"
+secondary = "#"

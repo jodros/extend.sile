@@ -1,0 +1,26 @@
+# TODO
+
+## MINOR
+
+- string.upper() not working for characters with diacritics
+- 
+
+## CURRENT
+
+- imposition automation - e.g. it could be passed through the settings.toml and run with os.execute()
+- document all new packages, flex class and core functions!!!!!!!
+- indexing from list of names, get each page where it appears...
+- ready-made set of framesets, thus it doesn't take so much space in the toml specification, so just frames.right = "half", for the current default frameset instead of the whole instruction "100%ph-(...))
+- finish \front and \toc basic styling
+- settings.toml have instead the same name as the .sil, like ordem.sil ordem.toml if there is only one .sil file, letting settings.toml for larger projects
+
+## FUTURE
+
+- ABNT
+- support to render tables and lists
+- Implement Plínio Martins' style guidelines
+- Barcode (<https://zint.org.uk/manual/chapter/1>)
+
+## ?????
+
+- fixing raw text imperfections using regex

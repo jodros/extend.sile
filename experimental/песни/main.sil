@@ -1,0 +1,9 @@
+\document{
+
+\neverindent
+\include[src=pre.sil]
+\include[src=revolutionary.sil]
+\include[src=rodnaia.sil]
+%\include[src=post.sil]
+
+}

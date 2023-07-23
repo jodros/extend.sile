@@ -1,0 +1,1181 @@
+papersize
+table: 0x55826e1231c0 {
+  [converters] => table: 0x55826e1231c0 {
+                  }
+  [test] => table: 0x55826e1231c0 {
+              [show] => false
+            }
+  [counters] => table: 0x55826e1231c0 {
+                  [footnote] => table: 0x55826e8a81b0 {
+                                  [display] => "arabic"
+                                  [value] => 1
+                                }
+                  [folio] => table: 0x55826e8a81b0 {
+                               [display] => "arabic"
+                               [value] => 1
+                             }
+                }
+  [bibtex] => table: 0x55826e1231c0 {
+                [bib] => table: 0x55826e8f0150 {
+                         }
+              }
+  [pdf_destination_counter] => 1
+  [info] => table: 0x55826e1231c0 {
+              [thispage] => table: 0x55826e985340 {
+                            }
+            }
+  [headers] => table: 0x55826e1231c0 {
+               }
+  [paths] => table: 0x55826e1231c0 {
+               [default] => "/home/jodros/.luarocks/lib/luarocks/rocks-5.4/extend.sile/dev-1/config/styles/default.toml"
+               [localfile] => "/home/jodros/trabalho/experimental/debugging/settings.toml"
+             }
+  [book] => table: 0x55826e1231c0 {
+            }
+  [index] => table: 0x55826e1231c0 {
+             }
+  [packlist] => table: 0x55826e1231c0 {
+                  #[1] => "autodoc"
+                  #[2] => "background"
+                  #[3] => "bibtex"
+                  #[4] => "color"
+                  #[5] => "color-fonts"
+                  #[6] => "converters"
+                  #[7] => "counters"
+                  #[8] => "features"
+                  #[9] => "font-fallback"
+                  #[10] => "masters"
+                  #[11] => "footnotes"
+                  #[12] => "frametricks"
+                  #[13] => "image"
+                  #[14] => "indexer"
+                  #[15] => "linespacing"
+                  #[16] => "lorem"
+                  #[17] => "masters"
+                  #[18] => "pdf"
+                  #[19] => "tableofcontents"
+                  #[20] => "url"
+                  #[21] => "textual"
+                  #[22] => "styles"
+                  #[23] => "extra-textual"
+                  #[24] => "unichar"
+                  #[25] => "rotate"
+                }
+  [autodoc] => table: 0x55826e1231c0 {
+                 [theme] => table: 0x55826e8d5380 {
+                              [parameter] => "#3f5218"
+                              [package] => "#172557"
+                              [command] => "#1d4851"
+                              [bracketed] => "#656565"
+                              [setting] => "#42280e"
+                            }
+               }
+  [_tableofcontents] => table: 0x55826e1231c0 {
+                        }
+  [styles] => table: 0x55826e1231c0 {
+                [toc] => table: 0x55826e03e340 {
+                           [double] => false
+                         }
+                [landscape] => true
+                [alingments] => table: 0x55826e03e340 {
+                                  [title] => "center"
+                                  [printingNotice] => "center"
+                                  [epigraph] => "right"
+                                  [imprint] => "center"
+                                  [chapter] => "left"
+                                  [editionNotice] => "center"
+                                  [toc] => "right"
+                                  [author] => "center"
+                                  [acknowledgement] => "center"
+                                  [folio] => "center"
+                                }
+                [colors] => table: 0x55826e03e340 {
+                              [main] => "#055bf0"
+                              [secondary] => "#ffd900"
+                            }
+                [garnish] => table: 0x55826e03e340 {
+                               [loopedSquare] => "⌘"
+                               [white] => "□"
+                               [double] => "▣"
+                               [chess] => "▦"
+                               [crossed] => "▩"
+                               [gridH] => "▤"
+                               [black] => "■"
+                               [gridTrans] => "▨ ▧"
+                               [gridV] => "▥"
+                               [triangular] => "⁂"
+                             }
+                [frames] => table: 0x55826e03e340 {
+                              [max] => table: 0x55826e0393b0 {
+                                         [frameset] => table: 0x55826e0396c0 {
+                                                         [folio] => table: 0x55826e039740 {
+                                                                      [left] => "0"
+                                                                      [id] => "folio"
+                                                                      [bottom] => "0"
+                                                                      [top] => "0"
+                                                                      [right] => "0"
+                                                                    }
+                                                         [content] => table: 0x55826e039740 {
+                                                                        [left] => "0"
+                                                                        [id] => "content"
+                                                                        [bottom] => "100%ph"
+                                                                        [top] => "0"
+                                                                        [right] => "100%pw"
+                                                                      }
+                                                       }
+                                         [first] => "content"
+                                       }
+                              [toc] => table: 0x55826e0393b0 {
+                                         [frameset] => table: 0x55826e039da0 {
+                                                         [folio] => table: 0x55826e039e20 {
+                                                                      *table: 0x55826e03b190
+                                                                    }
+                                                         [content] => table: 0x55826e039e20 {
+                                                                        [left] => "20%pw"
+                                                                        [id] => "content"
+                                                                        [bottom] => "100%ph-((100%ph-100%pw)/2)"
+                                                                        [top] => "(100%ph-100%pw)/2"
+                                                                        [right] => "80%pw"
+                                                                      }
+                                                       }
+                                         [first] => "content"
+                                       }
+                              [four] => table: 0x55826e0393b0 {
+                                          [frameset] => table: 0x55826e03a3d0 {
+                                                          [second] => table: 0x55826e039f50 {
+                                                                        [left] => "(50%pw-2.5%pw)+5%pw"
+                                                                        [next] => "third"
+                                                                        [id] => "second"
+                                                                        [bottom] => "50%ph-2.5%pw"
+                                                                        [top] => "5%pw"
+                                                                        [right] => "100%pw-5%pw"
+                                                                      }
+                                                          [fourth] => table: 0x55826e039f50 {
+                                                                        [left] => "(50%pw-2.5%pw)+5%pw"
+                                                                        [id] => "fourth"
+                                                                        [bottom] => "100%ph-5%pw"
+                                                                        [top] => "(50%ph-2.5%pw)+5%pw"
+                                                                        [right] => "100%pw-5%pw"
+                                                                      }
+                                                          [first] => table: 0x55826e039f50 {
+                                                                       [left] => "5%pw"
+                                                                       [next] => "second"
+                                                                       [id] => "first"
+                                                                       [bottom] => "50%ph-2.5%pw"
+                                                                       [top] => "5%pw"
+                                                                       [right] => "50%pw-2.5%pw"
+                                                                     }
+                                                          [folio] => table: 0x55826e039f50 {
+                                                                       *table: 0x55826e03b190
+                                                                     }
+                                                          [third] => table: 0x55826e039f50 {
+                                                                       [left] => "5%pw"
+                                                                       [next] => "fourth"
+                                                                       [id] => "third"
+                                                                       [bottom] => "100%ph-5%pw"
+                                                                       [top] => "(50%ph-2.5%pw)+5%pw"
+                                                                       [right] => "50%pw-2.5%pw"
+                                                                     }
+                                                        }
+                                          [first] => "first"
+                                        }
+                              [cover] => table: 0x55826e0393b0 {
+                                           [frameset] => table: 0x55826e0393f0 {
+                                                           [author] => table: 0x55826e039470 {
+                                                                         [left] => "0%pw"
+                                                                         [id] => "author"
+                                                                         [bottom] => "30%ph"
+                                                                         [top] => "20%ph"
+                                                                         [right] => "100%pw"
+                                                                       }
+                                                           [title] => table: 0x55826e039470 {
+                                                                        [height] => "0"
+                                                                        [left] => "0"
+                                                                        [bottom] => "45%ph"
+                                                                        [id] => "title"
+                                                                        [right] => "100%pw"
+                                                                      }
+                                                           [imprint] => table: 0x55826e039470 {
+                                                                          [left] => "0%pw"
+                                                                          [id] => "imprint"
+                                                                          [bottom] => "85%ph"
+                                                                          [top] => "80%ph"
+                                                                          [right] => "100%pw"
+                                                                        }
+                                                         }
+                                           [first] => "author"
+                                         }
+                              [maxrotated] => table: 0x55826e0393b0 {
+                                                [frameset] => table: 0x55826e039870 {
+                                                                [folio] => table: 0x55826e0398f0 {
+                                                                             *table: 0x55826e03b190
+                                                                           }
+                                                                [content] => table: 0x55826e0398f0 {
+                                                                               [left] => "0"
+                                                                               [rotate] => "45"
+                                                                               [id] => "content"
+                                                                               [bottom] => "300%ph"
+                                                                               [top] => "-300%ph"
+                                                                               [right] => "300%pw"
+                                                                             }
+                                                              }
+                                                [first] => "content"
+                                              }
+                              [right] => table: 0x55826e0393b0 {
+                                           [frameset] => table: 0x55826e0399b0 {
+                                                           [footnotes] => table: 0x55826e039a30 {
+                                                                            [height] => "0"
+                                                                            [left] => "left(content)"
+                                                                            [bottom] => "90%ph"
+                                                                            [id] => "footnotes"
+                                                                            [right] => "right(content)"
+                                                                          }
+                                                           [folio] => table: 0x55826e039a30 {
+                                                                        [left] => "left(content)"
+                                                                        [id] => "folio"
+                                                                        [bottom] => "bottom(footnotes)+5%ph"
+                                                                        [top] => "bottom(footnotes)+3%ph"
+                                                                        [right] => "right(content)"
+                                                                      }
+                                                           [runningHead] => table: 0x55826e039a30 {
+                                                                              [left] => "3.4cm"
+                                                                              [id] => "runningHead"
+                                                                              [bottom] => "top(content)-3%ph"
+                                                                              [top] => "1.5cm"
+                                                                              [right] => "100%pw-2cm"
+                                                                            }
+                                                           [content] => table: 0x55826e039a30 {
+                                                                          [left] => "(100%pw-50%ph)/2"
+                                                                          [id] => "content"
+                                                                          [bottom] => "top(footnotes)"
+                                                                          [top] => "(100%ph-100%pw)/2"
+                                                                          [right] => "100%pw-((100%pw-50%ph)/2)"
+                                                                        }
+                                                         }
+                                           [first] => "content"
+                                         }
+                            }
+                [fonts] => table: 0x55826e03e340 {
+                             [footnotes] => table: 0x55826e040f10 {
+                                              #[1] => "Cormorant"
+                                              #[2] => "10pt"
+                                              #[3] => 400
+                                              #[4] => false
+                                            }
+                             [serial] => table: 0x55826e040f10 {
+                                           #[1] => false
+                                           #[2] => "3.5"
+                                           #[3] => false
+                                           #[4] => false
+                                         }
+                             [headers] => table: 0x55826e040f10 {
+                                            #[1] => "Crimson"
+                                            #[2] => "10pt"
+                                            #[3] => 500
+                                            #[4] => false
+                                          }
+                             [folio] => table: 0x55826e040f10 {
+                                          #[1] => "Cormorant Infant"
+                                          #[2] => "11pt"
+                                          #[3] => 500
+                                          #[4] => false
+                                        }
+                             [epigraph] => table: 0x55826e040f10 {
+                                             #[1] => "Cormorant"
+                                             #[2] => "13pt"
+                                             #[3] => 500
+                                             #[4] => false
+                                           }
+                             [imprint] => table: 0x55826e040f10 {
+                                            #[1] => "Crimson"
+                                            #[2] => "16pt"
+                                            #[3] => 800
+                                            #[4] => false
+                                          }
+                             [chapters] => table: 0x55826e040f10 {
+                                             #[1] => "Cormorant Infant"
+                                             #[2] => "18pt"
+                                             #[3] => 700
+                                             #[4] => false
+                                           }
+                             [toc] => table: 0x55826e040f10 {
+                                        #[1] => "Cormorant"
+                                        #[2] => "10pt"
+                                        #[3] => 400
+                                        #[4] => false
+                                      }
+                             [title] => table: 0x55826e040f10 {
+                                          #[1] => "Prata"
+                                          #[2] => "20pt"
+                                          #[3] => 600
+                                          #[4] => false
+                                        }
+                             [special] => table: 0x55826e040f10 {
+                                            #[1] => "Noto Sans JP"
+                                            #[2] => "16pt"
+                                            #[3] => 100
+                                            #[4] => false
+                                          }
+                             [author] => table: 0x55826e040f10 {
+                                           #[1] => "Neucha"
+                                           #[2] => "15pt"
+                                           #[3] => 700
+                                           #[4] => false
+                                         }
+                             [main] => table: 0x55826e040f10 {
+                                         #[1] => "Cormorant Garamond"
+                                         #[2] => "13pt"
+                                         #[3] => 400
+                                         #[4] => false
+                                       }
+                             [isbn] => table: 0x55826e040f10 {
+                                         #[1] => "Cormorant"
+                                         #[2] => "11pt"
+                                         #[3] => 300
+                                         #[4] => false
+                                       }
+                           }
+                [neverindent] => false
+                [book] => table: 0x55826e03e340 {
+                            *table: 0x55826e040830
+                          }
+                [forprint] => false
+                [papersize] => "a4"
+                [test] => table: 0x55826e03e340 {
+                            *table: 0x55826e047570
+                          }
+                [ellipsis] => table: 0x55826e03e340 {
+                                [rotate] => false
+                                [symbol] => "triangular"
+                              }
+                [headings] => table: 0x55826e03e340 {
+                                [running] => false
+                                [topMargin] => false
+                              }
+                [spacing] => table: 0x55826e03e340 {
+                               [paragraphs] => false
+                               [letters] => false
+                               [words] => false
+                               [lines] => false
+                             }
+                [folios] => true
+                [dingbats] => table: 0x55826e03e340 {
+                                [amount] => 500
+                                [ratio] => table: 0x55826e040aa0 {
+                                             [height] => "20"
+                                             [width] => "10"
+                                           }
+                              }
+              }
+  [insertions] => table: 0x55826e1231c0 {
+                    [classes] => table: 0x55826e931f50 {
+                                   [footnote] => table: 0x55826e9320a0 {
+                                                   [insertInto] => table: 0x55826e93d8f0 {
+                                                                     [frame] => "footnotes"
+                                                                     [ratio] => 1
+                                                                   }
+                                                   [topBox] => table: 0x55826e93d8f0 {
+                                                                 [height] => VG<2ex> {
+                                                                               [shrink] => 2ex {
+                                                                                             [_mutable] => true
+                                                                                             [amount] => 0
+                                                                                             [relative] => false
+                                                                                           }
+                                                                               [stretch] => 2ex {
+                                                                                              *0pt
+                                                                                            }
+                                                                               [length] => 2ex {
+                                                                                             *2ex
+                                                                                           }
+                                                                             }
+                                                                 [is_vglue] => true
+                                                                 [adjustment] => VG<2ex> {
+                                                                                   *0pt
+                                                                                 }
+                                                                 [depth] => VG<2ex> {
+                                                                              *0pt
+                                                                            }
+                                                                 [width] => VG<2ex> {
+                                                                              *0pt
+                                                                            }
+                                                               }
+                                                   [maxHeight] => table: 0x55826e93d8f0 {
+                                                                    [shrink] => 75%ph {
+                                                                                  *0pt
+                                                                                }
+                                                                    [stretch] => 75%ph {
+                                                                                   *0pt
+                                                                                 }
+                                                                    [length] => 75%ph {
+                                                                                  *75%ph
+                                                                                }
+                                                                  }
+                                                   [interInsertionSkip] => table: 0x55826e93d8f0 {
+                                                                             [shrink] => 1ex {
+                                                                                           *0pt
+                                                                                         }
+                                                                             [stretch] => 1ex {
+                                                                                            *0pt
+                                                                                          }
+                                                                             [length] => 1ex {
+                                                                                           *1ex
+                                                                                         }
+                                                                           }
+                                                   [stealFrom] => table: 0x55826e93d8f0 {
+                                                                    [content] => 1
+                                                                  }
+                                                 }
+                                 }
+                  }
+  [masters] => table: 0x55826e1231c0 {
+                 [max] => table: 0x55826e91faf0 {
+                            [frames] => table: 0x55826e9e1b70 {
+                                          [content] => table: 0x55826e9dc6d0 {
+                                                         [height] => function: 0x55826e9dd690
+                                                         [left] => function: 0x55826e9dd970
+                                                         [constraints] => <Frame: content:  next=nil left=0; bottom=100%ph; top=0; right=100%pw; > {
+                                                                            [left] => "0"
+                                                                            [bottom] => "100%ph"
+                                                                            [top] => "0"
+                                                                            [right] => "100%pw"
+                                                                          }
+                                                         [bottom] => function: 0x55826e9ddc70
+                                                         [id] => "content"
+                                                         [width] => function: 0x55826e9dd930
+                                                         [balanced] => false
+                                                         [variables] => <Frame: content:  next=nil left=0; bottom=100%ph; top=0; right=100%pw; > {
+                                                                          [height] => table: 0x55826e9dd510 {
+                                                                                        [name] => "content_height"
+                                                                                        [hashcode] => 41
+                                                                                      }
+                                                                          [left] => table: 0x55826e9dd510 {
+                                                                                      [name] => "content_left"
+                                                                                      [hashcode] => 42
+                                                                                    }
+                                                                          [right] => table: 0x55826e9dd510 {
+                                                                                       [name] => "content_right"
+                                                                                       [hashcode] => 46
+                                                                                     }
+                                                                          [bottom] => table: 0x55826e9dd510 {
+                                                                                        [name] => "content_bottom"
+                                                                                        [hashcode] => 44
+                                                                                      }
+                                                                          [top] => table: 0x55826e9dd510 {
+                                                                                     [name] => "content_top"
+                                                                                     [hashcode] => 45
+                                                                                   }
+                                                                          [width] => table: 0x55826e9dd510 {
+                                                                                       [name] => "content_width"
+                                                                                       [hashcode] => 43
+                                                                                     }
+                                                                        }
+                                                         [top] => function: 0x55826e9e2150
+                                                         [right] => function: 0x55826e9e2480
+                                                       }
+                                          [folio] => table: 0x55826e9dc6d0 {
+                                                       [height] => function: 0x55826e9dc950
+                                                       [left] => function: 0x55826e9dcc30
+                                                       [constraints] => <Frame: folio:  next=nil left=0; bottom=0; top=0; right=0; > {
+                                                                          [left] => "0"
+                                                                          [bottom] => "0"
+                                                                          [top] => "0"
+                                                                          [right] => "0"
+                                                                        }
+                                                       [bottom] => function: 0x55826e9dcfd0
+                                                       [id] => "folio"
+                                                       [width] => function: 0x55826e9dcbf0
+                                                       [balanced] => false
+                                                       [variables] => <Frame: folio:  next=nil left=0; bottom=0; top=0; right=0; > {
+                                                                        [height] => table: 0x55826e9dc7d0 {
+                                                                                      [name] => "folio_height"
+                                                                                      [hashcode] => 35
+                                                                                    }
+                                                                        [left] => table: 0x55826e9dc7d0 {
+                                                                                    [name] => "folio_left"
+                                                                                    [hashcode] => 36
+                                                                                  }
+                                                                        [right] => table: 0x55826e9dc7d0 {
+                                                                                     [name] => "folio_right"
+                                                                                     [hashcode] => 40
+                                                                                   }
+                                                                        [bottom] => table: 0x55826e9dc7d0 {
+                                                                                      [name] => "folio_bottom"
+                                                                                      [hashcode] => 38
+                                                                                    }
+                                                                        [top] => table: 0x55826e9dc7d0 {
+                                                                                   [name] => "folio_top"
+                                                                                   [hashcode] => 39
+                                                                                 }
+                                                                        [width] => table: 0x55826e9dc7d0 {
+                                                                                     [name] => "folio_width"
+                                                                                     [hashcode] => 37
+                                                                                   }
+                                                                      }
+                                                       [top] => function: 0x55826e9dd250
+                                                       [right] => function: 0x55826e9dd400
+                                                     }
+                                        }
+                            [firstContentFrame] => table: 0x55826e9e1b70 {
+                                                     *<Frame: content:  next=nil left=0; bottom=100%ph; top=0; right=100%pw; >
+                                                   }
+                          }
+                 [toc] => table: 0x55826e91faf0 {
+                            [frames] => table: 0x55826e9e2570 {
+                                          [content] => table: 0x55826e9e25f0 {
+                                                         [height] => function: 0x55826e9e3600
+                                                         [left] => function: 0x55826e9e38e0
+                                                         [constraints] => <Frame: content:  next=nil left=20%pw; bottom=100%ph-((100%ph-100%pw)/2); top=(100%ph-100%pw)/2; right=80%pw; > {
+                                                                            [left] => "20%pw"
+                                                                            [bottom] => "100%ph-((100%ph-100%pw)/2)"
+                                                                            [top] => "(100%ph-100%pw)/2"
+                                                                            [right] => "80%pw"
+                                                                          }
+                                                         [bottom] => function: 0x55826e9e3be0
+                                                         [id] => "content"
+                                                         [width] => function: 0x55826e9e38a0
+                                                         [balanced] => false
+                                                         [variables] => <Frame: content:  next=nil left=20%pw; bottom=100%ph-((100%ph-100%pw)/2); top=(100%ph-100%pw)/2; right=80%pw; > {
+                                                                          [height] => table: 0x55826e9e3480 {
+                                                                                        *[content_height:0]
+                                                                                      }
+                                                                          [left] => table: 0x55826e9e3480 {
+                                                                                      *[content_left:0]
+                                                                                    }
+                                                                          [right] => table: 0x55826e9e3480 {
+                                                                                       *[content_right:0]
+                                                                                     }
+                                                                          [bottom] => table: 0x55826e9e3480 {
+                                                                                        *[content_bottom:0]
+                                                                                      }
+                                                                          [top] => table: 0x55826e9e3480 {
+                                                                                     *[content_top:0]
+                                                                                   }
+                                                                          [width] => table: 0x55826e9e3480 {
+                                                                                       *[content_width:0]
+                                                                                     }
+                                                                        }
+                                                         [top] => function: 0x55826e9e3e60
+                                                         [right] => function: 0x55826e9e41a0
+                                                       }
+                                          [folio] => table: 0x55826e9e25f0 {
+                                                       *<Frame: folio:  next=nil left=0; bottom=0; top=0; right=0; >
+                                                     }
+                                        }
+                            [firstContentFrame] => table: 0x55826e9e2570 {
+                                                     *<Frame: content:  next=nil left=20%pw; bottom=100%ph-((100%ph-100%pw)/2); top=(100%ph-100%pw)/2; right=80%pw; >
+                                                   }
+                          }
+                 [left] => table: 0x55826e91faf0 {
+                             [frames] => table: 0x55826e9f8ce0 {
+                                           [footnotes] => table: 0x55826e9f8d20 {
+                                                            [height] => function: 0x55826e9ede70
+                                                            [left] => function: 0x55826e9ee150
+                                                            [constraints] => <Frame: footnotes:  next=nil height=0; left=left(content); bottom=90%ph; right=right(content); > {
+                                                                               [height] => "0"
+                                                                               [left] => "left(content)"
+                                                                               [bottom] => "90%ph"
+                                                                               [right] => "right(content)"
+                                                                             }
+                                                            [bottom] => function: 0x55826e9ee450
+                                                            [id] => "footnotes"
+                                                            [width] => function: 0x55826e9ee110
+                                                            [balanced] => false
+                                                            [variables] => <Frame: footnotes:  next=nil height=0; left=left(content); bottom=90%ph; right=right(content); > {
+                                                                             [height] => table: 0x55826e9f8e20 {
+                                                                                           [name] => "footnotes_height"
+                                                                                           [hashcode] => 119
+                                                                                         }
+                                                                             [left] => table: 0x55826e9f8e20 {
+                                                                                         [name] => "footnotes_left"
+                                                                                         [hashcode] => 120
+                                                                                       }
+                                                                             [width] => table: 0x55826e9f8e20 {
+                                                                                          [name] => "footnotes_width"
+                                                                                          [hashcode] => 121
+                                                                                        }
+                                                                             [bottom] => table: 0x55826e9f8e20 {
+                                                                                           [name] => "footnotes_bottom"
+                                                                                           [hashcode] => 122
+                                                                                         }
+                                                                             [top] => table: 0x55826e9f8e20 {
+                                                                                        [name] => "footnotes_top"
+                                                                                        [hashcode] => 123
+                                                                                      }
+                                                                             [right] => table: 0x55826e9f8e20 {
+                                                                                          [name] => "footnotes_right"
+                                                                                          [hashcode] => 124
+                                                                                        }
+                                                                           }
+                                                            [top] => function: 0x55826e9ee6d0
+                                                            [right] => function: 0x55826e9eea10
+                                                          }
+                                           [folio] => table: 0x55826e9f8d20 {
+                                                        [height] => function: 0x55826e9eed10
+                                                        [left] => function: 0x55826e9eef20
+                                                        [constraints] => <Frame: folio:  next=nil left=left(content); bottom=bottom(footnotes)+5%ph; top=bottom(footnotes)+3%ph; right=right(content); > {
+                                                                           [left] => "left(content)"
+                                                                           [bottom] => "bottom(footnotes)+5%ph"
+                                                                           [top] => "bottom(footnotes)+3%ph"
+                                                                           [right] => "right(content)"
+                                                                         }
+                                                        [bottom] => function: 0x55826e9ef220
+                                                        [id] => "folio"
+                                                        [width] => function: 0x55826e9eeee0
+                                                        [balanced] => false
+                                                        [variables] => <Frame: folio:  next=nil left=left(content); bottom=bottom(footnotes)+5%ph; top=bottom(footnotes)+3%ph; right=right(content); > {
+                                                                         [height] => table: 0x55826e9fce60 {
+                                                                                       *[folio_height:0]
+                                                                                     }
+                                                                         [left] => table: 0x55826e9fce60 {
+                                                                                     *[folio_left:0]
+                                                                                   }
+                                                                         [width] => table: 0x55826e9fce60 {
+                                                                                      *[folio_width:0]
+                                                                                    }
+                                                                         [bottom] => table: 0x55826e9fce60 {
+                                                                                       *[folio_bottom:0]
+                                                                                     }
+                                                                         [top] => table: 0x55826e9fce60 {
+                                                                                    *[folio_top:0]
+                                                                                  }
+                                                                         [right] => table: 0x55826e9fce60 {
+                                                                                      *[folio_right:0]
+                                                                                    }
+                                                                       }
+                                                        [top] => function: 0x55826e9ef4a0
+                                                        [right] => function: 0x55826e9ef7e0
+                                                      }
+                                           [runningHead] => table: 0x55826e9f8d20 {
+                                                              [height] => function: 0x55826e9efae0
+                                                              [left] => function: 0x55826e9efcf0
+                                                              [constraints] => <Frame: runningHead:  next=nil left=100%pw-(100%pw-2cm); bottom=top(content)-3%ph; top=1.5cm; right=100%pw-(3.4cm); > {
+                                                                                 [left] => "100%pw-(100%pw-2cm)"
+                                                                                 [bottom] => "top(content)-3%ph"
+                                                                                 [top] => "1.5cm"
+                                                                                 [right] => "100%pw-(3.4cm)"
+                                                                               }
+                                                              [bottom] => function: 0x55826e9efff0
+                                                              [id] => "runningHead"
+                                                              [width] => function: 0x55826e9efcb0
+                                                              [balanced] => false
+                                                              [variables] => <Frame: runningHead:  next=nil left=100%pw-(100%pw-2cm); bottom=top(content)-3%ph; top=1.5cm; right=100%pw-(3.4cm); > {
+                                                                               [height] => table: 0x55826e9fbec0 {
+                                                                                             [name] => "runningHead_height"
+                                                                                             [hashcode] => 131
+                                                                                           }
+                                                                               [left] => table: 0x55826e9fbec0 {
+                                                                                           [name] => "runningHead_left"
+                                                                                           [hashcode] => 132
+                                                                                         }
+                                                                               [width] => table: 0x55826e9fbec0 {
+                                                                                            [name] => "runningHead_width"
+                                                                                            [hashcode] => 133
+                                                                                          }
+                                                                               [bottom] => table: 0x55826e9fbec0 {
+                                                                                             [name] => "runningHead_bottom"
+                                                                                             [hashcode] => 134
+                                                                                           }
+                                                                               [top] => table: 0x55826e9fbec0 {
+                                                                                          [name] => "runningHead_top"
+                                                                                          [hashcode] => 135
+                                                                                        }
+                                                                               [right] => table: 0x55826e9fbec0 {
+                                                                                            [name] => "runningHead_right"
+                                                                                            [hashcode] => 136
+                                                                                          }
+                                                                             }
+                                                              [top] => function: 0x55826e9f0270
+                                                              [right] => function: 0x55826e9f05b0
+                                                            }
+                                           [content] => table: 0x55826e9f8d20 {
+                                                          [height] => function: 0x55826e9f08c0
+                                                          [left] => function: 0x55826e9f0ad0
+                                                          [constraints] => <Frame: content:  next=nil left=100%pw-(100%pw-((100%pw-50%ph)/2)); bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); > {
+                                                                             [left] => "100%pw-(100%pw-((100%pw-50%ph)/2))"
+                                                                             [bottom] => "top(footnotes)"
+                                                                             [top] => "(100%ph-100%pw)/2"
+                                                                             [right] => "100%pw-((100%pw-50%ph)/2)"
+                                                                           }
+                                                          [bottom] => function: 0x55826e9f0dd0
+                                                          [id] => "content"
+                                                          [width] => function: 0x55826e9f0a90
+                                                          [balanced] => false
+                                                          [variables] => <Frame: content:  next=nil left=100%pw-(100%pw-((100%pw-50%ph)/2)); bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); > {
+                                                                           [height] => table: 0x55826e9f3e70 {
+                                                                                         *[content_height:0]
+                                                                                       }
+                                                                           [left] => table: 0x55826e9f3e70 {
+                                                                                       *[content_left:0]
+                                                                                     }
+                                                                           [width] => table: 0x55826e9f3e70 {
+                                                                                        *[content_width:0]
+                                                                                      }
+                                                                           [bottom] => table: 0x55826e9f3e70 {
+                                                                                         *[content_bottom:0]
+                                                                                       }
+                                                                           [top] => table: 0x55826e9f3e70 {
+                                                                                      *[content_top:0]
+                                                                                    }
+                                                                           [right] => table: 0x55826e9f3e70 {
+                                                                                        *[content_right:0]
+                                                                                      }
+                                                                         }
+                                                          [top] => function: 0x55826e9f1050
+                                                          [right] => function: 0x55826e9f1390
+                                                        }
+                                         }
+                             [firstContentFrame] => table: 0x55826e9f8ce0 {
+                                                      *<Frame: content:  next=nil left=100%pw-(100%pw-((100%pw-50%ph)/2)); bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); >
+                                                    }
+                           }
+                 [right] => table: 0x55826e91faf0 {
+                              [frames] => table: 0x55826e9edb60 {
+                                            [footnotes] => table: 0x55826e9edbe0 {
+                                                             *<Frame: footnotes:  next=nil height=0; left=left(content); bottom=90%ph; right=right(content); >
+                                                           }
+                                            [content] => table: 0x55826e9edbe0 {
+                                                           [height] => function: 0x55826e9f08c0
+                                                           [left] => function: 0x55826e9f0ad0
+                                                           [constraints] => <Frame: content:  next=nil left=(100%pw-50%ph)/2; bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); > {
+                                                                              [left] => "(100%pw-50%ph)/2"
+                                                                              [bottom] => "top(footnotes)"
+                                                                              [top] => "(100%ph-100%pw)/2"
+                                                                              [right] => "100%pw-((100%pw-50%ph)/2)"
+                                                                            }
+                                                           [bottom] => function: 0x55826e9f0dd0
+                                                           [id] => "content"
+                                                           [width] => function: 0x55826e9f0a90
+                                                           [balanced] => false
+                                                           [variables] => <Frame: content:  next=nil left=(100%pw-50%ph)/2; bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); > {
+                                                                            [height] => table: 0x55826e9f06d0 {
+                                                                                          *[content_height:0]
+                                                                                        }
+                                                                            [left] => table: 0x55826e9f06d0 {
+                                                                                        *[content_left:0]
+                                                                                      }
+                                                                            [right] => table: 0x55826e9f06d0 {
+                                                                                         *[content_right:0]
+                                                                                       }
+                                                                            [bottom] => table: 0x55826e9f06d0 {
+                                                                                          *[content_bottom:0]
+                                                                                        }
+                                                                            [top] => table: 0x55826e9f06d0 {
+                                                                                       *[content_top:0]
+                                                                                     }
+                                                                            [width] => table: 0x55826e9f06d0 {
+                                                                                         *[content_width:0]
+                                                                                       }
+                                                                          }
+                                                           [top] => function: 0x55826e9f1050
+                                                           [right] => function: 0x55826e9f1390
+                                                         }
+                                            [runningHead] => table: 0x55826e9edbe0 {
+                                                               [height] => function: 0x55826e9efae0
+                                                               [left] => function: 0x55826e9efcf0
+                                                               [constraints] => <Frame: runningHead:  next=nil left=3.4cm; bottom=top(content)-3%ph; top=1.5cm; right=100%pw-2cm; > {
+                                                                                  [left] => "3.4cm"
+                                                                                  [bottom] => "top(content)-3%ph"
+                                                                                  [top] => "1.5cm"
+                                                                                  [right] => "100%pw-2cm"
+                                                                                }
+                                                               [bottom] => function: 0x55826e9efff0
+                                                               [id] => "runningHead"
+                                                               [width] => function: 0x55826e9efcb0
+                                                               [balanced] => false
+                                                               [variables] => <Frame: runningHead:  next=nil left=3.4cm; bottom=top(content)-3%ph; top=1.5cm; right=100%pw-2cm; > {
+                                                                                [height] => table: 0x55826e9ef910 {
+                                                                                              *[runningHead_height:0]
+                                                                                            }
+                                                                                [left] => table: 0x55826e9ef910 {
+                                                                                            *[runningHead_left:0]
+                                                                                          }
+                                                                                [right] => table: 0x55826e9ef910 {
+                                                                                             *[runningHead_right:0]
+                                                                                           }
+                                                                                [bottom] => table: 0x55826e9ef910 {
+                                                                                              *[runningHead_bottom:0]
+                                                                                            }
+                                                                                [top] => table: 0x55826e9ef910 {
+                                                                                           *[runningHead_top:0]
+                                                                                         }
+                                                                                [width] => table: 0x55826e9ef910 {
+                                                                                             *[runningHead_width:0]
+                                                                                           }
+                                                                              }
+                                                               [top] => function: 0x55826e9f0270
+                                                               [right] => function: 0x55826e9f05b0
+                                                             }
+                                            [folio] => table: 0x55826e9edbe0 {
+                                                         *<Frame: folio:  next=nil left=left(content); bottom=bottom(footnotes)+5%ph; top=bottom(footnotes)+3%ph; right=right(content); >
+                                                       }
+                                          }
+                              [firstContentFrame] => table: 0x55826e9edb60 {
+                                                       *<Frame: content:  next=nil left=(100%pw-50%ph)/2; bottom=top(footnotes); top=(100%ph-100%pw)/2; right=100%pw-((100%pw-50%ph)/2); >
+                                                     }
+                            }
+                 [cover] => table: 0x55826e91faf0 {
+                              [frames] => table: 0x55826e9e8e60 {
+                                            [title] => table: 0x55826e9e8ee0 {
+                                                         [height] => function: 0x55826e9ea170
+                                                         [left] => function: 0x55826e9ea480
+                                                         [constraints] => <Frame: title:  next=nil height=0; left=0; bottom=45%ph; right=100%pw; > {
+                                                                            [height] => "0"
+                                                                            [left] => "0"
+                                                                            [bottom] => "45%ph"
+                                                                            [right] => "100%pw"
+                                                                          }
+                                                         [bottom] => function: 0x55826e9ea7e0
+                                                         [id] => "title"
+                                                         [width] => function: 0x55826e9ea440
+                                                         [balanced] => false
+                                                         [variables] => <Frame: title:  next=nil height=0; left=0; bottom=45%ph; right=100%pw; > {
+                                                                          [height] => table: 0x55826e9e9fc0 {
+                                                                                        [name] => "title_height"
+                                                                                        [hashcode] => 95
+                                                                                      }
+                                                                          [left] => table: 0x55826e9e9fc0 {
+                                                                                      [name] => "title_left"
+                                                                                      [hashcode] => 96
+                                                                                    }
+                                                                          [right] => table: 0x55826e9e9fc0 {
+                                                                                       [name] => "title_right"
+                                                                                       [hashcode] => 100
+                                                                                     }
+                                                                          [bottom] => table: 0x55826e9e9fc0 {
+                                                                                        [name] => "title_bottom"
+                                                                                        [hashcode] => 98
+                                                                                      }
+                                                                          [top] => table: 0x55826e9e9fc0 {
+                                                                                     [name] => "title_top"
+                                                                                     [hashcode] => 99
+                                                                                   }
+                                                                          [width] => table: 0x55826e9e9fc0 {
+                                                                                       [name] => "title_width"
+                                                                                       [hashcode] => 97
+                                                                                     }
+                                                                        }
+                                                         [top] => function: 0x55826e9eaa90
+                                                         [right] => function: 0x55826e9eae00
+                                                       }
+                                            [imprint] => table: 0x55826e9e8ee0 {
+                                                           [height] => function: 0x55826e9eb0c0
+                                                           [left] => function: 0x55826e9eb3d0
+                                                           [constraints] => <Frame: imprint:  next=nil left=0%pw; bottom=85%ph; top=80%ph; right=100%pw; > {
+                                                                              [left] => "0%pw"
+                                                                              [bottom] => "85%ph"
+                                                                              [top] => "80%ph"
+                                                                              [right] => "100%pw"
+                                                                            }
+                                                           [bottom] => function: 0x55826e9eb730
+                                                           [id] => "imprint"
+                                                           [width] => function: 0x55826e9eb390
+                                                           [balanced] => false
+                                                           [variables] => <Frame: imprint:  next=nil left=0%pw; bottom=85%ph; top=80%ph; right=100%pw; > {
+                                                                            [height] => table: 0x55826e9eaf30 {
+                                                                                          [name] => "imprint_height"
+                                                                                          [hashcode] => 101
+                                                                                        }
+                                                                            [left] => table: 0x55826e9eaf30 {
+                                                                                        [name] => "imprint_left"
+                                                                                        [hashcode] => 102
+                                                                                      }
+                                                                            [right] => table: 0x55826e9eaf30 {
+                                                                                         [name] => "imprint_right"
+                                                                                         [hashcode] => 106
+                                                                                       }
+                                                                            [bottom] => table: 0x55826e9eaf30 {
+                                                                                          [name] => "imprint_bottom"
+                                                                                          [hashcode] => 104
+                                                                                        }
+                                                                            [top] => table: 0x55826e9eaf30 {
+                                                                                       [name] => "imprint_top"
+                                                                                       [hashcode] => 105
+                                                                                     }
+                                                                            [width] => table: 0x55826e9eaf30 {
+                                                                                         [name] => "imprint_width"
+                                                                                         [hashcode] => 103
+                                                                                       }
+                                                                          }
+                                                           [top] => function: 0x55826e9eb9e0
+                                                           [right] => function: 0x55826e9ebd50
+                                                         }
+                                            [author] => table: 0x55826e9e8ee0 {
+                                                          [height] => function: 0x55826e9e9220
+                                                          [left] => function: 0x55826e9e9530
+                                                          [constraints] => <Frame: author:  next=nil left=0%pw; bottom=30%ph; top=20%ph; right=100%pw; > {
+                                                                             [left] => "0%pw"
+                                                                             [bottom] => "30%ph"
+                                                                             [top] => "20%ph"
+                                                                             [right] => "100%pw"
+                                                                           }
+                                                          [bottom] => function: 0x55826e9e9890
+                                                          [id] => "author"
+                                                          [width] => function: 0x55826e9e94f0
+                                                          [balanced] => false
+                                                          [variables] => <Frame: author:  next=nil left=0%pw; bottom=30%ph; top=20%ph; right=100%pw; > {
+                                                                           [height] => table: 0x55826e9e9070 {
+                                                                                         [name] => "author_height"
+                                                                                         [hashcode] => 89
+                                                                                       }
+                                                                           [left] => table: 0x55826e9e9070 {
+                                                                                       [name] => "author_left"
+                                                                                       [hashcode] => 90
+                                                                                     }
+                                                                           [right] => table: 0x55826e9e9070 {
+                                                                                        [name] => "author_right"
+                                                                                        [hashcode] => 94
+                                                                                      }
+                                                                           [bottom] => table: 0x55826e9e9070 {
+                                                                                         [name] => "author_bottom"
+                                                                                         [hashcode] => 92
+                                                                                       }
+                                                                           [top] => table: 0x55826e9e9070 {
+                                                                                      [name] => "author_top"
+                                                                                      [hashcode] => 93
+                                                                                    }
+                                                                           [width] => table: 0x55826e9e9070 {
+                                                                                        [name] => "author_width"
+                                                                                        [hashcode] => 91
+                                                                                      }
+                                                                         }
+                                                          [top] => function: 0x55826e9e9b40
+                                                          [right] => function: 0x55826e9e9eb0
+                                                        }
+                                          }
+                              [firstContentFrame] => table: 0x55826e9e8e60 {
+                                                       *<Frame: author:  next=nil left=0%pw; bottom=30%ph; top=20%ph; right=100%pw; >
+                                                     }
+                            }
+                 [maxrotated] => table: 0x55826e91faf0 {
+                                   [frames] => table: 0x55826e9ebdc0 {
+                                                 [content] => table: 0x55826e9ebf20 {
+                                                                [height] => function: 0x55826e9ed000
+                                                                [left] => function: 0x55826e9ed210
+                                                                [rotate] => "45"
+                                                                [constraints] => <Frame: content:  next=nil left=0; bottom=300%ph; top=-300%ph; right=300%pw; > {
+                                                                                   [left] => "0"
+                                                                                   [bottom] => "300%ph"
+                                                                                   [top] => "-300%ph"
+                                                                                   [right] => "300%pw"
+                                                                                 }
+                                                                [bottom] => function: 0x55826e9ed510
+                                                                [id] => "content"
+                                                                [width] => function: 0x55826e9ed1d0
+                                                                [balanced] => false
+                                                                [variables] => <Frame: content:  next=nil left=0; bottom=300%ph; top=-300%ph; right=300%pw; > {
+                                                                                 [height] => table: 0x55826e9ece10 {
+                                                                                               *[content_height:0]
+                                                                                             }
+                                                                                 [left] => table: 0x55826e9ece10 {
+                                                                                             *[content_left:0]
+                                                                                           }
+                                                                                 [right] => table: 0x55826e9ece10 {
+                                                                                              *[content_right:0]
+                                                                                            }
+                                                                                 [bottom] => table: 0x55826e9ece10 {
+                                                                                               *[content_bottom:0]
+                                                                                             }
+                                                                                 [top] => table: 0x55826e9ece10 {
+                                                                                            *[content_top:0]
+                                                                                          }
+                                                                                 [width] => table: 0x55826e9ece10 {
+                                                                                              *[content_width:0]
+                                                                                            }
+                                                                               }
+                                                                [top] => function: 0x55826e9ed850
+                                                                [right] => function: 0x55826e9eda00
+                                                              }
+                                                 [folio] => table: 0x55826e9ebf20 {
+                                                              *<Frame: folio:  next=nil left=0; bottom=0; top=0; right=0; >
+                                                            }
+                                               }
+                                   [firstContentFrame] => table: 0x55826e9ebdc0 {
+                                                            *<Frame: content:  next=nil left=0; bottom=300%ph; top=-300%ph; right=300%pw; >
+                                                          }
+                                 }
+                 [four] => table: 0x55826e91faf0 {
+                             [frames] => table: 0x55826e9e4300 {
+                                           [second] => table: 0x55826e9e4380 {
+                                                         [height] => function: 0x55826e9e4670
+                                                         [left] => function: 0x55826e9e48b0
+                                                         [next] => "third"
+                                                         [constraints] => <Frame: second:  next=third left=(50%pw-2.5%pw)+5%pw; bottom=50%ph-2.5%pw; top=5%pw; right=100%pw-5%pw; > {
+                                                                            [left] => "(50%pw-2.5%pw)+5%pw"
+                                                                            [bottom] => "50%ph-2.5%pw"
+                                                                            [top] => "5%pw"
+                                                                            [right] => "100%pw-5%pw"
+                                                                          }
+                                                         [bottom] => function: 0x55826e9e4c10
+                                                         [id] => "second"
+                                                         [width] => function: 0x55826e9e4870
+                                                         [balanced] => false
+                                                         [variables] => <Frame: second:  next=third left=(50%pw-2.5%pw)+5%pw; bottom=50%ph-2.5%pw; top=5%pw; right=100%pw-5%pw; > {
+                                                                          [height] => table: 0x55826e9e4470 {
+                                                                                        [name] => "second_height"
+                                                                                        [hashcode] => 59
+                                                                                      }
+                                                                          [left] => table: 0x55826e9e4470 {
+                                                                                      [name] => "second_left"
+                                                                                      [hashcode] => 60
+                                                                                    }
+                                                                          [right] => table: 0x55826e9e4470 {
+                                                                                       [name] => "second_right"
+                                                                                       [hashcode] => 64
+                                                                                     }
+                                                                          [bottom] => table: 0x55826e9e4470 {
+                                                                                        [name] => "second_bottom"
+                                                                                        [hashcode] => 62
+                                                                                      }
+                                                                          [top] => table: 0x55826e9e4470 {
+                                                                                     [name] => "second_top"
+                                                                                     [hashcode] => 63
+                                                                                   }
+                                                                          [width] => table: 0x55826e9e4470 {
+                                                                                       [name] => "second_width"
+                                                                                       [hashcode] => 61
+                                                                                     }
+                                                                        }
+                                                         [top] => function: 0x55826e9e4f80
+                                                         [right] => function: 0x55826e9e5160
+                                                       }
+                                           [folio] => table: 0x55826e9e4380 {
+                                                        *<Frame: folio:  next=nil left=0; bottom=0; top=0; right=0; >
+                                                      }
+                                           [first] => table: 0x55826e9e4380 {
+                                                        [height] => function: 0x55826e9e64b0
+                                                        [left] => function: 0x55826e9e66f0
+                                                        [next] => "second"
+                                                        [constraints] => <Frame: first:  next=second left=5%pw; bottom=50%ph-2.5%pw; top=5%pw; right=50%pw-2.5%pw; > {
+                                                                           [left] => "5%pw"
+                                                                           [bottom] => "50%ph-2.5%pw"
+                                                                           [top] => "5%pw"
+                                                                           [right] => "50%pw-2.5%pw"
+                                                                         }
+                                                        [bottom] => function: 0x55826e9e6a50
+                                                        [id] => "first"
+                                                        [width] => function: 0x55826e9e66b0
+                                                        [balanced] => false
+                                                        [variables] => <Frame: first:  next=second left=5%pw; bottom=50%ph-2.5%pw; top=5%pw; right=50%pw-2.5%pw; > {
+                                                                         [height] => table: 0x55826e9e62b0 {
+                                                                                       [name] => "first_height"
+                                                                                       [hashcode] => 71
+                                                                                     }
+                                                                         [left] => table: 0x55826e9e62b0 {
+                                                                                     [name] => "first_left"
+                                                                                     [hashcode] => 72
+                                                                                   }
+                                                                         [right] => table: 0x55826e9e62b0 {
+                                                                                      [name] => "first_right"
+                                                                                      [hashcode] => 76
+                                                                                    }
+                                                                         [bottom] => table: 0x55826e9e62b0 {
+                                                                                       [name] => "first_bottom"
+                                                                                       [hashcode] => 74
+                                                                                     }
+                                                                         [top] => table: 0x55826e9e62b0 {
+                                                                                    [name] => "first_top"
+                                                                                    [hashcode] => 75
+                                                                                  }
+                                                                         [width] => table: 0x55826e9e62b0 {
+                                                                                      [name] => "first_width"
+                                                                                      [hashcode] => 73
+                                                                                    }
+                                                                       }
+                                                        [top] => function: 0x55826e9e6d90
+                                                        [right] => function: 0x55826e9e6f70
+                                                      }
+                                           [fourth] => table: 0x55826e9e4380 {
+                                                         [height] => function: 0x55826e9e54f0
+                                                         [left] => function: 0x55826e9e5800
+                                                         [constraints] => <Frame: fourth:  next=nil left=(50%pw-2.5%pw)+5%pw; bottom=100%ph-5%pw; top=(50%ph-2.5%pw)+5%pw; right=100%pw-5%pw; > {
+                                                                            [left] => "(50%pw-2.5%pw)+5%pw"
+                                                                            [bottom] => "100%ph-5%pw"
+                                                                            [top] => "(50%ph-2.5%pw)+5%pw"
+                                                                            [right] => "100%pw-5%pw"
+                                                                          }
+                                                         [bottom] => function: 0x55826e9e5b60
+                                                         [id] => "fourth"
+                                                         [width] => function: 0x55826e9e57c0
+                                                         [balanced] => false
+                                                         [variables] => <Frame: fourth:  next=nil left=(50%pw-2.5%pw)+5%pw; bottom=100%ph-5%pw; top=(50%ph-2.5%pw)+5%pw; right=100%pw-5%pw; > {
+                                                                          [height] => table: 0x55826e9e5340 {
+                                                                                        [name] => "fourth_height"
+                                                                                        [hashcode] => 65
+                                                                                      }
+                                                                          [left] => table: 0x55826e9e5340 {
+                                                                                      [name] => "fourth_left"
+                                                                                      [hashcode] => 66
+                                                                                    }
+                                                                          [right] => table: 0x55826e9e5340 {
+                                                                                       [name] => "fourth_right"
+                                                                                       [hashcode] => 70
+                                                                                     }
+                                                                          [bottom] => table: 0x55826e9e5340 {
+                                                                                        [name] => "fourth_bottom"
+                                                                                        [hashcode] => 68
+                                                                                      }
+                                                                          [top] => table: 0x55826e9e5340 {
+                                                                                     [name] => "fourth_top"
+                                                                                     [hashcode] => 69
+                                                                                   }
+                                                                          [width] => table: 0x55826e9e5340 {
+                                                                                       [name] => "fourth_width"
+                                                                                       [hashcode] => 67
+                                                                                     }
+                                                                        }
+                                                         [top] => function: 0x55826e9e5e10
+                                                         [right] => function: 0x55826e9e6180
+                                                       }
+                                           [third] => table: 0x55826e9e4380 {
+                                                        [height] => function: 0x55826e9e8130
+                                                        [left] => function: 0x55826e9e8370
+                                                        [next] => "fourth"
+                                                        [constraints] => <Frame: third:  next=fourth left=5%pw; bottom=100%ph-5%pw; top=(50%ph-2.5%pw)+5%pw; right=50%pw-2.5%pw; > {
+                                                                           [left] => "5%pw"
+                                                                           [bottom] => "100%ph-5%pw"
+                                                                           [top] => "(50%ph-2.5%pw)+5%pw"
+                                                                           [right] => "50%pw-2.5%pw"
+                                                                         }
+                                                        [bottom] => function: 0x55826e9e86d0
+                                                        [id] => "third"
+                                                        [width] => function: 0x55826e9e8330
+                                                        [balanced] => false
+                                                        [variables] => <Frame: third:  next=fourth left=5%pw; bottom=100%ph-5%pw; top=(50%ph-2.5%pw)+5%pw; right=50%pw-2.5%pw; > {
+                                                                         [height] => table: 0x55826e9e7f10 {
+                                                                                       [name] => "third_height"
+                                                                                       [hashcode] => 83
+                                                                                     }
+                                                                         [left] => table: 0x55826e9e7f10 {
+                                                                                     [name] => "third_left"
+                                                                                     [hashcode] => 84
+                                                                                   }
+                                                                         [right] => table: 0x55826e9e7f10 {
+                                                                                      [name] => "third_right"
+                                                                                      [hashcode] => 88
+                                                                                    }
+                                                                         [bottom] => table: 0x55826e9e7f10 {
+                                                                                       [name] => "third_bottom"
+                                                                                       [hashcode] => 86
+                                                                                     }
+                                                                         [top] => table: 0x55826e9e7f10 {
+                                                                                    [name] => "third_top"
+                                                                                    [hashcode] => 87
+                                                                                  }
+                                                                         [width] => table: 0x55826e9e7f10 {
+                                                                                      [name] => "third_width"
+                                                                                      [hashcode] => 85
+                                                                                    }
+                                                                       }
+                                                        [top] => function: 0x55826e9e8a40
+                                                        [right] => function: 0x55826e9e8c20
+                                                      }
+                                         }
+                             [firstContentFrame] => table: 0x55826e9e4300 {
+                                                      *<Frame: first:  next=second left=5%pw; bottom=50%ph-2.5%pw; top=5%pw; right=50%pw-2.5%pw; >
+                                                    }
+                           }
+               }
+  [tableofcontents] => table: 0x55826e1231c0 {
+                       }
+}
+
