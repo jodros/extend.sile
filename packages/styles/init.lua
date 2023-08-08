@@ -50,8 +50,8 @@ local direction = function(option, content)
 end
 
 function package:registerCommands()
-	self:registerCommand("forprint", function() -- disables/enables features according to pdf purpose
-		if SILE.scratch.styles.forprint then     -- It doesn't need blank pages if it going to be only digital..
+	self:registerCommand("forprint", function(_, _) -- disables/enables features according to pdf purpose
+		if SILE.scratch.styles.forprint then -- It doesn't need blank pages if it going to be only digital..
 			SILE.call("open-spread")
 		else
 			SILE.call("supereject")
@@ -74,20 +74,33 @@ function package:registerCommands()
 		SILE.settings:set("document.letterspaceglue", SILE.length(options.letters))
 		SILE.settings:set("linespacing.method", "fixed")
 		SILE.settings:set("linespacing.fixed.baselinedistance", SILE.length(options.lines))
-	end)
+	end, "")
 
 
-	self:registerCommand("resetspace", function()
+	self:registerCommand("resetspace", function(_, _)
 		SILE.settings:set("shaper.variablespaces", true)
 		SILE.settings:set("document.spaceskip")
 		SILE.settings:set("linespacing.fixed.baselinedistance")
 		SILE.settings:set("document.letterspaceglue")
 		SILE.settings:set("document.parskip")
-	end)
+	end, "")
 
+
+	-- self:registerCommands("", function(_, _)
+	-- 	local frame = SILE.getFrame("content")
+	-- 	local left, right = frame:left(), frame:right()
+
+	-- 	SILE.call("breakframevertical")
+
+	-- 	local framew = SILE.typesetter.frame:width()
+	-- 	local epigraphw = width:absolute()
+	-- 	local skip = framew - epigraphw - margin
+	-- 	SILE.typesetter:leaveHmode()
+	-- end)
+	
 
 	-- END SPACING
- 
+
 
 
 	-- ALIGNMENTS

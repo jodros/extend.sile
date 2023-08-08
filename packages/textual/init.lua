@@ -67,25 +67,6 @@ function package:registerCommands()
 	end, "")
 
 
-	self:registerCommand("highlight", function(options, content)
-		options.space = options.space or "3.5%fh"
-
-		SILE.call("skip", { height = options.space })
-
-		SILE.call("font:main", {}, function()
-			SILE.call("center", {}, function()
-				SILE.call("em", {}, content)
-			end)
-		end)
-
-		SILE.call("skip", { height = options.space })
-	end)
-
-
-
-
-
-
 	self:registerCommand("chapter", function(options, content)
 		local lang = SILE.settings:get("document.language")
 
@@ -188,20 +169,44 @@ function package:registerCommands()
 		SILE.call("par")
 	end)
 
+	------------
+
+
+	self:registerCommand("citation", function(options, content) --- !!!!!!!
+		options.space = options.space or "3.5%fh"
+
+		SILE.call("skip", { height = options.space })
+
+		SILE.call("font:main", {}, function()
+			-- SILE.call("", {}, function()
+			SILE.call("em", {}, content)
+			-- end)
+		end)
+
+		if options.reference then
+			SILE.call("footnote", {}, function()
+				SILE.typesetter:typeset(options.reference)
+			end)
+		end
+
+
+		SILE.call("skip", { height = options.space })
+	end)
+
 
 	self:registerCommand("epigraph", function(options, content)
 		options.align = SILE.scratch.styles.alingments.epigraph or "left"
 
 		SILE.settings:temporarily(function()
 			local parindent =
-					options.parindent ~= nil and SU.cast("glue", options.parindent)
-					or SILE.settings:get("document.parindent")
+				options.parindent ~= nil and SU.cast("glue", options.parindent)
+				or SILE.settings:get("document.parindent")
 			local width =
-					options.width ~= nil and SU.cast("measurement", options.width)
-					or SILE.settings:get("epigraph.width")
+				options.width ~= nil and SU.cast("measurement", options.width)
+				or SILE.settings:get("epigraph.width")
 			local margin =
-					options.margin ~= nil and SU.cast("measurement", options.margin)
-					or SILE.settings:get("epigraph.margin")
+				options.margin ~= nil and SU.cast("measurement", options.margin)
+				or SILE.settings:get("epigraph.margin")
 
 			SILE.settings:set("document.parindent", parindent)
 
@@ -235,7 +240,7 @@ function package:registerCommands()
 				SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip))
 				-- SILE.call("shiftframeedge", { right = "-20%fw" })
 			else
-				-- undocumented because ugly typographically, IMHO
+				-- undocumented because ugly typographically, IMHO ??????
 				SILE.settings:set("document.lskip", SILE.nodefactory.glue((skip + margin) / 2))
 				SILE.settings:set("document.lskip", SILE.nodefactory.glue((skip + margin) / 2))
 			end
@@ -249,31 +254,13 @@ function package:registerCommands()
 				end)
 
 			if options.reference then
-				SILE.call("footnote", {}, function ()
+				SILE.call("footnote", {}, function()
 					SILE.typesetter:typeset(options.reference)
 				end)
 			end
 
-			SILE.call("par")
 
-			SILE.call("align", { item = SILE.scratch.styles.alingments.epigraph }, function()
-				SILE.call("font", {},
-					function()
-						if options.work then
-							SILE.typesetter:typeset(options.work .. ", ")
-						end
-
-						if options.author then
-							if options.dash == "true" then
-								SILE.call("dash")
-								SILE.typesetter:typeset(" ")
-							end
-
-							SILE.typesetter:typeset(options.author)
-						end
-					end)
-			end)
-
+			--- AUTHORS...
 
 
 			SILE.typesetter:leaveHmode()
