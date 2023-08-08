@@ -11,7 +11,7 @@ neverindent = false
 [options]
 latin2cyrillic = false       
 
-[book]
+
 
 ########################	
 
@@ -55,7 +55,7 @@ headers   = ["Cormorant",          "10pt", 500, false]
 imprint   = ["Cormorant Infant",   "16pt", 800, false]
 chapters  = ["Cormorant Infant",   "18pt", 700, false]
 epigraph  = ["Cormorant",          "0.9em", 500, false]
-footnotes = ["Baskervville",       "0.9em", 400, false]
+footnotes = ["Gilda Display",       "0.9em", 400, false] # Baskervville
 serial    = [false,                "3.5",  false, false]
 
 [spacing]

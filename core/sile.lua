@@ -148,8 +148,6 @@ SILE.scratch.styles.frames = frames
 
 SILE.scratch.options = config.options
 
-SILE.scratch.packlist = packlist.packages
-
 SILE.scratch.currentdir = lfs.currentdir()
 
 SILE.scratch.paths = {

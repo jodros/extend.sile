@@ -20,7 +20,6 @@ build = {
       ["sile.classes.plain"]                 = "classes/plain.lua",
 
       ["sile.aux.super"]                     = "aux/super.lua",
-      ["sile.aux.report"]                    = "aux/report.lua",
       -- ["sile.aux.orthography"]               = "aux/orthography.lua",
       ["sile.aux.transliteration"]           = "aux/transliteration.lua",
       ["sile.core.sile"]                     = "core/sile.lua",

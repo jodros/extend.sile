@@ -64,16 +64,16 @@ function class:_init(options)
         self:loadPackage(package)
     end
 
-    if self:currentMaster() == "right" then
-        self:loadPackage("twoside", {
-            oddPageMaster = "right",
-            evenPageMaster = "left"
-        })
+    self:loadPackage("twoside", {
+        oddPageMaster = "right",
+        evenPageMaster = "left"
+    })
 
+    if self:currentMaster() == "right" then
         self:mirrorMaster("right", "left")
     end
 
-    if SILE.scratch.book.language then
+    if SILE.scratch.book and SILE.scratch.book.language then
         SILE.settings:set("document.language", SILE.scratch.book.language)
     end
 
@@ -94,6 +94,18 @@ function class:declareOptions()
         end
         return SILE.documentState.direction
     end)
+
+    self:declareOption("mode", function ()
+        
+    end)
+
+    -- self:declareOption("layout", function(_, value)
+    --     if value == "abnt" then
+
+    --         self.layout = value
+    --     end
+    --     return self.layout
+    -- end)
 end
 
 function class:setOptions(options)

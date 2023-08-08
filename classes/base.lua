@@ -81,7 +81,7 @@ end
 function class:setOptions(options)
   options = options or {}
   options.papersize = options.papersize or SILE.scratch.styles.papersize or "a5" -- MODIFIED: it was a4 originally
-  options.landscape = options.landscape or false
+  options.orientation = options.orientation or "portrait"
   for option, value in pairs(options) do
     self.options[option] = value
   end
@@ -118,12 +118,15 @@ function class:declareOptions()
     end
     return self.papersize
   end)
-  self:declareOption("landscape", function (_, landscape)
-    if landscape then
-      self.landscape = landscape
-      SILE.scratch.styles.landscape = landscape
+  self:declareOption("orientation", function (_, orientation)
+    if orientation == "landscape" then
+      self.orientation = orientation
+      SILE.scratch.styles.landscape = true
+    else
+      self.orientation = "portrait"
+      SILE.scratch.styles.landscape = false
     end
-    return self.landscape
+    return self.orientation
   end)
 end
 
