@@ -294,6 +294,18 @@ function typesetter:typeset(text)
     SILE.scratch.index = words
   end
 
+  if io.open("index.csv", "r") ~= nil then
+    if not SILE.scratch.index then SILE.scratch.index = {} end
+
+    for _, words in ipairs(csv.parse("index.csv", ",")) do
+      for word in text:gmatch(words.index) do
+        add(word, SILE.scratch.counters.folio.value)
+      end
+    end
+
+    SILE.scratch.index = words
+  end
+
   text = tostring(text)
   if text:match("^%\r?\n$") then return end
   local pId = SILE.traceStack:pushText(text)
