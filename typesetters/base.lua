@@ -3,9 +3,6 @@
 -- @copyright License: MIT
 -- @module typesetters.base
 --
-local csv = require "ftcsv"
-local insp = require "inspect"
-local tab = require "tabular"
 -- Typesetter base class
 
 local typesetter = pl.class()
@@ -267,35 +264,8 @@ function typesetter:pushVpenalty(spec)
   return self:pushVertical(node)
 end
 
--- REMISSIVE INDEX FUNCTIONS
-
-local pages, words = {}, {}
-
-local function add(word, page)
-  if not words[word] then
-    words[word] = word .. " "
-  end
-  table.insert(pages, page)
-
-  if page ~= pages[#pages - 1] then -- avoids to repeat the same page number if the word appears more than once in the same page
-    words[word] = words[word] .. " " .. page
-  end
-end
-
 -- Actual typesetting functions
 function typesetter:typeset(text)
-  if io.open("index.csv", "r") ~= nil then
-    if not SILE.scratch.index then SILE.scratch.index = {} end
-
-    for _, words in ipairs(csv.parse("index.csv", ",")) do
-      for word in text:gmatch(words.index) do
-        add(word, SILE.scratch.counters.folio.value)
-      end
-    end
-
-    SILE.scratch.index = words
-  end
-
   text = tostring(text)
   if text:match("^%\r?\n$") then return end
   local pId = SILE.traceStack:pushText(text)
