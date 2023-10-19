@@ -1,78 +1,3 @@
---[[
-
-  this snippet of code was originally in the styles package, but it makes much more sense
-  that the .toml settings be loaded at the lowest level so it can cover the ecosystem as
-   a whole and all the info will be available to any other file of SILE since they declared here...
-
-------------------------------------------------------------------------------------------]]
-
-
-local inspect  = require("inspect")
-local super    = require "aux.super"
-local len      = require "tools".len
-local lfs      = require "lfs"
-
-local frames   = require "core.framesets"
-
-local home     = os.getenv("HOME")
-local conf     = home .. "/.luarocks/lib/luarocks/rocks-5.4/extend.sile/dev-1/config"
-local settings = lfs.currentdir() .. "/settings.toml"
-local fallback = conf .. "/styles/default.toml"
-
-local packlist = conf .. "/required.csv"
-
-local function getToml()
-  local first, second
-
-  if io.open(settings) ~= nil then
-    first = super(settings)
-  end
-  if io.open(fallback) ~= nil then
-    second = super(fallback)
-  end
-
-  return first, second
-end
-
-
-local function merge(localfile, fallback, count) -- it might run through both files and compare each item at the lowest level
-  local T, count = fallback, count or 1
-
-  -- print(inspect(fallback))
-  -- print(count)
-
-  if localfile == nil then
-    return fallback
-  end
-
-
-  for key, value in pairs(fallback) do -- ove rwrites any value declared in the localfile
-    if type(value) == "table" and localfile[key] then
-      T[key], count = merge(localfile[key], T[key], count)
-    elseif localfile[key] and localfile[key] ~= "" then
-      -- print("key: " .. key .. "\nfallback: " .. value .. "\nlocalfile: " .. localfile[key])
-      T[key] = localfile[key]
-    else
-      T[key] = fallback[key]
-    end
-  end
-
-  for key, value in pairs(localfile) do -- writes anything else from localfile thats is not in default
-    if not fallback[key] then
-      T[key] = value
-    end
-  end
-
-  return T, count + 1
-end
-
-
-local config = merge(getToml()) -- get final table
--- print(inspect(config))
-
-
-------------------------------------------------------------------------------------------
-
 -- Initialize SILE internals
 SILE = {}
 
@@ -112,9 +37,9 @@ SU = SILE.utilities -- regrettable global alias
 
 -- On demand loader, allows modules to be loaded into a specific scope but
 -- only when/if accessed.
-local core_loader = function(scope)
+local core_loader = function (scope)
   return setmetatable({}, {
-    __index = function(self, key)
+    __index = function (self, key)
       -- local var = rawget(self, key)
       local m = require(("%s.%s"):format(scope, key))
       self[key] = m
@@ -133,37 +58,9 @@ SILE.scratch = {}
 SILE.documentState = {}
 SILE.rawHandlers = {}
 
-
-
-------------------------------------------------------------------------------------------
--- the structure and hierarchy of the scratch table should be defined as soon as possible before it gets messed up!!! It must be documented!!!!
-
-if not SILE.scratch.styles then SILE.scratch.styles = {} end
-
-SILE.scratch.styles = config
-SILE.scratch.book = config.book
-SILE.scratch.test = config.test
-SILE.scratch.styles.frames = frames
-
-
-SILE.scratch.options = config.options
-
-SILE.scratch.currentdir = lfs.currentdir()
-
-SILE.scratch.paths = {
-  default = fallback,
-  localfile = settings
-}
-
-
-
-------------------------------------------------------------------------------------------
-
-
-
 -- User input values, currently from CLI options, potentially all the inuts
--- needed for a user to use a SILE-as-a-library verion to produce documents
--- programatically.
+-- needed for a user to use a SILE-as-a-library version to produce documents
+-- programmatically.
 SILE.input = {
   filenames = {},
   evaluates = {},
@@ -200,10 +97,10 @@ SILE.nodefactory = require("core.nodefactory")
 
 -- NOTE:
 -- See remainaing internal libraries loaded at the end of this file because
--- they run core SILE functions on load istead of waiting to be called (or
+-- they run core SILE functions on load instead of waiting to be called (or
 -- depend on others that do).
 
-local function runEvals(evals, arg)
+local function runEvals (evals, arg)
   for _, snippet in ipairs(evals) do
     local pId = SILE.traceStack:pushText(snippet)
     local status, func = pcall(load, snippet)
@@ -216,7 +113,7 @@ local function runEvals(evals, arg)
   end
 end
 
-SILE.init = function()
+SILE.init = function ()
   if not SILE.backend then
     SILE.backend = "libtexpdf"
   end
@@ -248,7 +145,7 @@ SILE.init = function()
   runEvals(SILE.input.evaluates, "evaluate")
 end
 
-SILE.use = function(module, options)
+SILE.use = function (module, options)
   local pack
   if type(module) == "string" then
     pack = require(module)
@@ -290,7 +187,7 @@ SILE.use = function(module, options)
   end
 end
 
-SILE.require = function(dependency, pathprefix, deprecation_ack)
+SILE.require = function (dependency, pathprefix, deprecation_ack)
   if pathprefix and not deprecation_ack then
     local notice = string.format([[
   Please don't use the path prefix mechanism; it was intended to provide
@@ -303,7 +200,9 @@ SILE.require = function(dependency, pathprefix, deprecation_ack)
   dependency = dependency:gsub(".lua$", "")
   local status, lib
   if pathprefix then
-    status, lib = pcall(require, pl.path.join(pathprefix, dependency))
+    -- Note this is not a *path*, it is a module identifier:
+    -- https://github.com/sile-typesetter/sile/issues/1861
+    status, lib = pcall(require, pl.stringx.join('.', { pathprefix, dependency }))
   end
   if not status then
     local prefixederror = lib
@@ -331,7 +230,7 @@ SILE.require = function(dependency, pathprefix, deprecation_ack)
   return lib
 end
 
-SILE.process = function(ast)
+SILE.process = function (ast)
   if not ast then return end
   if SU.debugging("ast") then
     SU.debugAST(ast, 0)
@@ -345,13 +244,13 @@ SILE.process = function(ast)
     elseif SILE.Commands[content.command] then
       SILE.call(content.command, content.options, content)
     elseif content.id == "texlike_stuff"
-        or (not content.command and not content.id) then
+      or (not content.command and not content.id) then
       local pId = SILE.traceStack:pushContent(content, "texlike_stuff")
       SILE.process(content)
       SILE.traceStack:pop(pId)
     elseif type(content) ~= "nil" then
       local pId = SILE.traceStack:pushContent(content)
-      SU.error("Unknown command " .. (tostring(content.command or content.id)))
+      SU.error("Unknown command "..(tostring(content.command or content.id)))
       SILE.traceStack:pop(pId)
     end
   end
@@ -359,7 +258,7 @@ end
 
 local preloadedinputters = { "xml", "lua", "sil" }
 
-local function detectFormat(doc, filename)
+local function detectFormat (doc, filename)
   -- Preload default reader types so content detection has something to work with
   if #SILE.inputters == 0 then
     for _, format in ipairs(preloadedinputters) do
@@ -370,7 +269,7 @@ local function detectFormat(doc, filename)
   for _, inputter in pairs(SILE.inputters) do
     if inputter.order then table.insert(contentDetectionOrder, inputter) end
   end
-  table.sort(contentDetectionOrder, function(a, b) return a.order < b.order end)
+  table.sort(contentDetectionOrder, function (a, b) return a.order < b.order end)
   local initialround = filename and 1 or 2
   for round = initialround, 3 do
     for _, inputter in ipairs(contentDetectionOrder) do
@@ -383,18 +282,18 @@ local function detectFormat(doc, filename)
   SU.error(("Unable to pick inputter to process input from '%s'"):format(filename))
 end
 
-function SILE.processString(doc, format, filename, options)
+function SILE.processString (doc, format, filename, options)
   local cpf
   if not filename then
     cpf = SILE.currentlyProcessingFile
     local caller = debug.getinfo(2, "Sl")
-    SILE.currentlyProcessingFile = caller.short_src .. ":" .. caller.currentline
+    SILE.currentlyProcessingFile = caller.short_src..":"..caller.currentline
   end
   -- In the event we're processing the master file *and* the user gave us
   -- a specific inputter to use, use it at the exclusion of all content type
   -- detection
   local inputter
-  if filename and pl.path.splitext(pl.path.normcase(filename)) == SILE.masterFilename and SILE.inputter then
+  if filename and pl.path.normcase(pl.path.normpath(filename)) == pl.path.normcase(SILE.input.filenames[1]) and SILE.inputter then
     inputter = SILE.inputter
   else
     format = format or detectFormat(doc, filename)
@@ -404,7 +303,7 @@ function SILE.processString(doc, format, filename, options)
     inputter = SILE.inputters[format](options)
     -- If we did content detection *and* this is the master file, save the
     -- inputter for posterity and postambles
-    if filename and pl.path.splitext(pl.path.normcase(filename)) == SILE.masterFilename then
+    if filename and pl.path.normcase(filename) == pl.path.normcase(SILE.input.filenames[1]:gsub("^-$", "STDIN")) then
       SILE.inputter = inputter
     end
   end
@@ -414,39 +313,34 @@ function SILE.processString(doc, format, filename, options)
   if cpf then SILE.currentlyProcessingFile = cpf end
 end
 
-function SILE.processFile(filename, format, options)
+function SILE.processFile (filename, format, options)
   local doc
   if filename == "-" then
     filename = "STDIN"
-    SILE.masterFilename = "STDIN"
     doc = io.stdin:read("*a")
   else
     -- Turn slashes around in the event we get passed a path from a Windows shell
     filename = filename:gsub("\\", "/")
     if not SILE.masterFilename then
-      -- Strip extension
-      SILE.masterFilename = string.match(filename, "(.+)%..-$") or filename
+      SILE.masterFilename = pl.path.splitext(pl.path.normpath(filename))
     end
-    if SILE.masterFilename and not SILE.masterDir then
-      SILE.masterDir = SILE.masterFilename:match("(.-)[^%/]+$")
+    if SILE.input.filenames[1] and not SILE.masterDir then
+      SILE.masterDir = pl.path.dirname(SILE.input.filenames[1])
     end
     if SILE.masterDir and SILE.masterDir:len() >= 1 then
       _G.extendSilePath(SILE.masterDir)
     end
-    filename = SILE.resolveFile(filename)
-    if not filename then
-      SU.error("Could not find file")
-    end
+    filename = SILE.resolveFile(filename) or SU.error("Could not find file")
     local mode = lfs.attributes(filename).mode
     if mode ~= "file" and mode ~= "named pipe" then
-      SU.error(filename .. " isn't a file or named pipe, it's a " .. mode .. "!")
+      SU.error(filename.." isn't a file or named pipe, it's a ".. mode .."!")
     end
     if SILE.makeDeps then
       SILE.makeDeps:add(filename)
     end
     local file, err = io.open(filename)
     if not file then
-      print("Could not open " .. filename .. ": " .. err)
+      print("Could not open "..filename..": "..err)
       return
     end
     doc = file:read("*a")
@@ -462,7 +356,7 @@ end
 
 -- TODO: this probably needs deprecating, moved here just to get out of the way so
 -- typesetters classing works as expected
-SILE.typesetNaturally = function(frame, func)
+SILE.typesetNaturally = function (frame, func)
   local saveTypesetter = SILE.typesetter
   if SILE.typesetter.frame then SILE.typesetter.frame:leave(SILE.typesetter) end
   SILE.typesetter = SILE.typesetters.base(frame)
@@ -475,19 +369,19 @@ SILE.typesetNaturally = function(frame, func)
 end
 
 -- Sort through possible places files could be
-function SILE.resolveFile(filename, pathprefix)
+function SILE.resolveFile (filename, pathprefix)
   local candidates = {}
   -- Start with the raw file name as given prefixed with a path if requested
-  if pathprefix then candidates[#candidates + 1] = pl.path.join(pathprefix, "?") end
+  if pathprefix then candidates[#candidates+1] = pl.path.join(pathprefix, "?") end
   -- Also check the raw file name without a path
-  candidates[#candidates + 1] = "?"
+  candidates[#candidates+1] = "?"
   -- Iterate through the directory of the master file, the SILE_PATH variable, and the current directory
   -- Check for prefixed paths first, then the plain path in that fails
   if SILE.masterDir then
-    for path in SU.gtoke(SILE.masterDir .. ";" .. tostring(os.getenv("SILE_PATH")), ";") do
+    for path in SU.gtoke(SILE.masterDir..";"..tostring(os.getenv("SILE_PATH")), ";") do
       if path.string and path.string ~= "nil" then
-        if pathprefix then candidates[#candidates + 1] = pl.path.join(path.string, pathprefix, "?") end
-        candidates[#candidates + 1] = pl.path.join(path.string, "?")
+        if pathprefix then candidates[#candidates+1] = pl.path.join(path.string, pathprefix, "?") end
+        candidates[#candidates+1] = pl.path.join(path.string, "?")
       end
     end
   end
@@ -496,13 +390,13 @@ function SILE.resolveFile(filename, pathprefix)
   local resolved, err = package.searchpath(filename, path, "/")
   if resolved then
     if SILE.makeDeps then SILE.makeDeps:add(resolved) end
-  else
-    SU.warn(("Unable to find file '%s': %s"):format(filename, err))
+  elseif SU.debugging("paths") then
+    SU.debug("paths", ("Unable to find file '%s': %s"):format(filename, err))
   end
   return resolved
 end
 
-function SILE.call(command, options, content)
+function SILE.call (command, options, content)
   options = options or {}
   content = content or {}
   if SILE.traceback and type(content) == "table" and not content.lno then
@@ -518,11 +412,11 @@ function SILE.call(command, options, content)
   return result
 end
 
-function SILE.registerCommand(name, func, help, pack, cheat)
+function SILE.registerCommand (name, func, help, pack, cheat)
   local class = SILE.documentState.documentClass
   if not cheat then
     SU.deprecated("SILE.registerCommand", "class:registerCommand", "0.14.0", "0.16.0",
-      [[Commands are being scoped to the document classes they are loaded into rather than being globals.]])
+    [[Commands are being scoped to the document classes they are loaded into rather than being globals.]])
   end
   -- Shimming until we have all scope cheating removed from core
   if not cheat or not class or class.type ~= "class" then
@@ -531,9 +425,9 @@ function SILE.registerCommand(name, func, help, pack, cheat)
   return class:registerCommand(name, func, help, pack)
 end
 
-function SILE.setCommandDefaults(command, defaults)
+function SILE.setCommandDefaults (command, defaults)
   local oldCommand = SILE.Commands[command]
-  SILE.Commands[command] = function(options, content)
+  SILE.Commands[command] = function (options, content)
     for k, v in pairs(defaults) do
       options[k] = options[k] or v
     end
@@ -541,7 +435,7 @@ function SILE.setCommandDefaults(command, defaults)
   end
 end
 
-function SILE.registerUnit(unit, spec)
+function SILE.registerUnit (unit, spec)
   -- If a unit exists already, clear it first so we get fresh meta table entries, see #1607
   if SILE.units[unit] then
     SILE.units[unit] = nil
@@ -549,12 +443,12 @@ function SILE.registerUnit(unit, spec)
   SILE.units[unit] = spec
 end
 
-function SILE.paperSizeParser(size)
+function SILE.paperSizeParser (size)
   -- SU.deprecated("SILE.paperSizeParser", "SILE.papersize", "0.10.0", nil)
   return SILE.papersize(size)
 end
 
-function SILE.finish()
+function SILE.finish ()
   if SILE.makeDeps then
     SILE.makeDeps:write()
   end
@@ -566,7 +460,7 @@ function SILE.finish()
   end
   if SU.debugging("profile") then
     ProFi:stop()
-    ProFi:writeReport(SILE.masterFilename .. '.profile.txt')
+    ProFi:writeReport(pl.path.splitext(SILE.input.filenames[1]) .. '.profile.txt')
   end
   if SU.debugging("versions") then
     SILE.shaper:debugVersions()
