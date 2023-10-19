@@ -267,16 +267,6 @@ function typesetter:pushVpenalty(spec)
   return self:pushVertical(node)
 end
 
-local transliterate = require "aux.transliteration" -- only cyrillic by now
-
-local function prepareTransliteration()
-  local language = 'ru'
-  SILE.settings:set("document.language", language)
-  fluent:set_locale(language)
-  SILE.languageSupport.loadLanguage(language)
-  -- print(SILE.settings:get("document.language"))
-end
-
 -- REMISSIVE INDEX FUNCTIONS
 
 local pages, words = {}, {}
@@ -294,7 +284,6 @@ end
 
 -- Actual typesetting functions
 function typesetter:typeset(text)
-
   if io.open("index.csv", "r") ~= nil then
     if not SILE.scratch.index then SILE.scratch.index = {} end
 
@@ -305,13 +294,6 @@ function typesetter:typeset(text)
     end
 
     SILE.scratch.index = words
-  end
-
-
-  -- Converts WHOLE content at once!
-  if SILE.scratch.options.latin2cyrillic then
-    prepareTransliteration()
-    text = transliterate(text)
   end
 
   text = tostring(text)
@@ -489,14 +471,11 @@ function typesetter:buildPage()
   self:setVerticalGlue(pageNodeList, self:getTargetLength())
   self:outputLinesToPage(pageNodeList)
 
-
-  if SILE.scratch.test.show then -- all frames of all pages are showed
+  if SILE.scratch.test.show then -- all frames of all pages are shown
     for _, frame in pairs(SILE.frames) do
       SILE.outputter:debugFrame(frame)
     end
   end
-
-
 
   return true
 end

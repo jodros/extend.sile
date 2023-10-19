@@ -1,21 +1,11 @@
-# Settings specifications for SILE's classes 
-# firstContentFrame must always be named as "content", "first", "head" or "" for the sake of convenience
-# It's not allowed to use the minus sign '-' for table title here, since they going to be reused in the lua code, so please use the lua naming convention here as well...   
-
-# papersize = "a5"
+layout = "generic" 
+papersize = "a5"
 folios      = true   
 forprint    = false
 landscape   = false
 neverindent = false
 
-[options]
-latin2cyrillic = false       
-
-
-
 ########################	
-
-
 
 [garnish]
 black        = "■"
@@ -28,7 +18,6 @@ gridTrans    = "▨ ▧"
 crossed      = "▩"
 loopedSquare = "⌘"
 triangular   = "⁂"
-
 
 
 [alingments]
@@ -88,3 +77,4 @@ height = "20"
 [colors]
 main      = "#055bf0"
 secondary = "#ffd900"
+

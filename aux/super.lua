@@ -58,4 +58,37 @@ local super = function(path, typeofreturn)   --  parses toml files
 	return output
 end
 
+
+local function merge(localfile, fallback, count) -- it might run through both files and compare each item at the lowest level
+  local T, count = fallback, count or 1
+
+  -- print(inspect(fallback))
+  -- print(count)
+
+  if localfile == nil then
+    return fallback
+  end
+
+
+  for key, value in pairs(fallback) do -- ove rwrites any value declared in the localfile
+    if type(value) == "table" and localfile[key] then
+      T[key], count = merge(localfile[key], T[key], count)
+    elseif localfile[key] and localfile[key] ~= "" then
+      -- print("key: " .. key .. "\nfallback: " .. value .. "\nlocalfile: " .. localfile[key])
+      T[key] = localfile[key]
+    else
+      T[key] = fallback[key]
+    end
+  end
+
+  for key, value in pairs(localfile) do -- writes anything else from localfile thats is not in default
+    if not fallback[key] then
+      T[key] = value
+    end
+  end
+
+  return T, count + 1
+end
+
+
 return super

@@ -62,28 +62,26 @@ local papersize = {
   dsheet = { 1584, 2448 },
   esheet = { 2448, 3168 }
 }
--- ADD SUPPORT TO LANDSCAPE
+
 setmetatable(papersize, {
-  __call = function(self, size)
-    local _, _, x, y = string.find(size, "(.+)%s+x%s+(.+)")
-    if x and y then
-      return { SILE.measurement(x):tonumber(), SILE.measurement(y):tonumber() }
-    else
-      size = string.lower(size:gsub("[-%s]+", ""))
-      if self[size] then
-        if SILE.scratch.styles.landscape then
-          self[size][1], self[size][2] = self[size][2], self[size][1] -- Inverts the values in order to make it in landscape orientation
-          return self[size]
-        else
+    __call = function (self, size, landscape)
+      local _, _, x, y = string.find(size, "(.+)%s+x%s+(.+)")
+      if x and y then
+        return { SILE.measurement(x):tonumber(), SILE.measurement(y):tonumber() }
+      else
+        size = string.lower(size:gsub("[-%s]+", ""))
+        if self[size] then
+          if SU.boolean(landscape) then
+            self[size][1], self[size][2] = self[size][2], self[size][1]
+          end
           return self[size]
         end
       end
+      SU.error(string.format([[Unable to parse papersize '%s'.
+  Custom sizes may be entered with 'papersize=<measurement> x <measurement>'.
+  Predefined paper sizes include: %s]],
+  size, table.concat(pl.tablex.keys(papersize), ", ")))
     end
-    SU.error(string.format([[Unable to parse papersize '%s'.
-    Custom sizes may be entered with 'papersize=<measurement> x <measurement>'.
-    Predefined paper sizes include: %s]],
-      size, table.concat(pl.tablex.keys(papersize), ", ")))
-  end
-})
+  })
 
 return papersize
