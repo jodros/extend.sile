@@ -7,8 +7,6 @@ package._name = "textual"
 
 function package:_init()
 	base._init(self)
-
-	if not SILE.scratch.headers then SILE.scratch.headers = {} end
 end
 
 function package.declareSettings(_)
@@ -41,7 +39,6 @@ function package:registerCommands()
 			end
 		end
 
-
 		SILE.call("skip", { height = "4%ph" })
 		SILE.call("align", { item = "center" }, function()
 			SILE.call("font", { family = options.font(), size = options.size, weight = options.weight }, function()
@@ -57,15 +54,11 @@ function package:registerCommands()
 		SILE.call("skip", { height = "4%ph" })
 	end, "")
 
-
-
-
 	self:registerCommand("dash", function()
 		SILE.call("font", { style = "normal" }, function()
 			SILE.typesetter:typeset("―")
 		end)
 	end, "")
-
 
 	self:registerCommand("chapter", function(options, content)
 		local lang = SILE.settings:get("document.language")
@@ -170,148 +163,14 @@ function package:registerCommands()
 	end)
 
 	------------
-
-
-	self:registerCommand("citation", function(options, content) --- !!!!!!!
-		options.space = options.space or "3.5%fh"
-
-		SILE.call("skip", { height = options.space })
-
-		SILE.call("font:main", {}, function()
-			-- SILE.call("", {}, function()
-			SILE.call("em", {}, content)
-			-- end)
-		end)
-
-		if options.reference then
-			SILE.call("footnote", {}, function()
-				SILE.typesetter:typeset(options.reference)
-			end)
-		end
-
-
-		SILE.call("skip", { height = options.space })
-	end)
-
-
-	self:registerCommand("epigraph", function(options, content)
-		options.align = SILE.scratch.styles.alingments.epigraph or "left"
-
-		SILE.settings:temporarily(function()
-			local parindent =
-				options.parindent ~= nil and SU.cast("glue", options.parindent)
-				or SILE.settings:get("document.parindent")
-			local width =
-				options.width ~= nil and SU.cast("measurement", options.width)
-				or SILE.settings:get("epigraph.width")
-			local margin =
-				options.margin ~= nil and SU.cast("measurement", options.margin)
-				or SILE.settings:get("epigraph.margin")
-
-			SILE.settings:set("document.parindent", parindent)
-
-			SILE.call("neverindent")
-
-			options.lines = options.lines or "10%lh" -- line height
-
-			SILE.settings:set("linespacing.method", "fixed")
-			SILE.settings:set("linespacing.fixed.baselinedistance", SILE.length(options.lines))
-
-			SILE.call("noindent")
-
-			SILE.call("skip", { height = "4%ph" })
-
-			local frame = SILE.getFrame("content")
-			local left, right = frame:left(), frame:right()
-
-			SILE.call("breakframevertical")
-
-			local framew = SILE.typesetter.frame:width()
-			local epigraphw = width:absolute()
-			local skip = framew - epigraphw - margin
-			SILE.typesetter:leaveHmode()
-
-			if SILE.scratch.styles.alingments.epigraph == "right" then
-				SILE.settings:set("document.lskip", SILE.nodefactory.glue(skip))
-				SILE.settings:set("document.rskip", SILE.nodefactory.glue(margin))
-				-- SILE.call("shiftframeedge", { left = "20%fw" })
-			elseif SILE.scratch.styles.alingments.epigraph == "left" then
-				SILE.settings:set("document.lskip", SILE.nodefactory.glue(margin))
-				SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip))
-				-- SILE.call("shiftframeedge", { right = "-20%fw" })
-			else
-				-- undocumented because ugly typographically, IMHO ??????
-				SILE.settings:set("document.lskip", SILE.nodefactory.glue((skip + margin) / 2))
-				SILE.settings:set("document.lskip", SILE.nodefactory.glue((skip + margin) / 2))
-			end
-
-
-
-			SILE.call("font",
-				{ family = SILE.scratch.styles.fonts.epigraph[1], size = SILE.scratch.styles.fonts.epigraph[2] },
-				function()
-					SILE.call("em", {}, content)
-				end)
-
-			if options.reference then
-				SILE.call("footnote", {}, function()
-					SILE.typesetter:typeset(options.reference)
-				end)
-			end
-
-
-			--- AUTHORS...
-
-
-			SILE.typesetter:leaveHmode()
-			SILE.call("skip", { height = "5%ph" })
-
-			SILE.call("indent")
-		end)
-		-- SILE.call("breakframevertical")
-
-		-- if SILE.scratch.styles.alingments.epigraph == "right" then
-		-- 	SILE.call("shiftframeedge", { left = "-20%fw" })
-		-- elseif SILE.scratch.styles.alingments.epigraph == "left" then
-		-- 	SILE.call("shiftframeedge", { right = "20%fw	" })
-		-- end
-	end, "")
-
-
-
-	self:registerCommand("internal-quote", function(options, content)
-		SILE.call("hfill")
-		SILE.call("breakframevertical")
-		SILE.call("shiftframeedge", { left = "10%pw", right = "-10%pw" })
-
-		SILE.call("par")
-		--ySILE.call("showframe", { id = "all" })
-
-		SILE.call("center", {}, function()
-			SILE.call("noindent")
-
-			SILE.call("skip", { height = "4%ph" })
-			--		SILE.call("font", { family = "gabriela", size = "11pt" }, function () 	
-			SILE.call("em", {}, content)
-			--		end)
-
-			SILE.call("par")
-		end)
-
-		SILE.call("breakframevertical")
-	end)
 end
 
 package.documentation = [[
 \begin{document}
 
-
-
-offers a bunch of dingbats and pontuaction marks like \code{\dash} \autodoco:command{\dash}
-
+offers a bunch of dingbats and pontuaction marks like \code{\dash} \autodoc:command{\dash}
 
 The commands that can be changed through the \code{setings.toml} file are the following
-
 
 SUPPORTED SYMBOLS:
 black        = \font:special{■}
