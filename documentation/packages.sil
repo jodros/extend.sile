@@ -1,12 +1,5 @@
 \begin{document}
 
-\front 
-
-
-\chapter{Introduction and core changes}
-
-
-
 \package-documentation{styles}
 \package-documentation{textual}
 \package-documentation{extra-textual}

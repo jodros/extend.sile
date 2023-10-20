@@ -11,6 +11,7 @@ dependencies = {
   "lua >= 5.1",
   "inspect",
   "ftcsv",
+  "datafile",
   "toml"
 }
 build = {

@@ -1,7 +1,6 @@
 local base    = require("packages.base")
 -- local color   = require("lua-color")
 local inspect = require("inspect")
-local super   = require "aux.super"
 --local len     = require "tools".len
 
 local package = pl.class(base)
@@ -85,26 +84,9 @@ function package:registerCommands()
 		SILE.settings:set("document.parskip")
 	end, "")
 
-
-	-- self:registerCommands("", function(_, _)
-	-- 	local frame = SILE.getFrame("content")
-	-- 	local left, right = frame:left(), frame:right()
-
-	-- 	SILE.call("breakframevertical")
-
-	-- 	local framew = SILE.typesetter.frame:width()
-	-- 	local epigraphw = width:absolute()
-	-- 	local skip = framew - epigraphw - margin
-	-- 	SILE.typesetter:leaveHmode()
-	-- end)
-	
-
 	-- END SPACING
 
-
-
 	-- ALIGNMENTS
-
 
 	self:registerCommand("align", function(options, content)
 		direction(options.item, content)
@@ -121,16 +103,9 @@ function package:registerCommands()
 
 	-- END ALIGNMENTS
 
-
-
-
 	-- FONTS
 
-	local items = { "chapters", "main", "imprint", "isbn", "title",
-		"author", "footnotes", "epigraph", "folio", "headers",
-		"special", "toc" }
-
-	for _, item in ipairs(items) do
+	for _, item in ipairs(SILE.scratch.styles.fonts) do
 		self:registerCommand("font:" .. item, function(options, content)
 			options.color = options.color or SILE.scratch.styles.fonts[item][4] or "#000000" -- default is black
 
