@@ -264,6 +264,21 @@ function typesetter:pushVpenalty(spec)
   return self:pushVertical(node)
 end
 
+-- REMISSIVE INDEX FUNCTIONS
+
+local pages, words = {}, {}
+
+local function add(word, page)
+  if not words[word] then
+    words[word] = word .. " "
+  end
+  table.insert(pages, page)
+
+  if page ~= pages[#pages - 1] then -- avoids to repeat the same page number if the word appears more than once in the same page
+    words[word] = words[word] .. " " .. page
+  end
+end
+
 -- Actual typesetting functions
 function typesetter:typeset(text)
   if io.open("index.csv", "r") ~= nil then
