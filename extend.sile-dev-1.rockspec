@@ -20,7 +20,7 @@ build = {
     ["sile.classes.base"]                = "classes/base.lua",
     ["sile.classes.plain"]               = "classes/plain.lua",
 
-    ["sile.aux.gatherer"]                = "aux/gatherer.lua",
+    ["sile.aux.super"]                   = "aux/super.lua",
     ["sile.core.sile"]                   = "core/sile.lua",
     ["sile.core.font"]                   = "core/font.lua",
     ["sile.core.papersize"]              = "core/papersize.lua",
