@@ -1,24 +1,4 @@
-layout = "generic" 
 papersize = "a5"
-folios      = true   
-forprint    = false
-landscape   = false
-neverindent = false
-
-########################	
-
-[garnish]
-black        = "■"
-white        = "□"
-double       = "▣"
-gridV        = "▥"
-gridH        = "▤"
-chess        = "▦"
-gridTrans    = "▨ ▧"
-crossed      = "▩"
-loopedSquare = "⌘"
-triangular   = "⁂"
-
 
 [alingments]
 toc             = "right"
@@ -46,39 +26,6 @@ chapters  = ["Cormorant Infant",   "18pt", 700, false]
 epigraph  = ["Cormorant",          "0.9em", 500, false]
 footnotes = ["Gilda Display",       "0.9em", 400, false] # Baskervville
 serial    = [false,                "3.5",  false, false]
-
-[spacing]
-words      = false
-lines      = false
-letters    = false
-paragraphs = false
-
-[headings]
-topMargin = false
-running   = false
-
-[toc] # this is likely going to be used for list of illustrations and abbreviations as well...
-double = false
-
-[test]
-show = false
-
-[ellipsis]
-symbol = "triangular"
-rotate = false
-
-[dingbats]
-amount = 500
-
-[dingbats.ratio]
-width  = "10"
-height = "20"
-
-[colors]
-main      = "#055bf0"
-secondary = "#ffd900"
-
-
 
 [frames.right.content]
 left = "top(footnotes)-1%ph"
