@@ -72,6 +72,15 @@ SILE.input = {
   postambles = {},
 }
 
+------------------------------------------------------------------------
+
+local geToml = require "aux.gatherer".geToml()
+
+SILE.scratch.styles = geToml()
+SILE.scratch.config = SILE.scratch.styles
+
+------------------------------------------------------------------------
+
 -- Internal libraries that are idempotent and return classes that need instantiation
 SILE.inputters = core_loader("inputters")
 SILE.shapers = core_loader("shapers")

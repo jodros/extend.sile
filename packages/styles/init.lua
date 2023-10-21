@@ -1,7 +1,6 @@
 local base    = require("packages.base")
 -- local color   = require("lua-color")
 local inspect = require("inspect")
---local len     = require "tools".len
 
 local package = pl.class(base)
 package._name = "styles"
@@ -27,14 +26,6 @@ function package:_init(options)
 
 	if SILE.scratch.styles.spacing.paragraphs then
 		SILE.settings:set("document.parskip", SILE.length(SILE.scratch.styles.spacing.paragraphs))
-	end
-
-
-	---------------------------------------------------------------------------------------------
-
-
-	if SILE.scratch.styles.folios == false then
-		SILE.call("nofolios")
 	end
 end
 

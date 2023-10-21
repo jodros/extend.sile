@@ -1,18 +1,18 @@
-local lfs   = require "lfs"
-local toml  = require 'toml'
-local insp  = require "inspect"
+local lfs      = require "lfs"
+local toml     = require 'toml'
+local insp     = require "inspect"
 local datafile = require "datafile"
 
-local folio = {
-	bottom = "0",
-	left = "0",
-	right = "0",
-	top = "0"
+local folio    = {
+  bottom = "0",
+  left = "0",
+  right = "0",
+  top = "0"
 }
 
 local gatherer = {}
 
-function gatherer.super(file, typeofreturn)   --  parses toml files
+function gatherer.super(file, typeofreturn) --  parses toml files
   local raw
 
   if type(file) == "userdata" then
@@ -20,36 +20,25 @@ function gatherer.super(file, typeofreturn)   --  parses toml files
     raw = assert(io.open(tostring(file), "r")):read("*all")
   end
 
-	if typeofreturn == "string" then -- to show it as verbatim in the documentation
-		string.gsub(raw, "\n", "\n\n\n")
-		return raw
-	end
+  if typeofreturn == "string" then -- to show it as verbatim in the documentation
+    string.gsub(raw, "\n", "\n\n\n")
+    return raw
+  end
 
-	local status
-	local input, output = {}, { frames = {} }
-	status, input = pcall(toml.decode, raw)
+  local status
+  local input, output = {}, { frames = {} }
+  status, input = pcall(toml.decode, raw)
 
-	if status then
-		for i, j in pairs(input) do
-			if j ~= input.frame then
-				output[i] = j
-			end
-		end
-	else
-		print("CANNOT OPEN: " .. file)
-	end
-	return output
-end
-
-function gatherer.geToml()
-  local home = os.getenv("HOME")
-  local path = {
-    datafile.open("default.toml"),
-    home .. "/.sile/default.toml",
-    --datafile.open(layouts/),
-    --home .. "/.sile/layouts/"
-    lfs.currentdir() .. "/settings.toml"
-  }
+  if status then
+    for i, j in pairs(input) do
+      if j ~= input.frame then
+        output[i] = j
+      end
+    end
+  else
+    print("CANNOT OPEN: " .. file)
+  end
+  return output
 end
 
 function gatherer.merge(fallback, localfile, count) -- it runs through both files and compare each item at the lowest level
@@ -76,6 +65,21 @@ function gatherer.merge(fallback, localfile, count) -- it runs through both file
   end
 
   return T, count + 1
+end
+
+function gatherer.geToml()
+  local home = os.getenv("HOME")
+  local path = {
+    datafile.open("default.toml"),
+    home .. "/.sile/default.toml",
+    --datafile.open(layouts/),
+    --home .. "/.sile/layouts/"
+    lfs.currentdir() .. "/settings.toml"
+  }
+
+  local config = gatherer.merge(gatherer.super(path[1]), gatherer.super(path[2]))
+
+  return config
 end
 
 return gatherer
