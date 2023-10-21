@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 layout = "generic" 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 papersize = "a5"
 folios      = true   
 forprint    = false
 landscape   = false
 neverindent = false
 
-<<<<<<< HEAD
 ########################	
 
 [garnish]
@@ -24,8 +20,6 @@ loopedSquare = "⌘"
 triangular   = "⁂"
 
 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 [alingments]
 toc             = "right"
 folio           = "center"
@@ -37,10 +31,7 @@ imprint         = "center"
 editionNotice   = "center"
 acknowledgement = "center"
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 [fonts] # [family, size, weight, color]
 toc       = ["Cormorant Upright",  "10pt", 400, false]
 isbn      = ["Cormorant",          "11pt", 300, false]
@@ -54,7 +45,6 @@ imprint   = ["Cormorant Infant",   "16pt", 800, false]
 chapters  = ["Cormorant Infant",   "18pt", 700, false]
 epigraph  = ["Cormorant",          "0.9em", 500, false]
 footnotes = ["Gilda Display",       "0.9em", 400, false] # Baskervville
-<<<<<<< HEAD
 serial    = [false,                "3.5",  false, false]
 
 [spacing]
@@ -62,8 +52,6 @@ words      = false
 lines      = false
 letters    = false
 paragraphs = false
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 
 [headings]
 topMargin = false
@@ -72,17 +60,13 @@ running   = false
 [toc] # this is likely going to be used for list of illustrations and abbreviations as well...
 double = false
 
-<<<<<<< HEAD
 [test]
 show = false
 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 [ellipsis]
 symbol = "triangular"
 rotate = false
 
-<<<<<<< HEAD
 [dingbats]
 amount = 500
 
@@ -90,8 +74,6 @@ amount = 500
 width  = "10"
 height = "20"
 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
 [colors]
 main      = "#055bf0"
 secondary = "#ffd900"
@@ -120,10 +102,7 @@ right = ""
 top = ""
 bottom = ""
 
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> 54ecdb5 (A bit of progress to make toml files as before)
