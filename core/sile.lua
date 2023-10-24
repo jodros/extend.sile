@@ -91,18 +91,6 @@ end
 
 because this way allows the user to manipulate the values in .sil documents
 ]]
---[[ or should be 
-
-table.insert(SILE.documentState, geToml())
-
-or even
-
-for name, setting in pairs(getToml) do
-  SILE.settings:set(name, setting)
-end
-
-because this way allows the user to manipulate the values in .sil documents
-]]
 ------------------------------------------------------------------------
 
 -- Internal libraries that are idempotent and return classes that need instantiation
