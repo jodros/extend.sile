@@ -77,6 +77,15 @@ SILE.input = {
 local geToml = require "aux.gatherer".geToml()
 
 SILE.scratch.styles = geToml()
+--[[
+SILE.scratch.styles = setmetatable(geToml(), {
+  __tostring = function()
+    return require"inspect"(SILE.scratch.styles) -- how one could just print the tables with inspect without having to require the pkg in every file????   
+  end
+})
+
+]]
+
 -- print(insp(SILE.scratch.styles))
 SILE.scratch.config = SILE.scratch.styles
 --[[ or should be 
