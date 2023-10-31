@@ -1,7 +1,7 @@
 TODO
 
 - [] load styling options from `toml` files
-  - [] support config files from multiple directories with the following priority:
+  - [X] support config files from multiple directories with the following priority:
     - working directory - `settings.toml`
     - `.sile` folder in home to overwrite the defaults from the rock
     - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
@@ -9,5 +9,4 @@ TODO
   - [] styles
   - [] textual
   - [] extra-textual
-- [] add new paper sizes to `core/papersize.lua`
-
+- [] `SILE_PATH`: and about `~/.sile`? 
