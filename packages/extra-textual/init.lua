@@ -1,5 +1,4 @@
 local base = require "packages.base"
-local super = require "aux.super"
 local inspect = require "inspect"
 
 

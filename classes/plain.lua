@@ -3,8 +3,8 @@ local base              = require("classes.base")
 local class             = pl.class(base)
 class._name             = "plain"
 
-class.defaultFrameset   = nil
-class.firstContentFrame = nil
+class.defaultFrameset   = SILE.scratch.styles.frames.right
+class.firstContentFrame = "content"
 
 local skips             = {
   small = "3pt plus 1pt minus 1pt",
@@ -36,9 +36,9 @@ local packlist          = {
   --    "barcodes.ean13",
   --    "qrcode",
   --    "printoptions"
-  "extend.textual",
-  "extend.styles",
-  "extend.extra-textual",
+  "textual",
+  "styles",
+  "extra-textual",
 
 }
 
@@ -46,16 +46,13 @@ local packlist          = {
 function class:_init(options)
   base._init(self, options)
 
-
   self:loadPackage("bidi")
-  self:loadPackage("folio")
+  self:loadPackage("extend.folio")
   self:loadPackage("masters")
 
-
   for key, value in pairs(SILE.scratch.styles.frames) do
-    self:defineMaster({ id = key, firstContentFrame = value.first, frames = value.frameset })
+    self:defineMaster({ id = key, firstContentFrame = "content" or "first", frames = value })
   end
-
 
   for _, package in ipairs(packlist) do
     self:loadPackage(package)
