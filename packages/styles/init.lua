@@ -124,7 +124,7 @@ The \autodoc:package{styles} package was created for the sake of simplicity when
 
 \chapter{default.toml}
 \verbatim{
--- ]] .. super(SILE.scratch.paths.default, "string") .. [[}
+-- ]] .. "super(SILE.scratch.paths.default, 'string')" .. [[}
 \bigskip
 
 So let us say you want to set the
