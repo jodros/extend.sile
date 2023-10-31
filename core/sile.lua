@@ -74,11 +74,23 @@ SILE.input = {
 
 ------------------------------------------------------------------------
 
-local geToml = require "core.gatherer"
+local geToml = require "aux.gatherer".geToml()
 
 SILE.scratch.styles = geToml()
 -- print(insp(SILE.scratch.styles))
 SILE.scratch.config = SILE.scratch.styles
+--[[ or should be 
+
+table.insert(SILE.documentState, geToml())
+
+or even
+
+for name, setting in pairs(getToml) do
+  SILE.settings:set(name, setting)
+end
+
+because this way allows the user to manipulate the values in .sil documents
+]]
 --[[ or should be 
 
 table.insert(SILE.documentState, geToml())
