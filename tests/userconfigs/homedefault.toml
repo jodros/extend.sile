@@ -1,0 +1,61 @@
+papersize = "a5"
+layout = "generic"
+
+[alingments]
+toc             = "right"
+folio           = "center"
+chapter         = "left"
+epigraph        = "right"
+title           = "center"
+author          = "center"
+imprint         = "center"
+editionNotice   = "center"
+acknowledgement = "center"
+
+[fonts]   # [family, size, weight, variant, style, color]
+toc       = ["Cormorant Upright",  "10pt", 400, "smallcaps", "", false]
+isbn      = ["Cormorant",          "11pt", 300, "", "", false]
+main      = ["Gentium", "13pt", 400, "", "", false]
+title     = ["Cormorant",          "20pt", 600, "", "", false]
+folio     = ["Cormorant Infant",   "11pt", 500, "", "", false]
+author    = ["Cormorant",          "15pt", 700, "", "", false]
+special   = ["Noto Sans JP",       "16pt", 100, "", "", false]      # for characters like ▩▤▧⌘
+headers   = ["Cormorant",          "10pt", 500, "smallcaps", "", false]
+imprint   = ["Cormorant Infant",   "16pt", 800, "", "", false]
+chapters  = ["Cormorant Infant",   "18pt", 700, "", "", false]
+epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
+footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
+serial    = [false,                "3.5",  false, "", "", false]
+
+[frames.right.content]
+left = "(100%pw-50%ph)/2"
+right = "100%pw-((100%pw-50%ph)/2)"
+top = "(100%ph-100%pw)/2"
+bottom = "top(footnotes)-1%ph"
+[frames.right.folio]
+left = "left(content)"
+right = "right(content)"
+top = "bottom(footnotes)+3%ph"
+bottom = "bottom(footnotes)+5%ph"
+[frames.right.footnotes]
+left = "left(content)"
+right = "right(content)"
+bottom = "90%ph"
+height = "0"
+
+[frames.toc.content]
+left = ""
+right = ""
+top = ""
+bottom = ""
+[frames.toc.folio]
+left = ""
+right = ""
+top = ""
+bottom = ""
+
+[spacing]
+words      = false
+lines      = false
+letters    = false
+paragraphs = false

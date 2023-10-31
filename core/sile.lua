@@ -74,7 +74,7 @@ SILE.input = {
 
 ------------------------------------------------------------------------
 
-local geToml = require "aux.gatherer".geToml()
+local geToml = require "core.gatherer"
 
 SILE.scratch.styles = geToml()
 -- print(insp(SILE.scratch.styles))
