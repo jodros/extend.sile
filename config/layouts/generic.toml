@@ -26,7 +26,6 @@ epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
 footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
-
 [frames.right.content]
 left = "(100%pw-50%ph)/2"
 right = "100%pw-((100%pw-50%ph)/2)"
@@ -45,6 +44,11 @@ height = "0"
 
 
 [frames.toc.content]
+left = ""
+right = ""
+top = ""
+bottom = ""
+[frames.toc.folio]
 left = ""
 right = ""
 top = ""
