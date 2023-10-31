@@ -1,16 +1,9 @@
-# Settings specifications for SILE's classes 
-# firstContentFrame must always be named as "content", "first", "head" or "" for the sake of convenience
-# It's not allowed to use the minus sign '-' for table title here, since they going to be reused in the lua code, so please use the lua naming convention here as well...   
-
+layout = ""
 papersize = ""
-folios = false
+folios = true
 forprint = false
 landscape = false
 neverindent = false
-
-
-########################	
-
 
 [alingments]
 toc             = ""
@@ -21,24 +14,24 @@ chapter         = ""
 imprint         = ""
 epigraph        = ""
 editionNotice   = ""
-printingNotice  = ""  # Este livro foi composto com ... em papel ... editado inteiramente com software livre  git  SILE  Lua  Linux...
 acknowledgement = ""
 
 
-[fonts]   # [family, size, weight, color]
-toc       = []
-isbn      = []
-main      = []
-title     = []
-folio     = []
-author    = []
-special   = [] # for characters like ▩▤▧⌘
-headers   = []
-imprint   = []
-chapters  = []
-epigraph  = []
-footnotes = []
-serial    = []
+[fonts]   # [family, size, weight, variant, style, color]
+#example  = ["arial", "13pt", 400, "smallcaps", "italic", "#ffffff"]
+toc       = ["", "", 0, "", "", ""]
+isbn      = ["", "", 0, "", "", ""]
+main      = ["", "", 0, "", "", ""]
+title     = ["", "", 0, "", "", ""]
+folio     = ["", "", 0, "", "", ""]
+author    = ["", "", 0, "", "", ""]
+special   = ["", "", 0, "", "", ""] # for characters like ▩▤▧⌘
+headers   = ["", "", 0, "", "", ""]
+imprint   = ["", "", 0, "", "", ""]
+chapters  = ["", "", 0, "", "", ""]
+epigraph  = ["", "", 0, "", "", ""]
+footnotes = ["", "", 0, "", "", ""]
+serial    = ["", "", 0, "", "", ""]
 
 [spacing]
 words      = false
@@ -73,3 +66,12 @@ height = ""
 [colors] # only in hexadecimal
 main = "#"
 secondary = "#"
+
+[frames.master.frame]
+left = ""
+right = ""
+top = ""
+bottom = ""
+#height = ""
+#width = ""
+
