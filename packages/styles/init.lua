@@ -11,22 +11,22 @@ function package:_init(options)
 	options = options or {}
 
 
-	if SILE.scratch.styles.spacing.words then
-		SILE.settings:set("shaper.variablespaces", false)
-		SILE.settings:set("document.spaceskip", SILE.length(SILE.scratch.styles.spacing.words))
-	end
+	-- if SILE.scratch.styles.spacing.words then
+	-- 	SILE.settings:set("shaper.variablespaces", false)
+	-- 	SILE.settings:set("document.spaceskip", SILE.length(SILE.scratch.styles.spacing.words))
+	-- end
 
-	if SILE.scratch.styles.spacing.lines then
-		SILE.settings:set("linespacing.fixed.baselinedistance", SILE.length(SILE.scratch.styles.spacing.lines))
-	end
+	-- if SILE.scratch.styles.spacing.lines then
+	-- 	SILE.settings:set("linespacing.fixed.baselinedistance", SILE.length(SILE.scratch.styles.spacing.lines))
+	-- end
 
-	if SILE.scratch.styles.spacing.letters then
-		SILE.settings:set("document.letterspaceglue", SILE.length(SILE.scratch.styles.spacing.letters))
-	end
+	-- if SILE.scratch.styles.spacing.letters then
+	-- 	SILE.settings:set("document.letterspaceglue", SILE.length(SILE.scratch.styles.spacing.letters))
+	-- end
 
-	if SILE.scratch.styles.spacing.paragraphs then
-		SILE.settings:set("document.parskip", SILE.length(SILE.scratch.styles.spacing.paragraphs))
-	end
+	-- if SILE.scratch.styles.spacing.paragraphs then
+	-- 	SILE.settings:set("document.parskip", SILE.length(SILE.scratch.styles.spacing.paragraphs))
+	-- end
 end
 
 local direction = function(option, content)
