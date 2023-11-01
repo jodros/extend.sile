@@ -23,14 +23,14 @@ headers   = ["Alegreya SC",        "10pt", 500, "smallcaps", "", false]
 imprint   = ["Cormorant Infant",   "16pt", 800, "", "", false]
 chapters  = ["Cormorant Infant",   "18pt", 700, "", "", false]
 epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
-footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
+footnotes = ["Gilda Display",      "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
 [frames.right.content]
-left = "top(footnotes)-1%ph"
-right = "(100%pw-50%ph)/2"
-top = "100%pw-((100%pw-50%ph)/2)"
-bottom = "(100%ph-100%pw)/2"
+left = "(100%pw-50%ph)/2"
+right = "100%pw-((100%pw-50%ph)/2)"
+top = "(100%ph-100%pw)/2"
+bottom = "top(footnotes)-1%ph"
 [frames.right.folio]
 left = "left(content)"
 right = "right(content)"
@@ -41,6 +41,7 @@ left = "left(content)"
 right = "right(content)"
 bottom = "90%ph"
 height = "0"
+
 
 [frames.toc.content]
 left = ""
