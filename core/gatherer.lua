@@ -42,21 +42,25 @@ local function super(file, name, typeofreturn) --  parses toml files
 end
 
 function merge(fallback, localfile, count) -- it runs through both files and compare each item at the lowest level
-  local T, count = fallback, count or 1
+  local T, count = fallback, count or 0
 
   if localfile == nil then
       return fallback
   end
 
   for key, value in pairs(fallback) do -- overwrites any value declared in the localfile
-      if type(value) == "table" and localfile[key] then
+      if type(value) == "table" and localfile[key] then        
           T[key], count = merge(T[key], localfile[key], count)
       elseif localfile[key] and localfile[key] ~= "" then
           T[key] = localfile[key]
       else
           T[key] = fallback[key]
       end
+      -- if key == "spacing" then print(insp(value)) end
   end
+  
+  -- print("COUNT: "..count)
+  -- print(insp(T["spacing"]))
 
   for key, value in pairs(localfile) do -- writes anything else from localfile which is not in default
       if not fallback[key] then
@@ -68,7 +72,7 @@ function merge(fallback, localfile, count) -- it runs through both files and com
 end
 
 local function geToml()
-  local home = os.getenv("HOME")
+  local home, config = os.getenv("HOME")
   local path = {
     datafile.open("config/default.toml", "r"),
     home .. "/.sile/default.toml",
@@ -76,11 +80,11 @@ local function geToml()
     home .. "/.sile/layouts/"
   }
 
-  local config = merge(super(path[1], "default"), super(path[2], "~/.sile/default"))
-  config = merge(super(datafile.open("layouts/"..config.layout)), path[4]..config.layout)
+  config = merge(super(path[1], "default"), super(path[2], "~/.sile/default"))
+  config = merge(super(datafile.open("layouts/"..config.layout)), super(path[4]..config.layout..".toml"))
 
   if file(path[3]) then
-    config = merge(config, super(path[3], "settings"))
+    config = merge(config, super(path[3]))
   end
   
   -- print(insp(config))
