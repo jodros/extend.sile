@@ -23,11 +23,11 @@ build = {
         ["sile.packages.textual.init"] = "packages/textual/init.lua",
         ["sile.packages.extra-textual.init"] = "packages/extra-textual/init.lua",
 
-        ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua"
-        --     ["sile.packages.footnotes.init"]       = "packages/footnotes/init.lua",
-        --     ["sile.packages.tableofcontents.init"] = "packages/tableofcontents/init.lua",
+        ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua",
+        --     ["sile.packages.extend.footnotes.init"]       = "packages/extend/footnotes/init.lua",
+        --     ["sile.packages.extend.tableofcontents.init"] = "packages/extend/tableofcontents/init.lua",
 
-        --    ["sile.typesetters.base"]              = "typesetters/base.lua",
+        ["sile.typesetters.base"]              = "typesetters/base.lua",
     },
     copy_directories = {"config"}
 }

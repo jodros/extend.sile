@@ -10,7 +10,6 @@ function package:_init(options)
 	base._init(self)
 	options = options or {}
 
-
 	-- if SILE.scratch.styles.spacing.words then
 	-- 	SILE.settings:set("shaper.variablespaces", false)
 	-- 	SILE.settings:set("document.spaceskip", SILE.length(SILE.scratch.styles.spacing.words))
@@ -47,7 +46,6 @@ function package:registerCommands()
 			SILE.call("supereject")
 		end
 	end)
-
 
 	-- SPACING
 

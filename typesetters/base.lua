@@ -441,7 +441,7 @@ function typesetter:buildPage()
   self:setVerticalGlue(pageNodeList, self:getTargetLength())
   self:outputLinesToPage(pageNodeList)
 
-  if SILE.scratch.test.show then -- all frames of all pages are shown
+  if SILE.scratch.config.test.show then -- all frames of all pages are shown
     for _, frame in pairs(SILE.frames) do
       SILE.outputter:debugFrame(frame)
     end

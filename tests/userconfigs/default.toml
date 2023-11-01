@@ -1,5 +1,6 @@
 papersize = "a5"
 layout = "generic"
+language = "pt"
 
 [alingments]
 toc             = "right"
@@ -15,7 +16,7 @@ acknowledgement = "center"
 [fonts]   # [family, size, weight, variant, style, color]
 toc       = ["Cormorant Upright",  "10pt", 400, "smallcaps", "", false]
 isbn      = ["Cormorant",          "11pt", 300, "", "", false]
-main      = ["Gentium", "13pt", 400, "", "", false]
+main      = [false, "13pt", 400, "", "", false]
 title     = ["Cormorant",          "20pt", 600, "", "", false]
 folio     = ["Cormorant Infant",   "11pt", 500, "", "", false]
 author    = ["Cormorant",          "15pt", 700, "", "", false]

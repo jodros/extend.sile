@@ -1,0 +1,300 @@
+DEFAULT
+{
+  alingments = {
+    acknowledgement = "center",
+    author = "center",
+    chapter = "left",
+    editionNotice = "center",
+    epigraph = "right",
+    folio = "center",
+    imprint = "center",
+    title = "center",
+    toc = "right"
+  },
+  fonts = {
+    author = { "Cormorant", "15pt", 700, "", "", false },
+    chapters = { "Cormorant Infant", "18pt", 700, "", "", false },
+    epigraph = { "Cormorant", "0.9em", 500, "", "italic", false },
+    folio = { "Cormorant Infant", "11pt", 500, "", "", false },
+    footnotes = { "Gilda Display", "0.9em", 400, "", "", false },
+    headers = { "Cormorant", "10pt", 500, "smallcaps", "", false },
+    imprint = { "Cormorant Infant", "16pt", 800, "", "", false },
+    isbn = { "Cormorant", "11pt", 300, "", "", false },
+    main = { "Gentium Plus", "13pt", 400, "", "", false },
+    serial = { false, "3.5", false, "", "", false },
+    special = { "Noto Sans JP", "16pt", 100, "", "", false },
+    title = { "Cormorant", "20pt", 600, "", "", false },
+    toc = { "Cormorant Upright", "10pt", 400, "smallcaps", "", false }
+  },
+  frames = {
+    right = {
+      content = {
+        bottom = "top(footnotes)-1%ph",
+        left = "(100%pw-50%ph)/2",
+        right = "100%pw-((100%pw-50%ph)/2)",
+        top = "(100%ph-100%pw)/2"
+      },
+      folio = {
+        bottom = "bottom(footnotes)+5%ph",
+        left = "left(content)",
+        right = "right(content)",
+        top = "bottom(footnotes)+3%ph"
+      },
+      footnotes = {
+        bottom = "90%ph",
+        height = "0",
+        left = "left(content)",
+        right = "right(content)"
+      }
+    },
+    toc = {
+      content = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      },
+      folio = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      }
+    }
+  },
+  language = "pt",
+  layout = "generic",
+  papersize = "a5",
+  spacing = {
+    letters = false,
+    lines = false,
+    paragraphs = false,
+    words = false
+  }
+}
+DEFAULT LAYOUT
+{
+  alingments = {
+    acknowledgement = "center",
+    author = "center",
+    chapter = "left",
+    editionNotice = "center",
+    epigraph = "right",
+    folio = "center",
+    imprint = "center",
+    title = "center",
+    toc = "right"
+  },
+  fonts = {
+    author = { "Cormorant", "15pt", 700, "", "", false },
+    chapters = { "Cormorant Infant", "18pt", 700, "", "", false },
+    epigraph = { "Cormorant", "0.9em", 500, "", "italic", false },
+    folio = { "Cormorant Infant", "11pt", 500, "", "", false },
+    footnotes = { "Gilda Display", "0.9em", 400, "", "", false },
+    headers = { "Cormorant", "10pt", 500, "smallcaps", "", false },
+    imprint = { "Cormorant Infant", "16pt", 800, "", "", false },
+    isbn = { "Cormorant", "11pt", 300, "", "", false },
+    main = { "Gentium Plus", "13pt", 400, "", "", false },
+    serial = { false, "3.5", false, "", "", false },
+    special = { "Noto Sans JP", "16pt", 100, "", "", false },
+    title = { "Cormorant", "20pt", 600, "", "", false },
+    toc = { "Cormorant Upright", "10pt", 400, "smallcaps", "", false }
+  },
+  frames = {
+    right = {
+      content = {
+        bottom = "top(footnotes)-1%ph",
+        left = "(100%pw-50%ph)/2",
+        right = "100%pw-((100%pw-50%ph)/2)",
+        top = "(100%ph-100%pw)/2"
+      },
+      folio = {
+        bottom = "bottom(footnotes)+5%ph",
+        left = "left(content)",
+        right = "right(content)",
+        top = "bottom(footnotes)+3%ph"
+      },
+      footnotes = {
+        bottom = "90%ph",
+        height = "0",
+        left = "left(content)",
+        right = "right(content)"
+      }
+    },
+    toc = {
+      content = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      },
+      folio = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      }
+    }
+  },
+  language = "pt",
+  layout = "generic",
+  papersize = "a5",
+  spacing = {
+    letters = false,
+    lines = false,
+    paragraphs = false,
+    words = false
+  }
+}
+LOCAL LAYOUT
+{
+  alingments = {
+    acknowledgement = "center",
+    author = "center",
+    chapter = "left",
+    editionNotice = "center",
+    epigraph = "right",
+    folio = "center",
+    imprint = "center",
+    title = "center",
+    toc = "right"
+  },
+  fonts = {
+    author = { "Cormorant", "15pt", 700, "", "", false },
+    chapters = { "Cormorant Infant", "18pt", 700, "", "", false },
+    epigraph = { "Cormorant", "0.9em", 500, "", "italic", false },
+    folio = { "Cormorant Infant", "11pt", 500, "", "", false },
+    footnotes = { "Gilda Display", "0.9em", 400, "", "", false },
+    headers = { "Alegreya SC", "10pt", 500, "smallcaps", "", false },
+    imprint = { "Cormorant Infant", "16pt", 800, "", "", false },
+    isbn = { "Cormorant", "11pt", 300, "", "", false },
+    main = { "Gentium Plus", "13pt", 400, "", "", false },
+    serial = { false, "3.5", false, "", "", false },
+    special = { "Noto Sans JP", "16pt", 100, "", "", false },
+    title = { "Cormorant", "20pt", 600, "", "", false },
+    toc = { "Cormorant Upright", "10pt", 400, "smallcaps", "", false }
+  },
+  frames = {
+    right = {
+      content = {
+        bottom = "top(footnotes)-1%ph",
+        left = "(100%pw-50%ph)/2",
+        right = "100%pw-((100%pw-50%ph)/2)",
+        top = "(100%ph-100%pw)/2"
+      },
+      folio = {
+        bottom = "bottom(footnotes)+5%ph",
+        left = "left(content)",
+        right = "right(content)",
+        top = "bottom(footnotes)+3%ph"
+      },
+      footnotes = {
+        bottom = "90%ph",
+        height = "0",
+        left = "left(content)",
+        right = "right(content)"
+      }
+    },
+    toc = {
+      content = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      },
+      folio = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      }
+    }
+  },
+  language = "pt",
+  layout = "generic",
+  papersize = "a5",
+  spacing = {
+    letters = false,
+    lines = false,
+    paragraphs = false,
+    words = false
+  }
+}
+SETTINGS
+{
+  alingments = {
+    acknowledgement = "center",
+    author = "center",
+    chapter = "left",
+    editionNotice = "center",
+    epigraph = "right",
+    folio = "center",
+    imprint = "center",
+    title = "center",
+    toc = "right"
+  },
+  fonts = {
+    author = { "Cormorant", "15pt", 700, "", "", false },
+    bao = { false, "15pt", 800 },
+    chapters = { "Cormorant Infant", "18pt", 700, "", "", false },
+    epigraph = { "Cormorant", "0.9em", 500, "", "italic", false },
+    folio = { "Cormorant Infant", "11pt", 500, "", "", false },
+    footnotes = { "Gilda Display", "0.9em", 400, "", "", false },
+    headers = { "Alegreya SC", "10pt", 500, "smallcaps", "", false },
+    imprint = { "Cormorant Infant", "16pt", 800, "", "", false },
+    isbn = { "Cormorant", "11pt", 300, "", "", false },
+    main = { "Gentium Plus", "13pt", 400, "", "", false },
+    serial = { false, "3.5", false, "", "", false },
+    special = { "Noto Sans JP", "16pt", 100, "", "", false },
+    title = { "Cormorant", "20pt", 600, "", "", false },
+    toc = { "Cormorant Upright", "10pt", 400, "smallcaps", "", false }
+  },
+  frames = {
+    right = {
+      content = {
+        bottom = "top(footnotes)-1%ph",
+        left = "(100%pw-50%ph)/2",
+        right = "100%pw-((100%pw-50%ph)/2)",
+        top = "(100%ph-100%pw)/2"
+      },
+      folio = {
+        bottom = "bottom(footnotes)+5%ph",
+        left = "left(content)",
+        right = "right(content)",
+        top = "bottom(footnotes)+3%ph"
+      },
+      footnotes = {
+        bottom = "90%ph",
+        height = "0",
+        left = "left(content)",
+        right = "right(content)"
+      }
+    },
+    toc = {
+      content = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      },
+      folio = {
+        bottom = "",
+        left = "",
+        right = "",
+        top = ""
+      }
+    }
+  },
+  language = "ru",
+  layout = "generic",
+  papersize = "a5",
+  spacing = {
+    letters = false,
+    lines = false,
+    paragraphs = false,
+    words = false
+  },
+  test = {
+    show = false
+  }
+}
