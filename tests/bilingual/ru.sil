@@ -8,16 +8,5 @@
 Вечером я буду в кино. Мой любимый режиссёр \dash Андрей Тарковский. Я хочу посмотреть его фильм «Сталкер».
 
 Мой друг Пауло сейчас нигде не работает. Он только учится. Но я знаю, что Пауло тоже хочет работать. Может быть, мы будем работать вместе в музее, а может быть, Пауло будет работать вместе с Бруно в книжном магазине. Пауло всегда хочет читать, читать и читать. Он может читать весь день и всю ночь. Его любимый писатель \dash Лев Николаевич Толстой. Я знаю, что Пауло сейчас читает его роман «Война и мир».
-\pagebreak
-\language[main=pt]
-\font:headers{onde trabalhamos}
-
-Meu amigo Bruno é estudante. Mas ele sempre trabalha numa livraria à noite. Seja segunda, terça, quarta, quinta e até sexta, ele está ocupado à noite. Aos sábados e domingos ele normalmente não trabalha, só de vez em quando. É claro que ele não gosta de trabalhar sábado e dominho \dash mas trabalha... Isso é trabalho!
-
-Meu nome é Flávia, sou estudante e também trabalho. Como meu amigo Bruno eu só posso trabalhar à noite. Eu trabalho na Pinacoteca e quero continuar lá depois de me formar na universidade. Gosto bastante de arte contemporânea e de cinema. Eu trabalho às terças, quartas e quintas, e vez ou outra às sextas. Hoje é sexta e trabalhei hoje, ontem e anteontem. Estou muito cansada! Graças a Deus amanhã é sábado e não devo trabalhar nem ir à universidade, posso dormir até meio-dia. Amo dormir! Sempre quero dormir cedo.
-
-Vou ir ao cinema essa noite. Quero assistir o filme \em{Stalker}, do meu diretor favorito: Andrei Tarkovsky.
-
-Meu amigo Paulo não está trabalhando agora, apenas estuda. Mas sei que ele quer trabalhar também. Pode ser que nós trabalhemos juntos no museu, ou que ele trabalhe com Bruno na livraria. Paulo está sempre lendo, ele pode ler o dia todo e a noite inteira. O escritor favorito dele é Liev Tolstói e agora ele está lendo \em{Guerra e Paz}.
 
 \end{document}
