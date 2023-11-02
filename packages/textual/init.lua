@@ -44,10 +44,10 @@ function package:registerCommands()
 			SILE.call("font", { family = options.font(), size = options.size, weight = options.weight }, function()
 				if options.rotate then
 					SILE.call("rotate", { angle = "45" }, function()
-						SILE.typesetter:typeset(SILE.scratch.styles.garnish[options.symbol])
+						SILE.typesetter:typeset(SILE.scratch.styles.ellipsis.symbol)
 					end)
 				else
-					SILE.typesetter:typeset(SILE.scratch.styles.garnish[options.symbol])
+					SILE.typesetter:typeset(SILE.scratch.styles.ellipsis.symbol)
 				end
 			end)
 		end)
