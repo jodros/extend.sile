@@ -94,15 +94,17 @@ function package:registerCommands()
 
 	-- FONTS
 
-	for _, item in ipairs(SILE.scratch.styles.fonts) do
+	for item in pairs(SILE.scratch.styles.fonts) do
 		self:registerCommand("font:" .. item, function(options, content)
-			options.color = options.color or SILE.scratch.styles.fonts[item][4] or "#000000" -- default is black
+			options.color = options.color or SILE.scratch.styles.fonts[item][6] or "#000000" -- default is black
 
 			SILE.call("color", { color = options.color }, function()
 				SILE.call("font", {
 					family = SILE.scratch.styles.fonts[item][1],
 					size   = SILE.scratch.styles.fonts[item][2],
-					weight = SILE.scratch.styles.fonts[item][3]
+					weight = SILE.scratch.styles.fonts[item][3],
+					variant = SILE.scratch.styles.fonts[item][4],
+					style = SILE.scratch.styles.fonts[item][5]
 				}, content)
 			end)
 		end)
