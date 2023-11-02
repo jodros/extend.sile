@@ -1,3 +1,5 @@
+*.pdf
+
 tree
 
 # Compiled Lua sources
