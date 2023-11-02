@@ -28,6 +28,13 @@ epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
 footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
+[ellipsis]
+symbol = "▩" #■□▣▥▤▦▨▧▩⌘⁂
+rotate = false
+size = false
+font = false
+weight = 0
+
 [frames.right.content]
 left = "(100%pw-50%ph)/2"
 right = "100%pw-((100%pw-50%ph)/2)"
@@ -60,3 +67,5 @@ words      = false
 lines      = false
 letters    = false
 paragraphs = false
+
+[test]

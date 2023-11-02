@@ -51,7 +51,7 @@ function merge(fallback, localfile, count) -- it runs through both files and com
     for key, value in pairs(fallback) do -- overwrites any value declared in the localfile
         if type(value) == "table" and localfile[key] then
             T[key], count = merge(T[key], localfile[key], count)
-        elseif localfile[key] and (localfile[key] ~= "") then
+        elseif localfile[key] and localfile[key] ~= "" then
             T[key] = localfile[key]
         elseif localfile[key] == nil then
             T[key] = fallback[key]
@@ -77,22 +77,13 @@ local function geToml()
                   lfs.currentdir() .. "/settings.toml", home .. "/.sile/layouts/"}
 
     config = merge(super(path[1]), super(path[2]))
-    print("DEFAULT")
-    print(insp(config))
-    config = merge(config, super(datafile.open("layouts/" .. config.layout .. ".toml")))
-    print("DEFAULT LAYOUT")
-    print(insp(config))
+    config = merge(config, super(datafile.open("config/layouts/" .. config.layout .. ".toml")))
     config = merge(config, super(path[4] .. config.layout .. ".toml"))
-    print("LOCAL LAYOUT")
-    print(insp(config))
 
     if file(path[3]) then
         config = merge(config, super(path[3]))
     end
-    print("SETTINGS")
-    print(insp(config))
-
-    -- print(insp(config))
+    
     return config
 end
 

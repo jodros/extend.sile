@@ -3,5 +3,5 @@ return function()
     local class = plain()
     SILE.documentState.documentClass = class
     
-    print(SILE.scratch.styles)
+    SILE.call("font:headers")
 end
