@@ -1,6 +1,5 @@
 local base    = require("packages.base")
 -- local color   = require("lua-color")
-local inspect = require("inspect")
 
 local package = pl.class(base)
 package._name = "styles"

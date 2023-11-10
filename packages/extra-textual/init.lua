@@ -1,11 +1,7 @@
 local base = require "packages.base"
-local inspect = require "inspect"
-
 
 local package = pl.class(base)
 package._name = "extra-textual"
-
-
 
 function package:_init()
   base._init(self)

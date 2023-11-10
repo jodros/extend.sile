@@ -1,6 +1,5 @@
 local lfs = require "lfs"
 local toml = require 'toml'
-local insp = require "inspect"
 local datafile = require "datafile"
 
 toml.strict = false -- to enable more lua-friendly features (like mixed arrays)
@@ -56,7 +55,6 @@ function merge(fallback, localfile, count) -- it runs through both files and com
         elseif localfile[key] == nil then
             T[key] = fallback[key]
         end
-        -- if key == "fonts" then print(insp(value)) end
     end
 
     for key, value in pairs(localfile) do -- writes anything else from localfile which is not in default
@@ -64,9 +62,6 @@ function merge(fallback, localfile, count) -- it runs through both files and com
             T[key] = value
         end
     end
-
-    -- print("COUNT: "..count)
-    -- print(insp(T.fonts))
 
     return T, count + 1
 end

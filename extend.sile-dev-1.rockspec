@@ -7,7 +7,7 @@ description = {
     homepage = "jodros.github.io/extending-sile",
     license = "MIT"
 }
-dependencies = {"lua >= 5.1", "inspect", "datafile", "lua-toml"}
+dependencies = {"lua >= 5.1", "datafile", "lua-toml", "luafilesyste"}
 build = {
     type = "builtin",
     modules = {
