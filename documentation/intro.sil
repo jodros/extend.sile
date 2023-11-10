@@ -2,4 +2,23 @@
 
 \chapter{Introduction}
 
+Initially there were only two \code{toml} files, the \code{default.toml} which comes with \strong{extend.sile}, and a \code{settings.toml} which is created by the user in the working folder, specifically for a given project, any options declared in \code{settings.toml} would overwrite the default ones. After some time I realized it would be nice to have a \code{~/.sile} folder with the same structure as the \code{config} of \strong{extend.sile}, overwriting the defauls for the whole user, otherwise one would have to copy and paste the same \code{settings.toml} with the favorite options for every new project. Thus, the \code{settings.toml} is used only for really specific needs of given project...
+
+
+
+
+\section{Example...}
+
+Original statement in \code{default.toml}:
+
+\code{chapters  = ["Cormorant Infant", "18pt", 700, false]}
+
+overwriting it in \code{~/.sile/default.toml} or in \code{settings.toml}:
+
+\code{chapters  = ["", "30pt"]}
+
+
+
+
+
 \end{document}
