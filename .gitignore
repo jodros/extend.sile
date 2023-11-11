@@ -1,5 +1,5 @@
 *.pdf
-
+*.json
 tree
 
 # Compiled Lua sources
