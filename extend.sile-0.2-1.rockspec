@@ -7,7 +7,8 @@ source = {
 }
 description = {
     homepage = "https://github.com/jodros/extend.sile",
-    license = "MIT"
+    license = "MIT",
+    maintainer = "João Quinaglia"
 }
 dependencies = {"lua >= 5.1", "datafile", "lua-toml", "luafilesystem"}
 build = {
