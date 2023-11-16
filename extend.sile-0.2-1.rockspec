@@ -1,8 +1,9 @@
 rockspec_format = "3.0"
 package = "extend.sile"
-version = "dev-1"
+version = "0.2-1"
 source = {
     url = "git+https://github.com/jodros/extend.sile.git",
+    tag = "v0.2.0-alpha"
 }
 description = {
     homepage = "https://github.com/jodros/extend.sile",
