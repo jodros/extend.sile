@@ -4,6 +4,10 @@ A bunch of changes and new packages for the SILE typesetting system I've making 
 
 All details are still to be written in the documentation...
 
+## Installing
+
+Just run `luarocks --local install extend.sile`, or clone this repository and then run `luarocks --local make`.
+
 ## Requirements
 
 I can't say whether it works with older versions of SILE since I'm always using the latest one and won't waste my time testing it.  
