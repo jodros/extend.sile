@@ -1,3 +1,4 @@
+local insp = require "inspect"
 -- Initialize SILE internals
 SILE = {}
 
@@ -76,9 +77,7 @@ SILE.input = {
 
 local geToml = require "core.gatherer"
 
-SILE.scratch.styles = geToml()
--- print(insp(SILE.scratch.styles))
-SILE.scratch.config = SILE.scratch.styles
+SILE.scratch.book, SILE.scratch.styles = geToml()
 --[[ or should be 
 
 table.insert(SILE.documentState, geToml())

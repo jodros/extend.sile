@@ -83,8 +83,10 @@ local function geToml()
     if file(path[3]) then
         config = merge(config, super(path[3]))
     end
-    
-    return config
+
+    local book = table.remove(config, book)
+
+    return book 
 end
 
 return geToml

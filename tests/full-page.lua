@@ -1,10 +1,11 @@
 return function()
   --  local plain = require "classes.extend.plain"
   local plain = require "classes.plain"
-  local class = plain()
+  local class = plain({})
   SILE.documentState.documentClass = class
   local insp = require "inspect"
 
+  print(insp(SILE.scratch.book))
   for key, value in pairs(class.packages) do
     print(key)
   end
