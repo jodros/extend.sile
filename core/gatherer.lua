@@ -5,7 +5,14 @@ local datafile = require "datafile"
 
 toml.strict = false -- to enable more lua-friendly features (like mixed arrays)
 
-local function file(f)
+local folio = {
+    left = "0",
+    right = "0",
+    top = "0",
+    bottom = "0"
+}
+
+local function fileExist(f)
     if io.open(f) ~= nil then
         return true
     else
@@ -18,8 +25,10 @@ local function super(file, typeofreturn) --  parses toml files
 
     if type(file) == "userdata" then
         raw = file:read("*all")
-    elseif type(file) == "string" then
+    elseif type(file) == "string" and fileExist(file) then
         raw = assert(io.open(tostring(file), "r")):read("*all")
+
+        -- print(file .. raw)
     end
 
     if typeofreturn == "string" then -- to show it as verbatim in the documentation
@@ -35,9 +44,17 @@ local function super(file, typeofreturn) --  parses toml files
 
     if status then
         for i, j in pairs(input) do
+            if i == "frames" then
+                for name, set in pairs(j) do
+                    if not set.folio then
+                        set.folio = folio
+                    end
+                end
+            end
             output[i] = j
         end
     end
+
     return output
 end
 
@@ -72,18 +89,23 @@ function merge(fallback, localfile, count) -- it runs through both files and com
 end
 
 local function geToml()
-    local home, config = os.getenv("HOME")
-    local path = {datafile.open("config/default.toml"), home .. "/.sile/default.toml",
-                  lfs.currentdir() .. "/settings.toml", home .. "/.sile/layouts/"}
+    local home, config, layoutConfig = os.getenv("HOME"), {}, {}
+    local layoutPath = (config.layout or "generic") .. ".toml"
+    local default = datafile.open("config/default.toml")
+    local layout = datafile.open("config/layouts/" .. layoutPath)
+    local locDefault = home .. "/.sile/default.toml"
+    local locLayout = home .. "/.sile/layouts/" .. layoutPath
+    local settings = lfs.currentdir() .. "/settings.toml"
 
-    config = merge(super(path[1]), super(path[2]))
-    config = merge(config, super(datafile.open("config/layouts/" .. config.layout .. ".toml")))
-    config = merge(config, super(path[4] .. config.layout .. ".toml"))
+    config = merge(super(default), super(locDefault))
+    layoutConfig = merge(super(layout), super(locLayout))
+    config = merge(config, layoutConfig)
 
-    if file(path[3]) then
-        config = merge(config, super(path[3]))
+    if fileExist(settings) then
+        config = merge(config, super(settings))
     end
-    
+
+    print(insp(config))
     return config
 end
 
