@@ -4,7 +4,14 @@ local datafile = require "datafile"
 
 toml.strict = false -- to enable more lua-friendly features (like mixed arrays)
 
-local function file(f)
+local folio = {
+    left = "0",
+    right = "0",
+    top = "0",
+    bottom = "0"
+}
+
+local function fileExist(f)
     if io.open(f) ~= nil then
         return true
     else
@@ -19,7 +26,6 @@ local function super(file, typeofreturn) --  parses toml files
         raw = file:read("*all")
     elseif fileExist(file) and type(file) == "string" then
         raw = assert(io.open(tostring(file), "r")):read("*all")
-        -- print(file .. raw)
     end
 
     if typeofreturn == "string" then -- to show it as verbatim in the documentation
@@ -35,9 +41,17 @@ local function super(file, typeofreturn) --  parses toml files
 
     if status then
         for i, j in pairs(input) do
+            if i == "frames" then
+                for name, set in pairs(j) do
+                    if not set.folio then
+                        set.folio = folio
+                    end
+                end
+            end
             output[i] = j
         end
     end
+
     return output
 end
 
@@ -87,14 +101,14 @@ local function geToml()
     os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
     os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
 
-    config = merge(super(path[1]), super(path[2]))
-    config = merge(config, super(datafile.open("config/layouts/" .. config.layout .. ".toml")))
-    config = merge(config, super(path[4] .. config.layout .. ".toml"))
+    config = merge(super(default), super(locDefault))
+    layoutConfig = merge(super(layout), super(locLayout))
+    config = merge(config, layoutConfig)
 
-    if file(path[3]) then
-        config = merge(config, super(path[3]))
+    if fileExist(settings) then
+        config = merge(config, super(settings))
     end
-    
+
     return config
 end
 
