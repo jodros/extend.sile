@@ -17,8 +17,9 @@ local function super(file, typeofreturn) --  parses toml files
 
     if type(file) == "userdata" then
         raw = file:read("*all")
-    elseif type(file) == "string" then
+    elseif fileExist(file) and type(file) == "string" then
         raw = assert(io.open(tostring(file), "r")):read("*all")
+        -- print(file .. raw)
     end
 
     if typeofreturn == "string" then -- to show it as verbatim in the documentation
@@ -43,7 +44,7 @@ end
 function merge(fallback, localfile, count) -- it runs through both files and compare each item at the lowest level
     local T, count = fallback, count or 0
 
-    if localfile == nil then
+    if localfile == nil or localfile == false then
         return fallback
     end
 
@@ -67,9 +68,24 @@ function merge(fallback, localfile, count) -- it runs through both files and com
 end
 
 local function geToml()
-    local home, config = os.getenv("HOME")
-    local path = {datafile.open("config/default.toml"), home .. "/.sile/default.toml",
-                  lfs.currentdir() .. "/settings.toml", home .. "/.sile/layouts/"}
+
+    local home, config, layoutConfig = os.getenv("HOME"), {}, {}
+    local dotsile = home .. "/.config/sile/"
+    local layoutPath = (config.layout or "generic") .. ".toml"
+    local default = datafile.open("config/default.toml")
+    local layout = datafile.open("config/layouts/" .. layoutPath)
+    local locDefault = dotsile .. "default.toml"
+    local locLayout = dotsile .. "layouts/" .. layoutPath
+    local settings = lfs.currentdir() .. "/settings.toml"
+
+    if not fileExist(dotsile) then
+        lfs.mkdir(dotsile)
+    elseif not fileExist(dotsile.."layouts/") then
+        lfs.mkdir(dotsile .. "layouts/")
+    end
+
+    os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
+    os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
 
     config = merge(super(path[1]), super(path[2]))
     config = merge(config, super(datafile.open("config/layouts/" .. config.layout .. ".toml")))
