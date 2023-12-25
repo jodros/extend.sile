@@ -100,12 +100,11 @@ local function geToml()
 
     if not fileExist(dotsile) then
         lfs.mkdir(dotsile)
-    elseif not fileExist(dotsile.."layouts/") then
+        os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
+    elseif not fileExist(dotsile .. "layouts/") then
         lfs.mkdir(dotsile .. "layouts/")
+        os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
     end
-
-    os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
-    os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
 
     config = merge(super(default), super(locDefault))
     layoutConfig = merge(super(layout), super(locLayout))
