@@ -77,7 +77,7 @@ SILE.input = {
 local geToml = require "core.gatherer"
 
 SILE.scratch.styles = geToml()
--- print(insp(SILE.scratch.styles))
+-- print(require"inspect"(SILE.scratch.styles))
 SILE.scratch.config = SILE.scratch.styles
 --[[ or should be 
 
