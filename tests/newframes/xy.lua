@@ -3,7 +3,7 @@ return function()
     local class = plain()
     SILE.documentState.documentClass = class
 
-    local x, y = "50%pw", "50%ph"
+    local x, y = "40%pw", "60%ph"
     local w, h = "50%pw", "25%ph"
 
     class:defineMaster({
@@ -11,12 +11,11 @@ return function()
         firstContentFrame = "content",
         frames = {
             content = {
-                left = '(' .. w .. "/2)",
-                right = w .. "+(" .. w .. "/2)",
+                left = x..'-(' .. w .. "/2)",
+                right = x .. "+(" .. w .. "/2)",
                 top = y..'-(' .. h .. "/2)",
                 bottom = y.."+" .. "+(" .. h .. "/2)"
-            }
-            
+            }      
         }
     })
 
