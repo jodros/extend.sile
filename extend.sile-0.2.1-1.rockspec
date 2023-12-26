@@ -1,13 +1,14 @@
 rockspec_format = "3.0"
 package = "extend.sile"
-version = "0.1-1"
+version = "0.2.1-1"
 source = {
     url = "git+https://github.com/jodros/extend.sile.git",
-    tag = "v0.1.0-alpha"
+    tag = "v0.2.1-alpha"
 }
 description = {
     homepage = "https://github.com/jodros/extend.sile",
-    license = "MIT"
+    license = "MIT",
+    maintainer = "João Quinaglia"
 }
 dependencies = {"lua >= 5.1", "datafile", "lua-toml", "luafilesystem"}
 build = {
