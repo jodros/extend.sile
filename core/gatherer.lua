@@ -1,7 +1,7 @@
 local lfs = require "lfs"
 local toml = require 'toml'
-local insp = require "inspect"
 local datafile = require "datafile"
+local insp = require "inspect"
 
 toml.strict = false -- to enable more lua-friendly features (like mixed arrays)
 
@@ -27,7 +27,6 @@ local function super(file, typeofreturn) --  parses toml files
         raw = file:read("*all")
     elseif fileExist(file) and type(file) == "string" then
         raw = assert(io.open(tostring(file), "r")):read("*all")
-        -- print(file .. raw)
     end
 
     if typeofreturn == "string" then -- to show it as verbatim in the documentation
@@ -67,12 +66,11 @@ function merge(fallback, localfile, count) -- it runs through both files and com
     for key, value in pairs(fallback) do -- overwrites any value declared in the localfile
         if type(value) == "table" and localfile[key] then
             T[key], count = merge(T[key], localfile[key], count)
-        elseif localfile[key] and localfile[key] ~= "" then
+        elseif localfile[key] ~= nil and localfile[key] ~= "" then
             T[key] = localfile[key]
         elseif localfile[key] == nil then
             T[key] = fallback[key]
         end
-        -- if key == "fonts" then print(insp(value)) end
     end
 
     for key, value in pairs(localfile) do -- writes anything else from localfile which is not in default
@@ -80,9 +78,6 @@ function merge(fallback, localfile, count) -- it runs through both files and com
             T[key] = value
         end
     end
-
-    -- print("COUNT: "..count)
-    -- print(insp(T.fonts))
 
     return T, count + 1
 end
@@ -98,13 +93,10 @@ local function geToml()
     local locLayout = dotsile .. "layouts/" .. layoutPath
     local settings = lfs.currentdir() .. "/settings.toml"
 
-    if not fileExist(dotsile) then
-        lfs.mkdir(dotsile)
-        os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
-    elseif not fileExist(dotsile .. "layouts/") then
-        lfs.mkdir(dotsile .. "layouts/")
-        os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
-    end
+    if not fileExist(dotsile) then  lfs.mkdir(dotsile)
+    elseif not fileExist(dotsile .. "layouts/") then lfs.mkdir(dotsile .. "layouts/")
+    elseif not fileExist(dotsile.."default.toml") then os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
+    elseif not fileExist(dotsile.."layouts/generic.toml") then  os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/") end
 
     config = merge(super(default), super(locDefault))
     layoutConfig = merge(super(layout), super(locLayout))
