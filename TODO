@@ -1,12 +1,33 @@
 TODO
 
-- [] load styling options from `toml` files
-  - [X] support config files from multiple directories with the following priority:
-    - working directory - `settings.toml`
-    - `.sile` folder in home to overwrite the defaults from the rock
-    - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
+
+- [] Write documentation!!!!
 - [] rewrite the packages
   - [] styles
+    - layouts
+      - [] canonical book layouts (like those in [resilient.sile](https://github.com/Omikhleia/resilient.sile))
+      - [] newspaper 
+      - [] magazine
   - [] textual
+    - [] side-by-side bilingual texts
+    - [] epigraphs
   - [] extra-textual
-- [] `SILE_PATH`: and about `~/.sile`? 
+    - [] front (cover) function
+    - [] handling of pictures and illustrations
+    - [] generator of endpaper patterns
+    - [] supporting embedded LilyPond???
+- ~~[] `SILE_PATH`: and about `~/.sile`?~~
+- [] implement a new way of declaring frames
+  - [] implement a frameset generator "engine"
+    - [] write a "library" of ready frames' layouts
+    - [] this "engine" would assemble them...
+  - use coordinates (x, y) to point where will be the frame center (or the top-left corner, the user will have the option)
+  - its width and height only
+  - [] what to do with those layouts depending too much on constraints?
+- [] load styling options from `toml` files
+  - [X] support config files from multiple directories 
+    - [] show from which `toml` each option came!
+    - [x] with the following priority:
+      - working directory - `settings.toml`
+      - `~/.config/sile` folder in home to overwrite the defaults from the rock
+      - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
