@@ -65,7 +65,7 @@ function merge(fallback, localfile, count) -- it runs through both files and com
     for key, value in pairs(fallback) do -- overwrites any value declared in the localfile
         if type(value) == "table" and localfile[key] then
             T[key], count = merge(T[key], localfile[key], count)
-        elseif localfile[key] and localfile[key] ~= "" then
+        elseif localfile[key] ~= nil and localfile[key] ~= "" then
             T[key] = localfile[key]
         elseif localfile[key] == nil then
             T[key] = fallback[key]
@@ -92,13 +92,10 @@ local function geToml()
     local locLayout = dotsile .. "layouts/" .. layoutPath
     local settings = lfs.currentdir() .. "/settings.toml"
 
-    if not fileExist(dotsile) then
-        lfs.mkdir(dotsile)
-        os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
-    elseif not fileExist(dotsile .. "layouts/") then
-        lfs.mkdir(dotsile .. "layouts/")
-        os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/")
-    end
+    if not fileExist(dotsile) then  lfs.mkdir(dotsile)
+    elseif not fileExist(dotsile .. "layouts/") then lfs.mkdir(dotsile .. "layouts/")
+    elseif not fileExist(dotsile.."default.toml") then os.execute("cp " .. datafile.path("config/default.toml") .. " " .. dotsile)
+    elseif not fileExist(dotsile.."layouts/generic.toml") then  os.execute("cp " .. datafile.path("config/layouts/" .. layoutPath) .. " " .. dotsile .. "layouts/") end
 
     config = merge(super(default), super(locDefault))
     layoutConfig = merge(super(layout), super(locLayout))
