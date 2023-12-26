@@ -1,7 +1,0 @@
-language = "ru"
-
-[test]
-show = false
-
-[fonts]
-bao = [false, "15pt", 800]
