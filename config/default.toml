@@ -1,6 +1,7 @@
 papersize = "a5"
 layout = "generic"
 language = "pt"
+balanced = false
 
 [alingments]
 toc             = "right"

@@ -25,7 +25,9 @@ build = {
         ["sile.packages.textual.init"] = "packages/textual/init.lua",
         ["sile.packages.extra-textual.init"] = "packages/extra-textual/init.lua",
 
+
         ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua",
+        ["sile.packages.extend.frametricks.init"] = "packages/extend/frametricks/init.lua",
         --     ["sile.packages.extend.footnotes.init"]       = "packages/extend/footnotes/init.lua",
         --     ["sile.packages.extend.tableofcontents.init"] = "packages/extend/tableofcontents/init.lua",
 

@@ -13,13 +13,14 @@ local skips = {
 }
 
 local packlist = {"autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features",
-                  "font-fallback", "footnotes", "frametricks", "image", "indexer", "linespacing", "lorem", "pdf",
+                  "font-fallback", "footnotes", "extend.frametricks", "image", "indexer", "linespacing", "lorem", "pdf",
                   "tableofcontents", "url", "unichar", "rotate", "textual", "styles", "extra-textual"}
 --    "barcodes.ean13",
 --    "qrcode",
 --    "printoptions"
 
 function class:_init(options)
+    options = options or {}
     base._init(self, options)
 
     self:loadPackage("bidi")
@@ -49,6 +50,7 @@ function class:_init(options)
 
     SILE.settings:set("document.language", SILE.scratch.config.language)
 
+    if not SILE.scratch.headers then SILE.scratch.headers = {} end
     -- SILE.call("resetspace")
 end
 
