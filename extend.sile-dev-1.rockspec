@@ -20,6 +20,8 @@ build = {
         ["sile.core.sile"] = "core/sile.lua",
         ["sile.core.font"] = "core/font.lua",
         ["sile.core.papersize"] = "core/papersize.lua",
+        ["sile.core.frame"] = "core/frame.lua",
+
 
         ["sile.packages.styles.init"] = "packages/styles/init.lua",
         ["sile.packages.textual.init"] = "packages/textual/init.lua",
