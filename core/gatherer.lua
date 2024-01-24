@@ -5,13 +5,6 @@ local insp = require "inspect"
 
 toml.strict = false -- to enable more lua-friendly features (like mixed arrays)
 
-local folio = {
-    left = "0",
-    right = "0",
-    top = "0",
-    bottom = "0"
-}
-
 local function fileExist(f)
     if io.open(f) ~= nil then
         return true
@@ -42,13 +35,6 @@ local function super(file, typeofreturn) --  parses toml files
 
     if status then
         for i, j in pairs(input) do
-            if i == "frames" then
-                for name, set in pairs(j) do
-                    if not set.folio then
-                        set.folio = folio
-                    end
-                end
-            end
             output[i] = j
         end
     end
