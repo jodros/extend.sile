@@ -1,0 +1,7 @@
+\document{
+\neverindent
+\front{
+\title{\center{Title}}
+\imprint{\img[src=eg.jpeg, height=32pt, width=32pt]}
+}
+}

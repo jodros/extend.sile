@@ -1,4 +1,13 @@
-[book]
-author = ""
-title = ""
-imprint = "..."
+[frames.front.imprint]
+#y = "50%ph"
+#x = "50%pw"
+width =  "32pt"
+height = "32pt"
+bottom = "90%ph"
+right = "90%pw"
+
+[frames.front.title]
+x = "50%pw"
+y = "45%ph"
+width = "70%pw"
+height = "10%ph"

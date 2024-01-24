@@ -9,11 +9,13 @@ TODO
       - [] newspaper 
       - [] magazine
   - [] textual
-    - [X] environment for poetry
+    - [] environment for poetry
+      - [] verse count
+      - [X] par called each \n
     - [] side-by-side bilingual texts
     - [] epigraphs
   - [] extra-textual
-    - [] front (cover) function
+    - [X] front (cover) function
     - [] handling of pictures and illustrations
     - [] generator of endpaper patterns
     - [] supporting embedded LilyPond???
