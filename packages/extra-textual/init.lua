@@ -15,7 +15,15 @@ function package:registerCommands()
     for name in pairs(front) do
       self:registerCommand(name, function (options, content)
         SILE.call("typeset-into", { frame = name }, function ()
+          if (SILE.scratch.config.book[name] and SILE.scratch.styles.fonts[name]) then
+            SILE.call("align", { item = name }, function ()
+              SILE.call("font:"..name, {}, function ()
+                SILE.typesetter:typeset(SILE.scratch.config.book[name])
+              end)
+            end)
+          else
             SILE.process(content)
+          end
         end)
       end)
     end
@@ -27,7 +35,7 @@ function package:registerCommands()
         for name, frame in pairs(front) do
           SILE.call("frame", {
             id = name,
-            x = frame.x,
+            x = frame.x or SILE.scratch.styles.alingments[name],
             y = frame.y,
             width = frame.width,
             height = frame.height,
