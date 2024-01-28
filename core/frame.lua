@@ -46,18 +46,32 @@ SILE.framePrototype = pl.class({
                 -- print(self.variables[method])
             end
             -- Add definitions of width and height
-            if self.x and self.y then
-                self:constrain("left", self.x .. "-(" .. spec["width"] .. "/2)")
-                self:constrain("right", self.x .. "+(" .. spec["width"] .. "/2)")
-                self:constrain("top", self.y .. "-(" .. spec["height"] .. "/2)")
-                self:constrain("bottom", self.y .. "+(" .. spec["height"] .. "/2)")
-            else
-                for method in pairs(alldims) do
-                    if spec[method] then
-                        self:constrain(method, spec[method])
-                    end
+            
+            -- for method in pairs(alldims) do
+            --     if spec[method] then
+            --         self:constrain(method, spec[method])
+            --     end
+            -- end
+
+            if self.x then 
+                if self.x == "center" then self.x = "50%pw" end
+                if not spec.width then spec.width = "80%pw" end
+                self:constrain("left", self.x .. "-(" .. spec.width .. "/2)")
+                self:constrain("right", self.x .. "+(" .. spec.width .. "/2)")
+            end
+            if self.y then
+                if self.y == "center" then self.y = "50%ph" end
+                if not spec.height then spec.height = SILE.scratch.styles.fonts[spec.id][2] or "100" end
+                self:constrain("top", self.y .. "-(" .. spec.height .. "/2)")
+                self:constrain("bottom", self.y .. "+(" .. spec.height .. "/2)")
+            end
+
+            for method in pairs(alldims) do
+                if spec[method] then
+                    self:constrain(method, spec[method])
                 end
             end
+
         end
 
     end,
