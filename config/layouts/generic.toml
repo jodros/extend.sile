@@ -10,6 +10,8 @@ author          = "center"
 imprint         = "center"
 editionNotice   = "center"
 acknowledgement = "center"
+[alingments.front]
+x = "center"
 
 [fonts]   # [family, size, weight, variant, style, color]
 toc       = ["Cormorant Upright",  "10pt", 400, "smallcaps", "", false]
@@ -43,6 +45,13 @@ right = "right(content)"
 bottom = "90%ph"
 height = "0"
 
+
+[frames.front.author]
+y = "25%ph"
+[frames.front.title]
+y = "45%ph"
+[frames.front.imprint]
+y = "90%ph"
 
 [frames.toc.content]
 left = ""
