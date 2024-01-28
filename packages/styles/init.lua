@@ -35,6 +35,8 @@ local direction = function(option, content)
 		return SILE.call("ragged", { left = true }, content)
 	elseif SILE.scratch.styles.alingments[option] == "center" or option == "center" then
 		return SILE.call("center", {}, content)
+	else
+		return SILE.process(content)
 	end
 end
 
