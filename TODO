@@ -3,6 +3,7 @@ TODO
 
 - [] Write documentation!!!!
 - [] rewrite the packages
+  - [] table of contents
   - [] styles
     - layouts
       - [] canonical book layouts (like those in [resilient.sile](https://github.com/Omikhleia/resilient.sile))
@@ -25,8 +26,6 @@ TODO
     - [] write a "library" of ready frames' layouts
     - [] this "engine" would assemble them...
   - [X] use coordinates (x, y) to point where will be the frame center (or the top-left corner, the user will have the option)
-  - its width and height only
-  - [] what to do with those layouts depending too much on constraints?
 - [] load styling options from `toml` files
   - [X] support config files from multiple directories 
     - [] show from which `toml` each option came!
@@ -34,3 +33,4 @@ TODO
       - working directory - `settings.toml`
       - `~/.config/sile` folder in home to overwrite the defaults from the rock
       - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
+      

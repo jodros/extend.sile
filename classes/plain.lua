@@ -14,7 +14,7 @@ local skips = {
 
 local packlist = {"autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features",
                   "font-fallback", "footnotes", "extend.frametricks", "image", "indexer", "linespacing", "lorem", "pdf",
-                  "tableofcontents", "url", "unichar", "rotate", "textual", "styles", "extra-textual"}
+                  "extend.tableofcontents", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual"}
 --    "barcodes.ean13",
 --    "qrcode",
 --    "printoptions"

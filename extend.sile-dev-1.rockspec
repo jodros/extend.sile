@@ -13,7 +13,7 @@ dependencies = {"lua >= 5.1", "datafile", "lua-toml", "luafilesystem"}
 build = {
     type = "builtin",
     modules = {
-        --    ["sile.classes.base"]                = "classes/base.lua",
+        --["sile.classes.base"]                = "classes/base.lua",
         ["sile.classes.plain"] = "classes/plain.lua",
 
         ["sile.core.gatherer"] = "core/gatherer.lua",
@@ -31,7 +31,7 @@ build = {
         ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua",
         ["sile.packages.extend.frametricks.init"] = "packages/extend/frametricks/init.lua",
         --     ["sile.packages.extend.footnotes.init"]       = "packages/extend/footnotes/init.lua",
-        --     ["sile.packages.extend.tableofcontents.init"] = "packages/extend/tableofcontents/init.lua",
+        ["sile.packages.extend.tableofcontents.init"] = "packages/extend/tableofcontents/init.lua",
 
         ["sile.typesetters.base"]              = "typesetters/base.lua",
     },
