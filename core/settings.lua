@@ -15,7 +15,7 @@ function settings:_init()
   self:declare({
     parameter = "document.language",
     type = "string",
-    default = "pt", -- 
+    default = SILE.scratch.config.language or "en", 
     help = "Locale for localized language support"
   })
 
