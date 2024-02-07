@@ -47,11 +47,6 @@ function class:_init(options)
     if self:currentMaster() == "right" then
         self:mirrorMaster("right", "left")
     end
-
-    SILE.settings:set("document.language", SILE.scratch.config.language)
-
-    if not SILE.scratch.headers then SILE.scratch.headers = {} end
-    -- SILE.call("resetspace")
 end
 
 function class:declareOptions()
