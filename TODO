@@ -1,6 +1,5 @@
 TODO
 
-
 - [] Write documentation!!!!
 - [] rewrite the packages
   - [] table of contents
@@ -10,6 +9,8 @@ TODO
       - [] newspaper 
       - [] magazine
   - [] textual
+    - [] ellipsis: add them by name instead of by character
+    - [] enumerate paragraphs automatically
     - [] environment for poetry
       - [] verse count
       - [X] par called each \n
@@ -33,4 +34,3 @@ TODO
       - working directory - `settings.toml`
       - `~/.config/sile` folder in home to overwrite the defaults from the rock
       - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
-      
