@@ -31,7 +31,7 @@ function package:registerCommands()
         options.symbol = options.symbol or SILE.scratch.styles.ellipsis.symbol
         options.rotate = options.rotate or SILE.scratch.styles.ellipsis.rotate
         options.font = options.font or function()
-            if options.symbol == "triangular" then
+            if options.symbol == "⁂" then
                 return "Cormorant Garamond"
             else
                 return SILE.scratch.styles.ellipsis.font or SILE.scratch.styles.fonts.special[1]
@@ -73,6 +73,31 @@ function package:registerCommands()
         end)
     end, "")
 
+    self:registerCommand("from", {}, function (options, content)
+        local align = options.align or SILE.scratch.styles.alingments.epigraph or "right"
+        SILE.call("align", { item = align }, function ()    
+            SILE.call("font:main",{}, content)
+        end)
+    end)
+
+    self:registerCommand("epigraph", function(options, content)
+        local align = options.align or SILE.scratch.styles.alingments.epigraph or "right"
+        local width = options.width or "50%fw"
+        local skip = SILE.getFrame("content"):width() - SILE.length(width):absolute()
+
+        SILE.settings:temporarily(function()
+            SILE.typesetter:leaveHmode()
+
+            if align == "right" then SILE.settings:set("document.lskip", SILE.nodefactory.glue(skip))
+            elseif align == "left" then SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip)) end
+            
+            SILE.call("font:epigraph", {}, content)
+
+            SILE.call("par")
+            -- SILE.typesetter:leaveHmode()
+        end)
+    end)
+
     self:registerCommand("chapter", function(options, content)
         options.noskip = options.noskip or SILE.scratch.config.noskip
         local lang = SILE.settings:get("document.language")
@@ -91,7 +116,8 @@ function package:registerCommands()
                 value = 1
             })
         end
-        options.nopagebreak = true
+
+        -- options.nopagebreak = true
         if options.nopagebreak then
             SILE.call("bigskip")
         elseif not options.noeject then
