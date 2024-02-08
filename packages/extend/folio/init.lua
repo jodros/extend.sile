@@ -1,4 +1,5 @@
 local base = require("packages.base")
+local insp = require "inspect"
 
 local package = pl.class(base)
 package._name = "folio"
@@ -6,8 +7,6 @@ package._name = "folio"
 function package.incrementFolio(_)
   SILE.scratch.counters.folio.value = SILE.scratch.counters.folio.value + 1
 end
-
-local isFolioFrame, folioFrame = nil, {} 
 
 function package:outputFolio(frame)
   if not frame then frame = "folio" end
@@ -18,7 +17,7 @@ function package:outputFolio(frame)
       SILE.scratch.counters.folio.off = false
     end
   else
-    isFolioFrame, folioFrame = pcall(SILE.getFrame(frame))
+    local folioFrame = SILE.getFrame(frame)
     if (folioFrame) then
       SILE.typesetNaturally(folioFrame, function()
         SILE.settings:pushState()
@@ -48,7 +47,7 @@ function package:_init(options)
   self.class:loadPackage("counters")
   SILE.scratch.counters.folio = { value = 1, display = "arabic" }
   self.class:registerHook("newpage", function() self:incrementFolio() end)
-  self.class:registerHook("endpage", function () if isFolioFrame then self:outputFolio(options and options.frame) end end)
+  self.class:registerHook("endpage", function () self:outputFolio(options and options.frame) end)
   self:export("outputFolio", self.outputFolio)
 end
 
@@ -70,6 +69,8 @@ function package:registerCommands()
   end, "Deprecated")
 
   self:registerCommand("foliostyle", function(options, content)
+
+
     SILE.call("font",
       {
         family = SILE.scratch.styles.fonts.folio[1],
