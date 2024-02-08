@@ -26,6 +26,7 @@ build = {
         ["sile.packages.styles.init"] = "packages/styles/init.lua",
         ["sile.packages.textual.init"] = "packages/textual/init.lua",
         ["sile.packages.extra-textual.init"] = "packages/extra-textual/init.lua",
+        ["sile.packages.graphic.init"] = "packages/graphic/init.lua",
 
 
         ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua",

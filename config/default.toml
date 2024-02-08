@@ -21,6 +21,7 @@ main      = ["Cormorant Garamond", "13pt", 400, "", "", false]
 title     = ["Cormorant",          "20pt", 600, "", "", false]
 folio     = ["Cormorant Infant",   "11pt", 500, "", "", false]
 author    = ["Cormorant",          "15pt", 700, "", "", false]
+caption   = ["Cormorant",          "10pt", 700, "", "italic", "grey"]
 special   = ["Noto Sans JP",       "16pt", 100, "", "", false]      # for characters like ▩▤▧⌘
 headers   = ["Cormorant",          "10pt", 500, "smallcaps", "", false]
 imprint   = ["Cormorant Infant",   "16pt", 800, "", "", false]
@@ -30,7 +31,7 @@ footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
 [ellipsis]
-symbol = "▩" #■□▣▥▤▦▨▧▩⌘⁂
+symbol = "⁂" # ■ □ ▣▥▤▦▨▧▩⌘
 rotate = false
 size = false
 font = false
