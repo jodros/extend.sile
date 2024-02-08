@@ -12,7 +12,7 @@ local skips = {
     big = "12pt plus 4pt minus 4pt"
 }
 
-local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "footnotes", "extend.frametricks", "image", "indexer", "linespacing", "lorem", "pdf", "extend.tableofcontents", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic" }
+local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "footnotes", "extend.frametricks", "image", "indexer", "linespacing", "lorem", "pdf", "extend.tableofcontents", "extend.folio", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic" }
 --    "barcodes.ean13",
 --    "qrcode",
 --    "printoptions"
@@ -22,7 +22,7 @@ function class:_init(options)
     base._init(self, options)
 
     self:loadPackage("bidi")
-    self:loadPackage("extend.folio")
+    -- self:loadPackage("extend.folio")
     self:loadPackage("masters")
 
     for key, value in pairs(SILE.scratch.styles.frames) do
