@@ -25,7 +25,8 @@ TODO
 - ~~[] `SILE_PATH`: and about `~/.sile`?~~
 - [] implement a new way of declaring frames
   - [] write a "library" of ready frames' layouts
-  - [X] use coordinates (x, y) to point where will be the frame center (or the top-left corner, the user will have the option)
+  - [...] use coordinates (x, y) to point where will be the frame center (or the top-left corner, the user will have the option)
+    - [] make *x* and *y* independent from each other
 - [] load styling options from `toml` files
   - [X] support config files from multiple directories 
     - ~~[] show from which `toml` each option came!~~
