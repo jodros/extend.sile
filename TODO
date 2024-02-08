@@ -9,28 +9,26 @@ TODO
       - [] newspaper 
       - [] magazine
   - [] textual
-    - [] ellipsis: add them by name instead of by character
+    - [] ellipsis: add them by name instead of by character (just like having one command for almost every unicode special char)
     - [] enumerate...
       - [] create a pdf link for each one... 
     - [] environment for poetry
-      - [] verse count
+      - [...] verse count
       - [X] par called each \n
-    - [] side-by-side bilingual texts
-    - [] epigraphs
+    - [] side-by-side bilingual texts, but in different pages
+    - [...] epigraphs
   - [] extra-textual
     - [X] front (cover) function
-    - [] handling of pictures and illustrations
+    - [...] handling of pictures and illustrations
     - [] generator of endpaper patterns
     - [] supporting embedded LilyPond???
 - ~~[] `SILE_PATH`: and about `~/.sile`?~~
 - [] implement a new way of declaring frames
-  - [] implement a frameset generator "engine"
-    - [] write a "library" of ready frames' layouts
-    - [] this "engine" would assemble them...
+  - [] write a "library" of ready frames' layouts
   - [X] use coordinates (x, y) to point where will be the frame center (or the top-left corner, the user will have the option)
 - [] load styling options from `toml` files
   - [X] support config files from multiple directories 
-    - [] show from which `toml` each option came!
+    - ~~[] show from which `toml` each option came!~~
     - [x] with the following priority:
       - working directory - `settings.toml`
       - `~/.config/sile` folder in home to overwrite the defaults from the rock
