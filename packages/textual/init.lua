@@ -73,10 +73,12 @@ function package:registerCommands()
         end)
     end, "")
 
-    self:registerCommand("from", {}, function (options, content)
+    self:registerCommand("from", {}, function(options, content)
         local align = options.align or SILE.scratch.styles.alingments.epigraph or "right"
-        SILE.call("align", { item = align }, function ()    
-            SILE.call("font:main",{}, content)
+        SILE.call("align", {
+            item = align
+        }, function()
+            SILE.call("font:main", {}, content)
         end)
     end)
 
@@ -88,9 +90,12 @@ function package:registerCommands()
         SILE.settings:temporarily(function()
             SILE.typesetter:leaveHmode()
 
-            if align == "right" then SILE.settings:set("document.lskip", SILE.nodefactory.glue(skip))
-            elseif align == "left" then SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip)) end
-            
+            if align == "right" then
+                SILE.settings:set("document.lskip", SILE.nodefactory.glue(skip))
+            elseif align == "left" then
+                SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip))
+            end
+
             SILE.call("font:epigraph", {}, content)
 
             SILE.call("par")
@@ -214,6 +219,22 @@ function package:registerCommands()
     end)
 
     ------------
+
+    self:registerCommand("num", function(options)
+        local space = options.space or "1em"
+
+        if not SILE.scratch.counters.item then -- temporary name!
+            SILE.call("set-counter", { id = "item", value = 1 })
+        end
+
+        -- SILE.typesetter:leaveHmode()
+        SILE.call("show-counter",{ id = "item"}) 
+        SILE.typesetter:typeset(".")        
+        SILE.call("glue", { width = space })
+
+        -- SILE.process(content)
+        SILE.call("increment-counter", { id = "item" })
+    end)
 
     self:registerCommand("poetry", function(options, content) -- name to be changed
         if options.columns then

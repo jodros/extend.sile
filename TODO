@@ -10,7 +10,8 @@ TODO
       - [] magazine
   - [] textual
     - [] ellipsis: add them by name instead of by character
-    - [] enumerate paragraphs automatically
+    - [] enumerate...
+      - [] create a pdf link for each one... 
     - [] environment for poetry
       - [] verse count
       - [X] par called each \n
