@@ -22,7 +22,6 @@ build = {
         ["sile.core.papersize"] = "core/papersize.lua",
         ["sile.core.frame"] = "core/frame.lua",
 
-
         ["sile.packages.styles.init"] = "packages/styles/init.lua",
         ["sile.packages.textual.init"] = "packages/textual/init.lua",
         ["sile.packages.extra-textual.init"] = "packages/extra-textual/init.lua",
@@ -31,7 +30,7 @@ build = {
 
         ["sile.packages.extend.folio.init"] = "packages/extend/folio/init.lua",
         ["sile.packages.extend.frametricks.init"] = "packages/extend/frametricks/init.lua",
-        --     ["sile.packages.extend.footnotes.init"]       = "packages/extend/footnotes/init.lua",
+        ["sile.packages.extend.footnotes.init"]       = "packages/extend/footnotes/init.lua",
         ["sile.packages.extend.tableofcontents.init"] = "packages/extend/tableofcontents/init.lua",
 
         ["sile.typesetters.base"]              = "typesetters/base.lua",
