@@ -12,7 +12,7 @@ local skips = {
     big = "12pt plus 4pt minus 4pt"
 }
 
-local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "footnotes", "extend.frametricks", "image", "indexer", "linespacing", "lorem", "pdf", "extend.tableofcontents", "extend.folio", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic" }
+local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "extend.footnotes", "extend.frametricks", "extend.tableofcontents", "extend.folio","image", "indexer", "linespacing", "lorem", "pdf", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic" }
 --    "barcodes.ean13",
 --    "qrcode",
 --    "printoptions"
