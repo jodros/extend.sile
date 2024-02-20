@@ -65,11 +65,13 @@ function package:registerCommands()
         })
     end, "")
 
-    self:registerCommand("dash", function()
-        SILE.call("font", {
-            style = "normal"
-        }, function()
-            SILE.typesetter:typeset("―")
+    self:registerCommand("dash", function(options, _)
+        SILE.call("font", { style = "normal" }, function()
+            if options.en then
+                SILE.typesetter:typeset("–")
+            else
+                SILE.typesetter:typeset("―")
+            end
         end)
     end, "")
 
@@ -78,7 +80,7 @@ function package:registerCommands()
         SILE.call("align", {
             item = align
         }, function()
-            SILE.call("font:main", {}, content)
+            SILE.call("font", {}, content)
         end)
     end)
 
@@ -98,13 +100,15 @@ function package:registerCommands()
 
             SILE.call("font:epigraph", {}, content)
 
-            SILE.call("par")
+            SILE.call("bigskip")
             -- SILE.typesetter:leaveHmode()
         end)
     end)
 
     self:registerCommand("chapter", function(options, content)
         options.noskip = options.noskip or SILE.scratch.config.noskip
+        options.nopagebreak = options.nopagebreak or SILE.scratch.config.chapter.nopagebreak
+
         local lang = SILE.settings:get("document.language")
 
         SILE.typesetter:leaveHmode()
@@ -131,9 +135,9 @@ function package:registerCommands()
 
         -- SILE.call("skip", { height = "10%ph" })
         if options.case == "capital" then
-            content[1] = string.upper(content[1][1])
+            SILE.call("uppercase", {}, content)
         elseif options.case == "lower" then
-            content[1] = string.lower(content[1][1])
+            SILE.call("lowercase", {}, content)
         end
 
         SILE.call("align", {
@@ -162,6 +166,20 @@ function package:registerCommands()
         if lang == 'en' then -- English typography (notably) expects the first paragraph under a section not to be indented
             SILE.call("noindent")
         end
+    end)
+
+    self:registerCommand("versalete", function (options, content)
+        SILE.call("font:versalete", options , function ()
+           SILE.call("lowercase", {}, content) 
+        end)
+    end)
+
+    self:registerCommand("pause", function (options, content)
+        SILE.call("skip", { height = "4%ph" })
+        SILE.call("center", {}, function ()
+            SILE.call("versalete",{ size = "2em" }, content)
+        end)
+        SILE.call("skip", { height = "4%ph" })
     end)
 
     -- LEGAL STUFF
@@ -242,16 +260,22 @@ function package:registerCommands()
                 columns = options.columns
             })
         end
+      
         string.gsub(tostring(content[1][1]), "[^+\n]+\n+", function(match)
             SILE.typesetter:typeset(match)
             if match:find("\n\n+") then
-                SILE.call("bigskip")
+                SILE.call("medskip")
             else
                 SILE.call("par")
             end
         end)
     end)
+
+    self:registerCommand("toolsinfo", function ()
+        -- local 
+    end) 
 end
+
 
 package.documentation = [[
 \begin{document}
