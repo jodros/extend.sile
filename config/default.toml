@@ -3,16 +3,18 @@ layout = "generic"
 language = "pt"
 balanced = false
 
-[alingments]
+[alignments]
 toc             = "right"
 folio           = "center"
 chapter         = "left"
 epigraph        = "right"
+pause           = "center"
 title           = "center"
 author          = "center"
 imprint         = "center"
 editionNotice   = "center"
 acknowledgement = "center"
+
 
 [fonts]   # [family, size, weight, variant, style, color]
 toc       = ["Cormorant Upright",  "10pt", 400, "smallcaps", "", false]
@@ -23,6 +25,7 @@ folio     = ["Cormorant Infant",   "11pt", 500, "", "", false]
 author    = ["Cormorant",          "15pt", 700, "", "", false]
 caption   = ["Cormorant",          "10pt", 700, "", "italic", "grey"]
 special   = ["Noto Sans JP",       "16pt", 100, "", "", false]      # for characters like ▩▤▧⌘
+versalete = ["Cormorant SC",        ".8em",  500, "", "", false]
 headers   = ["Cormorant",          "10pt", 500, "smallcaps", "", false]
 imprint   = ["Cormorant Infant",   "16pt", 800, "", "", false]
 chapters  = ["Cormorant Infant",   "18pt", 700, "", "", false]
