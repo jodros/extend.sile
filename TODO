@@ -34,3 +34,8 @@ TODO
       - working directory - `settings.toml`
       - `~/.config/sile` folder in home to overwrite the defaults from the rock
       - the default configuration which comes with this package - `default.toml` and all the ready-made layouts
+    - [] refactor namings and structure of toml configs
+      - [] make possible to pass options for a couple of commands through toml
+      - [] no 'config' and 'styles' anymore, but split their children in shorter paths
+- [] add final character to each item in both itemize and enumerate
+
