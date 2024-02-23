@@ -76,7 +76,7 @@ function package:registerCommands()
     end, "")
 
     self:registerCommand("from", {}, function(options, content)
-        local align = options.align or SILE.scratch.styles.alingments.epigraph or "right"
+        local align = options.align or SILE.scratch.styles.alignments.epigraph or "right"
         SILE.call("align", {
             item = align
         }, function()
@@ -85,7 +85,7 @@ function package:registerCommands()
     end)
 
     self:registerCommand("epigraph", function(options, content)
-        local align = options.align or SILE.scratch.styles.alingments.epigraph or "right"
+        local align = options.align or SILE.scratch.styles.alignments.epigraph or "right"
         local width = options.width or "50%fw"
         local skip = SILE.getFrame("content"):width() - SILE.length(width):absolute()
 
@@ -107,7 +107,7 @@ function package:registerCommands()
 
     self:registerCommand("chapter", function(options, content)
         options.noskip = options.noskip or SILE.scratch.config.noskip
-        options.nopagebreak = options.nopagebreak or SILE.scratch.config.chapter.nopagebreak
+        -- options.nopagebreak = options.nopagebreak or SILE.scratch.config.chapter.nopagebreak
 
         local lang = SILE.settings:get("document.language")
 
@@ -163,9 +163,19 @@ function package:registerCommands()
         SILE.call("bigskip")
         SILE.call("nofoliothispage")
 
-        if lang == 'en' then -- English typography (notably) expects the first paragraph under a section not to be indented
+        if lang == 'en' then
             SILE.call("noindent")
         end
+    end)
+
+    self:registerCommand("shrink", function (options, content) -- Not working for the last paragraph!?
+        local width = options.width or "10%pw" 
+
+        SILE.settings:temporarily(function ()
+           SILE.settings:set("document.lskip", options.l or width)
+           SILE.settings:set("document.rskip", options.r or width)
+           SILE.process(content)
+        end)
     end)
 
     self:registerCommand("versalete", function (options, content)
@@ -175,11 +185,24 @@ function package:registerCommands()
     end)
 
     self:registerCommand("pause", function (options, content)
-        SILE.call("skip", { height = "4%ph" })
-        SILE.call("center", {}, function ()
-            SILE.call("versalete",{ size = "2em" }, content)
+        local align = options.align or SILE.scratch.styles.alignments.pause
+        local skip = options.skip or "4%ph"
+        local breakpage = SU.boolean(options["break"], false) --or SILE.scratch.styles.pause.breakpage 
+
+        if breakpage then
+            SILE.call("supereject")
+        end
+
+        SILE.call("goodbreak", { penalty = options.penalty or -9500 })
+
+        SILE.call("skip", { height = skip })
+        SILE.call("align", { item = align }, function ()
+            SILE.call("versalete", { size = options.size or "2em", weight = options.weight or nil }, content)
         end)
-        SILE.call("skip", { height = "4%ph" })
+
+        SILE.call("novbreak")
+        SILE.call("skip", { height = skip })
+        SILE.call("novbreak")
     end)
 
     -- LEGAL STUFF
