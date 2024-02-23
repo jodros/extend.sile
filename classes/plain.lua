@@ -1,4 +1,5 @@
 local base = require("classes.base")
+local insp = require"inspect"
 
 local class = pl.class(base)
 class._name = "plain"
@@ -12,25 +13,30 @@ local skips = {
     big = "12pt plus 4pt minus 4pt"
 }
 
-local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "extend.footnotes", "extend.frametricks", "extend.tableofcontents", "extend.folio","image", "indexer", "linespacing", "lorem", "pdf", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic" }
+local packlist = { "autodoc", "background", "bibtex", "color", "color-fonts", "converters", "counters", "features","font-fallback", "extend.footnotes", "extend.frametricks", "extend.tableofcontents", "extend.folio","image", "indexer", "linespacing", "lorem", "pdf", "url", "unichar", "lists", "rotate", "textual", "styles", "extra-textual", "graphic", "svg", "textcase" }
 --    "barcodes.ean13",
 --    "qrcode",
 --    "printoptions"
 
 function class:_init(options)
     options = options or {}
-    base._init(self, options)
+    base._init(self, options)    
+   
+    print(insp(SILE.scratch.config))
 
     self:loadPackage("bidi")
-    -- self:loadPackage("extend.folio")
     self:loadPackage("masters")
 
     for key, value in pairs(SILE.scratch.styles.frames) do
         self:defineMaster({
             id = key,
-            firstContentFrame = "content" or "first",
+            firstContentFrame = "content",
             frames = value
         })
+    end
+
+    for key, value in pairs(SILE.scratch.styles.frame) do
+        self:declareFrame(key, value)
     end
 
     for _, package in ipairs(packlist) do
@@ -256,9 +262,9 @@ function class:registerCommands()
     -- NOTE: TeX's "\goodbreak" does a \par first, so always switches to vertical mode.
     -- SILE differs here, allowing it both within a paragraph (line breaking) and between
     -- paragraphs (page breaking).
-    self:registerCommand("goodbreak", function(_, _)
+    self:registerCommand("goodbreak", function(options, _)
         SILE.call("penalty", {
-            penalty = -500
+            penalty = options.penalty or -500
         })
     end, "Indicates a good potential point to break a frame (if in vertical mode) or a line (if in horizontal mode")
 
