@@ -33,7 +33,7 @@ function package:registerCommands()
 
   self:registerCommand("front", function(options, content) -- fronstispiece
     if options.backcolor then SILE.call("background", {allpages=false, color=options.backcolor}) end
-    
+    SILE.call("nofolios")
     if front then
       SILE.call("pagetemplate", { ["first-content-frame"] = "author" }, function ()
         for name, frame in pairs(front) do
@@ -53,11 +53,13 @@ function package:registerCommands()
 
       SILE.process(content)
 
-      SILE.call("pagebreak")
-      SILE.call("pagebreak")
     else
       SU.error("No 'front' frameset declared!")
     end
+    
+    SILE.call("supereject")
+    SILE.call("pagebreak")
+    SILE.call("supereject")
   end)
 end
 
