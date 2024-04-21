@@ -8,22 +8,6 @@ function package:_init()
     base._init(self)
 end
 
-function package.declareSettings(_)
-    SILE.settings:declare({
-        parameter = "epigraph.width",
-        type = "measurement",
-        default = SILE.measurement("65%lw"),
-        help = "Width of an epigraph (defaults to 60% of the current line width)."
-    })
-
-    SILE.settings:declare({
-        parameter = "epigraph.margin",
-        type = "measurement",
-        default = SILE.measurement(),
-        help = "Margin (indent) for an epigraph (defaults to 0)."
-    })
-end
-
 function package:registerCommands()
     self:registerCommand("double-skip", function(options, content)
         SILE.call("skip", { height = options.height })
@@ -275,32 +259,6 @@ end
 
 package.documentation = [[
 \begin{document}
-
-offers a bunch of dingbats and pontuaction marks like \code{\dash} \autodoc:command{\dash}
-
-The commands that can be changed through the \code{setings.toml} file are the following
-
-SUPPORTED SYMBOLS:
-black        = \font:special{■}
-white        = \font:special{□}
-double       = \font:special{▣}
-gridV        = \font:special{▥}
-gridH        = \font:special{▤}
-chess        = \font:special{▦}
-gridTransLR  = \font:special{▨}
-gridTransRL  = \font:special{▧}
-crossed      = \font:special{▩}
-loopedSquare = \font:special{⌘}
-triangular   = ⁂
-
-\verbatim{
-[ellipsis]
-symbol = # currently only supports the symbols declared in the SILE.scratch.styles.garnish table
-rotate = boolean
-size =
-font =
-weight =
-
 \end{document}
 ]]
 
