@@ -33,8 +33,6 @@ epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
 footnotes = ["Gilda Display",      "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
-
-
 [frames.right.content]
 left = "(100%pw-50%ph)/2"
 right = "100%pw-((100%pw-50%ph)/2)"
@@ -77,11 +75,12 @@ skip = "5%ph"
 #align = ""
 
 [chapter]
-pagebreak = false 
+breakbefore = true 
+#breakafter = true
 case = false # let the content as it is typed, could be either "lowercase" or "uppercase"
 noindent = false
 skip = "5%ph" 
-samepage = true
+samepage = false
 valign = false # should be only used if samepage is false!
 # halign = "right" # for now it's defined in [alignments]
 
@@ -97,6 +96,12 @@ size = false
 font = false
 weight = 0
 skip = "4%ph"
+
+[pic]
+width = false
+height = "27%ph"
+skip = "5%ph"
+
 [test]
 
 [meta]
