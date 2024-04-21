@@ -25,6 +25,12 @@ function package.declareSettings(_)
 end
 
 function package:registerCommands()
+    self:registerCommand("double-skip", function(options, content)
+        SILE.call("skip", { height = options.height })
+        SILE.process(content)
+        SILE.call("skip", { height = options.height })
+    end)
+
     self:registerCommand("ellipsis", function(options, content)
         local size = options.size or SILE.scratch.styles.ellipsis.size or SILE.scratch.styles.fonts.special[2]
         local weight = options.weight or SILE.scratch.styles.ellipsis.weight or SILE.scratch.styles.fonts.special[3]
@@ -41,24 +47,22 @@ function package:registerCommands()
         
         content = content[1] or SILE.scratch.styles.ellipsis.symbol
 
-        SILE.call("skip", { height = skip })
-
-        SILE.call("align", { item = "center" }, function()
-            SILE.call("font", {
-                family = font(),
-                size = size,
-                weight = weight }, function()
-                if rotate then
-                  SILE.call("rotate", { angle = "45" }, function()
-                    SILE.typesetter:typeset(content)
-                  end)
-                else
-                    SILE.typesetter:typeset(content)
-                end
-            end)
+        SILE.call("double-skip", { height = skip}, function()
+          SILE.call("align", { item = "center" }, function()
+              SILE.call("font", {
+                  family = font(),
+                  size = size,
+                  weight = weight }, function()
+                  if rotate then
+                    SILE.call("rotate", { angle = "45" }, function()
+                      SILE.typesetter:typeset(content)
+                    end)
+                  else
+                      SILE.typesetter:typeset(content)
+                  end
+              end)
+          end)
         end)
-
-        SILE.call("skip", { height = skip })
     end, "")
 
     self:registerCommand("dash", function(options, _)
@@ -130,7 +134,7 @@ function package:registerCommands()
             })
         end
 
-        if pagebreak then SILE.call("forprint") end
+        if breakbefore then SILE.call("forprint") end
 
         SILE.call("nofoliothispage")
         
@@ -142,7 +146,10 @@ function package:registerCommands()
           end)
         end)
         
-        if not samepage then SILE.call("forprint") end
+        if not samepage then
+          SILE.call("pagebreak")
+          SILE.call("forprint")
+        end
 
         SILE.call("nofoliothispage")
 
