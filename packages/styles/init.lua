@@ -29,16 +29,7 @@ function package:_init(options)
 end
 
 local direction = function(option, content)
-	if SILE.scratch.styles.alingments[option] == "left" or option == "left" then
-		return SILE.call("ragged", { right = true }, content)
-	elseif SILE.scratch.styles.alingments[option] == "right" or option == "right" then
-		return SILE.call("ragged", { left = true }, content)
-	elseif SILE.scratch.styles.alingments[option] == "center" or option == "center" then
-		return SILE.call("center", {}, content)
-	else
-		return SILE.process(content)
 	end
-end
 
 function package:registerCommands()
 	self:registerCommand("forprint", function(_, _) -- disables/enables features according to pdf purpose
@@ -66,30 +57,37 @@ function package:registerCommands()
 		SILE.settings:set("linespacing.fixed.baselinedistance", SILE.length(options.lines))
 	end, "")
 
-
-	self:registerCommand("resetspace", function(_, _)
-		SILE.settings:set("shaper.variablespaces", true)
-		SILE.settings:set("document.spaceskip")
-		SILE.settings:set("linespacing.fixed.baselinedistance")
-		SILE.settings:set("document.letterspaceglue")
-		SILE.settings:set("document.parskip")
-	end, "")
-
 	-- END SPACING
 
 	-- ALIGNMENTS
 
 	self:registerCommand("align", function(options, content)
-		direction(options.item, content)
+          local item = options.item
+          if SILE.scratch.styles.alingments[item] == "left" or item == "left" then
+  	    return SILE.call("ragged", { right = true }, content)
+  	  elseif SILE.scratch.styles.alingments[item] == "right" or item == "right" then
+  	    return SILE.call("ragged", { left = true }, content)
+  	  elseif SILE.scratch.styles.alingments[item] == "center" or item == "center" then
+      	    return SILE.call("center", {}, content)
+          else
+  	    return SILE.process(content)
+  	  end
 	end, "")
 
 	self:registerCommand("vertical-align", function(options, content)
-		if options.item == "center" then
-			SILE.call("hbox")
-			SILE.call("vfill")
-			SILE.typesseter:typesset(content)
-			SILE.call("eject")
-		end
+      	  if options.item == "center" then
+	    SILE.call("hbox")
+	    SILE.call("vfill")
+	    SILE.process(content)
+	    SILE.call("eject")
+	  elseif options.item == "top" then
+	    SILE.process(content)
+	    SILE.call("vfill")
+	    SILE.call("eject")
+         -- elseif options.item == "bottom" then
+          else
+            SILE.process(content)
+          end
 	end, "")
 
 	-- END ALIGNMENTS

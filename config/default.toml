@@ -25,20 +25,15 @@ folio     = ["Cormorant Infant",   "11pt", 500, "", "", false]
 author    = ["Cormorant",          "15pt", 700, "", "", false]
 caption   = ["Cormorant",          "10pt", 700, "", "italic", "grey"]
 special   = ["Noto Sans JP",       "16pt", 100, "", "", false]      # for characters like ▩▤▧⌘
-versalete = ["Cormorant SC",        ".8em",  500, "", "", false]
+versalete = ["Cormorant SC",       ".8em",  500, "", "", false]
 headers   = ["Cormorant",          "10pt", 500, "smallcaps", "", false]
 imprint   = ["Cormorant Infant",   "16pt", 800, "", "", false]
 chapters  = ["Cormorant Infant",   "18pt", 700, "", "", false]
 epigraph  = ["Cormorant",          "0.9em", 500, "", "italic", false]
-footnotes = ["Gilda Display",       "0.9em", 400, "", "", false] # Baskervville
+footnotes = ["Gilda Display",      "0.9em", 400, "", "", false] # Baskervville
 serial    = [false,                "3.5",  false, "", "", false]
 
-[ellipsis]
-symbol = "⁂" # ■ □ ▣▥▤▦▨▧▩⌘
-rotate = false
-size = false
-font = false
-weight = 0
+
 
 [frames.right.content]
 left = "(100%pw-50%ph)/2"
@@ -73,4 +68,35 @@ lines      = false
 letters    = false
 paragraphs = false
 
+[cover]
+background = ""
+
+[epigraph]
+width = "50%fw"
+skip = "5%ph"
+#align = ""
+
+[chapter]
+pagebreak = false 
+case = false # let the content as it is typed, could be either "lowercase" or "uppercase"
+noindent = false
+skip = "5%ph" 
+samepage = true
+valign = false # should be only used if samepage is false!
+# halign = "right" # for now it's defined in [alignments]
+
+[shrink]
+#width = 
+#left =
+#right =
+
+[ellipsis]
+symbol = "⁂" # ■ □ ▣ ▥ ▤ ▦ ▨ ▧ ▩ ⌘ ⁂  
+rotate = false
+size = false
+font = false
+weight = 0
+skip = "4%ph"
 [test]
+
+[meta]

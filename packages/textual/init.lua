@@ -25,44 +25,40 @@ function package.declareSettings(_)
 end
 
 function package:registerCommands()
-    self:registerCommand("ellipsis", function(options)
-        options.size = options.size or SILE.scratch.styles.ellipsis.size or SILE.scratch.styles.fonts.special[2]
-        options.weight = options.weight or SILE.scratch.styles.ellipsis.weight or SILE.scratch.styles.fonts.special[3]
-        options.symbol = options.symbol or SILE.scratch.styles.ellipsis.symbol
-        options.rotate = options.rotate or SILE.scratch.styles.ellipsis.rotate
-        options.font = options.font or function()
-            if options.symbol == "⁂" then
+    self:registerCommand("ellipsis", function(options, content)
+        local size = options.size or SILE.scratch.styles.ellipsis.size or SILE.scratch.styles.fonts.special[2]
+        local weight = options.weight or SILE.scratch.styles.ellipsis.weight or SILE.scratch.styles.fonts.special[3]
+        local symbol = options.symbol or SILE.scratch.styles.ellipsis.symbol
+        local rotate = options.rotate or SILE.scratch.styles.ellipsis.rotate
+        local font = options.font or function()
+            if symbol == "⁂" then
                 return "Cormorant Garamond"
             else
                 return SILE.scratch.styles.ellipsis.font or SILE.scratch.styles.fonts.special[1]
             end
         end
+        local skip = options.skip or SILE.scratch.config.epigraph.skip
+        
+        content = content[1] or SILE.scratch.styles.ellipsis.symbol
 
-        SILE.call("skip", {
-            height = "4%ph"
-        })
-        SILE.call("align", {
-            item = "center"
-        }, function()
+        SILE.call("skip", { height = skip })
+
+        SILE.call("align", { item = "center" }, function()
             SILE.call("font", {
-                family = options.font(),
-                size = options.size,
-                weight = options.weight
-            }, function()
-                if options.rotate then
-                    SILE.call("rotate", {
-                        angle = "45"
-                    }, function()
-                        SILE.typesetter:typeset(SILE.scratch.styles.ellipsis.symbol)
-                    end)
+                family = font(),
+                size = size,
+                weight = weight }, function()
+                if rotate then
+                  SILE.call("rotate", { angle = "45" }, function()
+                    SILE.typesetter:typeset(content)
+                  end)
                 else
-                    SILE.typesetter:typeset(SILE.scratch.styles.ellipsis.symbol)
+                    SILE.typesetter:typeset(content)
                 end
             end)
         end)
-        SILE.call("skip", {
-            height = "4%ph"
-        })
+
+        SILE.call("skip", { height = skip })
     end, "")
 
     self:registerCommand("dash", function(options, _)
@@ -85,40 +81,48 @@ function package:registerCommands()
     end)
 
     self:registerCommand("epigraph", function(options, content)
-        local align = options.align or SILE.scratch.styles.alignments.epigraph or "right"
-        local width = options.width or "50%fw"
-        local skip = SILE.getFrame("content"):width() - SILE.length(width):absolute()
+        local align = options.align or SILE.scratch.styles.alignments.epigraph
+        local width = options.width or SILE.scratch.config.epigraph.width
+        local sideskip = SILE.getFrame("content"):width() - SILE.length(width):absolute()
+        local skip = options.skip or SILE.scratch.config.epigraph.skip
 
         SILE.settings:temporarily(function()
             SILE.typesetter:leaveHmode()
 
             if align == "right" then
-                SILE.settings:set("document.lskip", SILE.nodefactory.glue(skip))
+                SILE.settings:set("document.lskip", SILE.nodefactory.glue(sideskip))
             elseif align == "left" then
-                SILE.settings:set("document.rskip", SILE.nodefactory.glue(skip))
+                SILE.settings:set("document.rskip", SILE.nodefactory.glue(sideskip))
             end
 
             SILE.call("font:epigraph", {}, content)
 
-            SILE.call("bigskip")
-            -- SILE.typesetter:leaveHmode()
+          if skip then
+            SILE.call("skip", { height = skip })
+          end
         end)
     end)
 
     self:registerCommand("chapter", function(options, content)
-        options.noskip = options.noskip or SILE.scratch.config.noskip
-        -- options.nopagebreak = options.nopagebreak or SILE.scratch.config.chapter.nopagebreak
+        local skip = options.skip or (not samepage and SILE.scratch.config.chapter.skip)
+        local pagebreak = options.pagebreak or SILE.scratch.config.chapter.pagebreak
+        local case = options.case or SILE.scratch.config.chapter.case or "sil"
+        local noindent = options.noindent or SILE.scratch.config.chapter.noindent
+        local samepage = SILE.scratch.config.chapter.samepage
+        local valign = options.valign or (not samepage and SILE.scratch.config.chapter.valign)
+        local halign = options.halign or SILE.scratch.config.alignments.chapter -- SILE.scratch.config.chapter.halign
 
-        local lang = SILE.settings:get("document.language")
+        -- local lang = SILE.settings:get("document.language")
+
+        if noindent then SILE.call("noindent") end
 
         SILE.typesetter:leaveHmode()
 
         SILE.call("tocentry", {}, content)
-        SILE.call("increment-counter", {
-            id = "chapters"
-        })
+        SILE.call("increment-counter", { id = "chapters" })
 
         -- the chapter index number should be checked before!!!
+        -- TODO add option to reset note count for each new chapter
         if SILE.scratch.counters.chapters.value == 1 then
             SILE.call("set-counter", {
                 id = "footnote",
@@ -126,54 +130,41 @@ function package:registerCommands()
             })
         end
 
-        -- options.nopagebreak = true
-        if options.nopagebreak then
-            SILE.call("bigskip")
-        elseif not options.noeject then
-            SILE.call("forprint")
-        end
+        if pagebreak then SILE.call("forprint") end
 
-        -- SILE.call("skip", { height = "10%ph" })
-        if options.case == "capital" then
-            SILE.call("uppercase", {}, content)
-        elseif options.case == "lower" then
-            SILE.call("lowercase", {}, content)
-        end
-
-        SILE.call("align", {
-            item = "chapter"
-        }, function()
-            SILE.call("font:chapters", {}, content)
+        SILE.call("nofoliothispage")
+        
+        SILE.call("vertical-align", { item = valign }, function()
+          SILE.call("align", { item = halign }, function()
+            SILE.call("font:chapters", {}, function()
+              SILE.call(case, {}, content)
+            end)
+          end)
         end)
+        
+        if not samepage then SILE.call("forprint") end
 
-        if not options.noskip then
-            SILE.call("skip", {
-                height = "7%ph"
-            })
-        else
-            SILE.call("bigskip")
-        end
-
-        -- SILE.call("left-running-head", {}, function()
-        -- 	SILE.settings:temporarily(function()
-        -- 		SILE.call("book:left-running-head-font", {}, content)
-        -- 	end)
-        -- end)
-
-        SILE.call("bigskip")
         SILE.call("nofoliothispage")
 
-        if lang == 'en' then
-            SILE.call("noindent")
+        if skip then
+            SILE.call("skip", { height = skip })
         end
+
+        -- SILE.call("bigskip")
+        -- SILE.call("nofoliothispage")
+
+        if noindent then SILE.call("noindent") end
     end)
 
     self:registerCommand("shrink", function (options, content) -- Not working for the last paragraph!?
-        local width = options.width or "10%pw" 
+        local width = options.width or SILE.scratch.config.shrink.width or "10%pw" 
+        local left = options.left or SILE.scratch.config.shrink.left
+        local right = options.right or SILE.scratch.config.shrink.right
 
         SILE.settings:temporarily(function ()
-           SILE.settings:set("document.lskip", options.l or width)
-           SILE.settings:set("document.rskip", options.r or width)
+           SILE.settings:set("document.lskip", left or width)
+           SILE.settings:set("document.rskip", right or width)
+--           content[1][1] = content[1][1] .. "\n\n" -- otherwise the last paragraph won't be shrinked...
            SILE.process(content)
         end)
     end)
@@ -182,27 +173,6 @@ function package:registerCommands()
         SILE.call("font:versalete", options , function ()
            SILE.call("lowercase", {}, content) 
         end)
-    end)
-
-    self:registerCommand("pause", function (options, content)
-        local align = options.align or SILE.scratch.styles.alignments.pause
-        local skip = options.skip or "4%ph"
-        local breakpage = SU.boolean(options["break"], false) --or SILE.scratch.styles.pause.breakpage 
-
-        if breakpage then
-            SILE.call("supereject")
-        end
-
-        SILE.call("goodbreak", { penalty = options.penalty or -9500 })
-
-        SILE.call("skip", { height = skip })
-        SILE.call("align", { item = align }, function ()
-            SILE.call("versalete", { size = options.size or "2em", weight = options.weight or nil }, content)
-        end)
-
-        SILE.call("novbreak")
-        SILE.call("skip", { height = skip })
-        SILE.call("novbreak")
     end)
 
     -- LEGAL STUFF
@@ -293,10 +263,6 @@ function package:registerCommands()
             end
         end)
     end)
-
-    self:registerCommand("toolsinfo", function ()
-        -- local 
-    end) 
 end
 
 
